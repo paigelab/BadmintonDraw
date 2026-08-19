@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="各校羽球場地抽籤與登記公告整理" />
+    <title>羽球場地抽籤資訊站</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <p class="eyebrow">BADMINTON DRAW</p>
+      <h1>羽球場地抽籤資訊站</h1>
+      <p>集中追蹤各校公開的場地抽籤、登記與使用公告。</p>
+    </header>
+
+    <main>
+      <section class="notice" aria-label="資料說明">
+        <strong>資料仍在建置中</strong>
+        <span>目前尚未加入學校來源；公告資料會保留原始連結，請以校方最新公告為準。</span>
+      </section>
+
+      <section class="controls" aria-label="公告篩選">
+        <label>
+          搜尋公告或學校
+          <input id="search" type="search" placeholder="例如：臺灣大學、抽籤、羽球" />
+        </label>
+        <label>
+          學校
+          <select id="school-filter"><option value="">全部學校</option></select>
+        </label>
+      </section>
+
+      <section aria-labelledby="announcements-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">LATEST</p><h2 id="announcements-title">最新公告</h2></div>
+          <p id="result-count" aria-live="polite"></p>
+        </div>
+        <div id="announcement-list" class="announcement-list"></div>
+      </section>
+    </main>
+
+    <footer>資料來自各校公開網站・最後資料更新：<span id="last-updated">—</span></footer>
+    <script src="app.js"></script>
+  </body>
+</html>

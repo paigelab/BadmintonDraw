@@ -1,0 +1,23 @@
+:root { --ink:#17312a; --leaf:#176b55; --mint:#e8f4ee; --paper:#fcfdfb; --line:#d7e4dd; --muted:#62736c; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.55 system-ui,-apple-system,"Noto Sans TC",sans-serif; }
+.hero { padding:72px max(24px,calc((100% - 1050px)/2)); color:#fff; background:linear-gradient(125deg,#123f35,#197159); }
+h1 { margin:0; font-size:clamp(2.1rem,5vw,3.6rem); line-height:1.15; }
+.hero p:last-child { max-width:620px; margin:16px 0 0; color:#e1f4e9; font-size:1.08rem; }
+.eyebrow { margin:0 0 8px; color:#6bbd9b; font-size:.78rem; font-weight:800; letter-spacing:.13em; }
+main { width:min(1050px,calc(100% - 48px)); margin:36px auto 64px; }
+.notice { display:flex; gap:12px; align-items:flex-start; padding:16px 18px; border:1px solid #b8ddcc; border-radius:12px; background:var(--mint); }
+.notice span { color:#35584a; }
+.controls { display:flex; gap:16px; margin:32px 0; }
+label { display:grid; gap:6px; color:#365248; font-size:.9rem; font-weight:700; }
+label:first-child { flex:1; }
+input,select { min-height:43px; padding:8px 11px; color:var(--ink); border:1px solid var(--line); border-radius:8px; background:#fff; font:inherit; }
+.section-heading { display:flex; justify-content:space-between; align-items:end; margin-bottom:16px; }
+h2 { margin:0; font-size:1.7rem; }.section-heading > p { color:var(--muted); }
+.announcement-list { display:grid; gap:14px; }
+.card { padding:21px; border:1px solid var(--line); border-radius:14px; background:#fff; box-shadow:0 4px 16px #18372a0a; }
+.card-top { display:flex; justify-content:space-between; gap:16px; color:var(--muted); font-size:.9rem; }.tag { color:#176b55; font-weight:800; }
+.card h3 { margin:9px 0 10px; font-size:1.2rem; }.card p { margin:0; color:#4b6259; }.card a { display:inline-block; margin-top:15px; color:var(--leaf); font-weight:800; text-decoration:none; }.card a:hover { text-decoration:underline; }
+.empty { padding:45px 16px; color:var(--muted); text-align:center; border:1px dashed var(--line); border-radius:12px; }
+footer { padding:28px; color:var(--muted); text-align:center; border-top:1px solid var(--line); font-size:.9rem; }
+@media (max-width:620px) { .hero { padding:52px 24px; } main { width:min(100% - 32px,1050px); }.controls,.notice { flex-direction:column; }.section-heading { align-items:flex-start; flex-direction:column; }.section-heading > p { margin:8px 0 0; } }
