@@ -27,7 +27,8 @@ function renderSources(sources) {
   const entries = Object.entries(sources || {});
   sourceList.innerHTML = entries.length ? entries.map(([url, item]) => {
     const checked = (item.checked_at || '尚未檢查').replace('T', ' ').replace(/:\d{2}\+08:00$/, '');
-    const status = item.error ? '暫時無法讀取' : item.candidate_count ? `找到 ${item.candidate_count} 筆候選公告` : '已檢查，尚無候選公告';
+    const scanned = item.nss_announcement_count ? `已讀取 ${item.nss_announcement_count} 則一般公告` : '已檢查公告頁';
+    const status = item.error ? '暫時無法讀取' : item.candidate_count ? `找到 ${item.candidate_count} 筆候選公告` : `${scanned}，尚無候選公告`;
     return `<article class="source-card">
       <span class="status">${status}</span>
       <h3>${item.school}</h3>
