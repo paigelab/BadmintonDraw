@@ -1,3 +1,18 @@
 {
-  "sources": {}
+  "sources": {
+    "https://www.ypps.tp.edu.tw/nss/p/index": {
+      "school": "延平國小",
+      "checked_at": "2026-08-19T17:06:55+08:00",
+      "content_changed": true,
+      "digest": "c5701763f376abe38a74e2693e9a11c05af3bd6d693beb22048cb31266dc4400",
+      "keyword_found": false
+    },
+    "https://www.ccps.tp.edu.tw/nss/p/index": {
+      "school": "長春國小",
+      "checked_at": "2026-08-19T17:06:58+08:00",
+      "content_changed": true,
+      "digest": "b44cd6a4754ebd15352001214afbdd096bb38ba82c5406d49e8e2d177673561d",
+      "keyword_found": true
+    }
+  }
 }
