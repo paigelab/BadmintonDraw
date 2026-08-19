@@ -7,8 +7,8 @@ on:
       - "data/sources.csv"
       - "scripts/check_announcements.py"
   schedule:
-    # 00:00 and 12:00 UTC = 08:00 and 20:00 in Taiwan (UTC+8)
-    - cron: "0 0,12 * * *"
+    # 02:08 and 10:08 UTC = 10:08 and 18:08 in Taiwan (UTC+8)
+    - cron: "8 2,10 * * *"
   workflow_dispatch:
 
 permissions:
@@ -41,6 +41,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The check job may have just committed newer data. Deploy that commit,
+          # rather than the commit that originally triggered this workflow.
+          ref: main
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
