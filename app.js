@@ -2,6 +2,7 @@ const list = document.querySelector('#announcement-list');
 const search = document.querySelector('#search');
 const schoolFilter = document.querySelector('#school-filter');
 const resultCount = document.querySelector('#result-count');
+const sourceList = document.querySelector('#source-list');
 
 let announcements = [];
 
@@ -22,15 +23,30 @@ function render() {
     </article>`).join('') : '<p class="empty">尚無符合條件的公告。</p>';
 }
 
+function renderSources(sources) {
+  const entries = Object.entries(sources || {});
+  sourceList.innerHTML = entries.length ? entries.map(([url, item]) => {
+    const checked = (item.checked_at || '尚未檢查').replace('T', ' ').replace(/:\d{2}\+08:00$/, '');
+    const status = item.error ? '暫時無法讀取' : item.candidate_count ? `找到 ${item.candidate_count} 筆候選公告` : '已檢查，尚無候選公告';
+    return `<article class="source-card">
+      <span class="status">${status}</span>
+      <h3>${item.school}</h3>
+      <p>最近檢查：${checked}</p>
+      <a href="${url}" target="_blank" rel="noopener noreferrer">開啟校方公告頁 →</a>
+    </article>`;
+  }).join('') : '<p class="empty">尚未加入學校公告來源。</p>';
+}
+
 async function init() {
   try {
-    const response = await fetch('data/announcements.json');
-    const data = await response.json();
+    const [response, statusResponse] = await Promise.all([fetch('data/announcements.json'), fetch('data/source-status.json')]);
+    const [data, statusData] = await Promise.all([response.json(), statusResponse.json()]);
     announcements = data.announcements || [];
     document.querySelector('#last-updated').textContent = data.last_updated || '尚未更新';
     [...new Set(announcements.map((item) => item.school))].sort().forEach((school) => {
       schoolFilter.add(new Option(school, school));
     });
+    renderSources(statusData.sources);
   } catch { list.innerHTML = '<p class="empty">公告資料暫時無法讀取。</p>'; }
   render();
 }
