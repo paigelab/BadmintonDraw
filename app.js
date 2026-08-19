@@ -6,6 +6,17 @@ const sourceList = document.querySelector('#source-list');
 
 let announcements = [];
 
+function latestBySchool(items) {
+  const latest = new Map();
+  for (const item of items) {
+    const current = latest.get(item.school);
+    if (!current || String(item.published_at || '') > String(current.published_at || '')) {
+      latest.set(item.school, item);
+    }
+  }
+  return [...latest.values()].sort((a, b) => String(b.published_at || '').localeCompare(String(a.published_at || '')));
+}
+
 function render() {
   const term = search.value.trim().toLowerCase();
   const school = schoolFilter.value;
@@ -44,7 +55,7 @@ async function init() {
   try {
     const [response, statusResponse] = await Promise.all([fetch('data/announcements.json'), fetch('data/source-status.json')]);
     const [data, statusData] = await Promise.all([response.json(), statusResponse.json()]);
-    announcements = data.announcements || [];
+    announcements = latestBySchool(data.announcements || []);
     document.querySelector('#last-updated').textContent = data.last_updated || '尚未更新';
     [...new Set(announcements.map((item) => item.school))].sort().forEach((school) => {
       schoolFilter.add(new Option(school, school));
