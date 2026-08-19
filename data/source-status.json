@@ -2,23 +2,38 @@
   "sources": {
     "https://www.ypps.tp.edu.tw/nss/p/index": {
       "school": "延平國小",
-      "checked_at": "2026-08-19T17:37:53+08:00",
+      "checked_at": "2026-08-19T17:53:50+08:00",
       "content_changed": true,
-      "digest": "e826e9473fa4b04921d3f4f48a9e22ca3778091c7bed8f36f6cd769b4dfb0f34",
-      "candidate_count": 0,
-      "candidate_titles": [],
+      "digest": "99f1f79eb8b0f0a93d3b8045a111bca8ee48f2489896d245678b56886753b6c9",
+      "candidate_count": 9,
+      "candidate_titles": [
+        "延平國小115年第1季(1-3月)-週日17-19時活動中心羽球場登記網址",
+        "115年第2季(4-6月)-週一-週五(晚間19:00-21:00)週六-週日(8:00-21:00共6個時段)_活動中心羽球場登記出租登記網址(限打羽球)",
+        "本校活動中心1樓羽球場地115年第2季各時段登記抽籤結果",
+        "115年第3季(7-9月)-週一-週五(晚間19:00-21:00)週六-週日(8:00-21:00共6個時段)_活動中心羽球場登記出租登記(限打羽球)",
+        "115年第3季(7-9月)-週一-週五(晚間19:00-21:00)週六-週日(8:00-21:00共6個時段)_活動中心羽球場登記出租登記網址(限打羽球)",
+        "本校活動中心1樓羽球場地115年第3季各時段登記抽籤結果",
+        "115年第3季(7-9月)-週日8-10時活動中心羽球場登記出租登記(限打羽球)",
+        "本校活動中心1樓羽球場地115年第3季星期日8-10點登記抽籤結果",
+        "115年第3季(7-9月)-週日8-10時活動中心羽球場登記出租登記網址(限打羽球)"
+      ],
       "nss_feed_count": 0,
-      "nss_announcement_count": 0
+      "nss_announcement_count": 0,
+      "nss_fulltext_candidate_count": 9
     },
     "https://www.ccps.tp.edu.tw/nss/p/index": {
       "school": "長春國小",
-      "checked_at": "2026-08-19T17:37:58+08:00",
+      "checked_at": "2026-08-19T17:54:01+08:00",
       "content_changed": true,
-      "digest": "d5aa75bfa91fba46de80bdaf9483785e1a92d55f44c2b7fb3c287cb945c4aabc",
-      "candidate_count": 0,
-      "candidate_titles": [],
+      "digest": "e224097e6a06c7c08ca1c6753eb1e0714a536fad06a422ace8c4903e4e873af4",
+      "candidate_count": 2,
+      "candidate_titles": [
+        "長春國民小學活動中心場地租借管理辦法",
+        "本校115年第3季活動中心羽球場地租用登記暨抽籤公告"
+      ],
       "nss_feed_count": 1,
-      "nss_announcement_count": 100
+      "nss_announcement_count": 100,
+      "nss_fulltext_candidate_count": 2
     }
   }
 }
