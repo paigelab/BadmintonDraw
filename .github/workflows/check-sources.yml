@@ -1,6 +1,11 @@
 name: Check school announcement pages
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "data/sources.csv"
+      - "scripts/check_announcements.py"
   schedule:
     # 00:00 and 12:00 UTC = 08:00 and 20:00 in Taiwan (UTC+8)
     - cron: "0 0,12 * * *"
@@ -22,6 +27,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/source-status.json
+          git add data/source-status.json data/announcements.json
           git diff --cached --quiet || git commit -m "chore: update source monitoring status"
           git push
