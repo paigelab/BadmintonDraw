@@ -34,6 +34,7 @@ def is_relevant(text: str) -> bool:
 
 
 DATE = re.compile(r"(?:\d{3,4}[./年-])?\d{1,2}[./月-]\d{1,2}(?:日)?")
+SEARCH_TERMS = ("羽球", "羽球場地", "場地抽籤", "場地登記", "場地借用")
 
 class PageExtractor(HTMLParser):
     """Extract readable page text and ordinary links without external packages."""
@@ -73,6 +74,17 @@ def get_text(url: str) -> str:
     request = Request(url, headers={"User-Agent": "BadmintonDraw-monitor/0.1 (+GitHub Actions)"})
     with urlopen(request, timeout=25) as response:
         return response.read().decode(response.headers.get_content_charset() or "utf-8", errors="replace")
+
+
+def post_json(url: str, payload: dict) -> dict:
+    body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+    request = Request(
+        url,
+        data=body,
+        headers={"User-Agent": "BadmintonDraw-monitor/0.1 (+GitHub Actions)", "Content-Type": "application/json"},
+    )
+    with urlopen(request, timeout=25) as response:
+        return json.loads(response.read().decode(response.headers.get_content_charset() or "utf-8", errors="replace"))
 
 
 def fetch_page(url: str) -> PageExtractor:
@@ -119,6 +131,38 @@ def nss_items(feed_url: str) -> list[dict[str, str]]:
         except (TypeError, ValueError, IndexError):
             published = "日期待確認"
         items.append({"title": title, "url": link, "description": description, "published_at": published})
+    return items
+
+
+def nss_fulltext_items(home_url: str, html: str) -> list[dict[str, str]]:
+    """Use the public NSS full-text index, which includes archived announcements."""
+    match = re.search(r'"uniq":"([^"\\]+)', html)
+    if not match:
+        return []
+    endpoint = urljoin(home_url, "/nss/ext/fulltext")
+    seen: set[str] = set()
+    items = []
+    for term in SEARCH_TERMS:
+        response = post_json(endpoint, {"keyword": term, "each": 100, "page": 1, "partten": "", "searchRange": match.group(1)})
+        for result in response.get("data", {}).get("result", []):
+            identifier = result.get("_id") or result.get("freeze")
+            if not identifier or identifier in seen:
+                continue
+            seen.add(identifier)
+            content = result.get("data", {})
+            title = content.get("title") or content.get("name") or ""
+            description = content.get("content") or ""
+            if isinstance(description, list):
+                description = " ".join(map(str, description))
+            text = f"{title} {description}"
+            if not title or not is_relevant(text):
+                continue
+            items.append({
+                "title": title,
+                "url": urljoin(home_url, result.get("freeze", "")),
+                "description": re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", str(description))).strip(),
+                "published_at": str(result.get("ctime", ""))[:10] or "日期待確認",
+            })
     return items
 
 
@@ -178,6 +222,17 @@ def main() -> None:
                             "type": "自動擷取公告",
                             "source_url": item["url"],
                         }
+                fulltext_items = nss_fulltext_items(url, raw_html)
+                for item in fulltext_items:
+                    candidates.append(item["title"])
+                    existing[item["url"]] = {
+                        "school": row["school"],
+                        "title": item["title"],
+                        "published_at": item["published_at"],
+                        "summary": summary_for(item["title"], item["description"]),
+                        "type": "全文檢索公告",
+                        "source_url": item["url"],
+                    }
                 records[url] = {
                     "school": row["school"],
                     "checked_at": datetime.now(taipei).isoformat(timespec="seconds"),
@@ -187,6 +242,7 @@ def main() -> None:
                     "candidate_titles": candidates[:10],
                     "nss_feed_count": len(feed_urls),
                     "nss_announcement_count": feed_item_count,
+                    "nss_fulltext_candidate_count": len(fulltext_items),
                 }
             except Exception as error:
                 records[url] = {"school": row["school"], "checked_at": datetime.now(taipei).isoformat(timespec="seconds"), "error": str(error)}
