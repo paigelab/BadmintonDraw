@@ -2,19 +2,23 @@
   "sources": {
     "https://www.ypps.tp.edu.tw/nss/p/index": {
       "school": "延平國小",
-      "checked_at": "2026-08-19T17:19:38+08:00",
+      "checked_at": "2026-08-19T17:37:53+08:00",
       "content_changed": true,
-      "digest": "01ce7bb01c655e81c58667bfb28e3598cad5f6ed93efc5960f1f39a1e404f8b7",
+      "digest": "e826e9473fa4b04921d3f4f48a9e22ca3778091c7bed8f36f6cd769b4dfb0f34",
       "candidate_count": 0,
-      "candidate_titles": []
+      "candidate_titles": [],
+      "nss_feed_count": 0,
+      "nss_announcement_count": 0
     },
     "https://www.ccps.tp.edu.tw/nss/p/index": {
       "school": "長春國小",
-      "checked_at": "2026-08-19T17:19:41+08:00",
+      "checked_at": "2026-08-19T17:37:58+08:00",
       "content_changed": true,
-      "digest": "70f20d86a401124dae0ac26f10afb5d73550552c7adc9b8e55531fdf89e7a60f",
+      "digest": "d5aa75bfa91fba46de80bdaf9483785e1a92d55f44c2b7fb3c287cb945c4aabc",
       "candidate_count": 0,
-      "candidate_titles": []
+      "candidate_titles": [],
+      "nss_feed_count": 1,
+      "nss_announcement_count": 100
     }
   }
 }
