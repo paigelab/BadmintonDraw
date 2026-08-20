@@ -37,14 +37,15 @@ function card(item) {
 }
 
 function renderLatest() {
-  const latestBySchool = new Map();
+  const latestBySchoolAndCategory = new Map();
   announcements
     .filter((item) => ['registration', 'result'].includes(categoryOf(item)))
     .forEach((item) => {
-      if (!latestBySchool.has(item.school)) latestBySchool.set(item.school, item);
+      const key = `${item.school}::${categoryOf(item)}`;
+      if (!latestBySchoolAndCategory.has(key)) latestBySchoolAndCategory.set(key, item);
     });
-  const latest = [...latestBySchool.values()].slice(0, LATEST_LIMIT);
-  latestCount.textContent = latest.length ? `${latest.length} 所學校` : '';
+  const latest = [...latestBySchoolAndCategory.values()].slice(0, LATEST_LIMIT);
+  latestCount.textContent = latest.length ? `共 ${latest.length} 筆` : '';
   latestList.innerHTML = latest.length ? latest.map(card).join('') : '<p class="empty">尚無公告資料。</p>';
 }
 
