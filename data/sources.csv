@@ -1,6 +1,7 @@
-school,unit,source_url,enabled,notes
+school,source_url,enabled
 # 請在下一行開始加入學校資料，例如：
-延平國小,總務處,https://www.ypps.tp.edu.tw/nss/p/index,true,訊息公告
-長春國小,總務處,https://www.ccps.tp.edu.tw/nss/p/index,true,一般公告
-中山國小,總務處,https://www.csps.tp.edu.tw/nss/p/index,true,一般公告
-金華國中,,https://www.chwjh.tp.edu.tw/nss/p/index,,true,一般公告
+# 國立範例大學,https://example.edu.tw/sports/news,true
+延平國小,https://www.ypps.tp.edu.tw/nss/p/index,true
+長春國小,https://www.ccps.tp.edu.tw/nss/p/index,true
+中山國小,https://www.csps.tp.edu.tw/nss/p/index,true
+金華國中,https://www.chwjh.tp.edu.tw/nss/p/index,true

@@ -54,8 +54,8 @@
 在 `data/sources.csv` 加上一列公開的體育室、總務處或場館公告首頁。格式如下：
 
 ```csv
-school,unit,source_url,enabled,notes
-範例國小,總務處,https://example.edu.tw/nss/p/index,true,一般公告
+school,source_url,enabled
+範例國小,https://example.edu.tw/nss/p/index,true
 ```
 
 `enabled` 設為 `true` 才會納入巡查。不同網站格式可能不同，新增來源後請先確認 Actions 執行結果。
