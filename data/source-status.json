@@ -2,9 +2,9 @@
   "sources": {
     "https://www.ypps.tp.edu.tw/nss/p/index": {
       "school": "延平國小",
-      "checked_at": "2026-08-20T21:25:09+08:00",
+      "checked_at": "2026-08-20T21:30:08+08:00",
       "content_changed": true,
-      "digest": "f3ee2954be5a6de2b3d0e18babdb453fd612e5e890d1048b01e3b21598f34c39",
+      "digest": "109604901c7b680b07ffc7516829b8645a2c26f883ead1ed7e53bcb6c00a5b2d",
       "candidate_count": 9,
       "candidate_titles": [
         "本校活動中心1樓羽球場地115年第3季星期日8-10點登記抽籤結果",
@@ -23,9 +23,9 @@
     },
     "https://www.ccps.tp.edu.tw/nss/p/index": {
       "school": "長春國小",
-      "checked_at": "2026-08-20T21:25:19+08:00",
+      "checked_at": "2026-08-20T21:30:15+08:00",
       "content_changed": true,
-      "digest": "6641db144b15be85a926899fe5b6cfe839efae36d9b088fbf8c3cc060d149eeb",
+      "digest": "539ffabcda21d913ab51b7ad06b1ec29dea665d4f3d4936d4cc56029ed842757",
       "candidate_count": 2,
       "candidate_titles": [
         "長春國民小學活動中心場地租借管理辦法",
@@ -37,9 +37,9 @@
     },
     "https://www.csps.tp.edu.tw/nss/p/index": {
       "school": "中山國小",
-      "checked_at": "2026-08-20T21:25:30+08:00",
+      "checked_at": "2026-08-20T21:30:23+08:00",
       "content_changed": true,
-      "digest": "fee621c9e64145c39e0b4e2946fe926212811626b8f0e7e8c23d86c823f2bf5a",
+      "digest": "b2d10f691fc654ed4c1ac7d2e90eb455114dc52dfe17bf72fb0a72b7be443ef7",
       "candidate_count": 13,
       "candidate_titles": [
         "本校115年度第3季（7-9月）羽球場地租借於115年〝6月12日(五)至6月18 日(四)〞之上班時間:上午8時30分至下午4時30分開放報名(為響應政府節能減紙政策，申請表請自行列印)",
@@ -56,6 +56,17 @@
       "nss_feed_count": 0,
       "nss_announcement_count": 0,
       "nss_fulltext_candidate_count": 13
+    },
+    "https://www.chwjh.tp.edu.tw/nss/p/index": {
+      "school": "金華國中",
+      "checked_at": "2026-08-20T21:30:29+08:00",
+      "content_changed": true,
+      "digest": "f4edc6b8fcb65f913de86e3db9fa995767fbd34171b2915b88d98ea24da91073",
+      "candidate_count": 0,
+      "candidate_titles": [],
+      "nss_feed_count": 0,
+      "nss_announcement_count": 0,
+      "nss_fulltext_candidate_count": 0
     }
   }
 }
