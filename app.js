@@ -37,8 +37,14 @@ function card(item) {
 }
 
 function renderLatest() {
-  const latest = announcements.slice(0, LATEST_LIMIT);
-  latestCount.textContent = latest.length ? `近期 ${latest.length} 筆` : '';
+  const latestBySchool = new Map();
+  announcements
+    .filter((item) => ['registration', 'result'].includes(categoryOf(item)))
+    .forEach((item) => {
+      if (!latestBySchool.has(item.school)) latestBySchool.set(item.school, item);
+    });
+  const latest = [...latestBySchool.values()].slice(0, LATEST_LIMIT);
+  latestCount.textContent = latest.length ? `${latest.length} 所學校` : '';
   latestList.innerHTML = latest.length ? latest.map(card).join('') : '<p class="empty">尚無公告資料。</p>';
 }
 
