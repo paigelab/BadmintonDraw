@@ -71,8 +71,8 @@ function renderHistory() {
   historyList.innerHTML = shown.length ? shown.map(card).join('') : '<p class="empty">尚無符合條件的公告。</p>';
 }
 
-function renderSources(sources) {
-  const entries = Object.entries(sources || {});
+function renderSources(sources, activeUrls) {
+  const entries = Object.entries(sources || {}).filter(([url]) => activeUrls.has(url));
   sourceList.innerHTML = entries.length ? entries.map(([url, item]) => {
     const checked = (item.checked_at || '尚未檢查').replace('T', ' ').replace(/:\d{2}\+08:00$/, '');
     const status = item.error ? '暫時無法讀取' : '已完成公告檢查';
@@ -87,11 +87,17 @@ function renderSources(sources) {
 
 function renderManualChecks(schools) {
   manualCheckList.innerHTML = schools.length ? schools.map((item) => `<article class="source-card">
-    <span class="status">需人工檢查</span>
     <h3>${item.school}</h3>
-    <p>${item.reason || '請直接前往校方公告頁確認。'}</p>
     <a href="${item.source_url}" target="_blank" rel="noopener noreferrer">開啟校方公告頁 →</a>
   </article>`).join('') : '<p class="empty">目前沒有需要人工檢查的學校。</p>';
+}
+
+function activeSourceUrls(csvText) {
+  return new Set(csvText.trim().split(/\r?\n/).slice(1)
+    .filter((line) => line && !line.trimStart().startsWith('#'))
+    .map((line) => line.split(','))
+    .filter((parts) => parts[2]?.trim().toLowerCase() === 'true')
+    .map((parts) => parts[1].trim()));
 }
 
 function openHistoryFromHash() {
@@ -100,15 +106,15 @@ function openHistoryFromHash() {
 
 async function init() {
   try {
-    const [response, statusResponse, manualResponse] = await Promise.all([fetch('data/announcements.json'), fetch('data/source-status.json'), fetch('data/manual-check.json')]);
-    const [data, statusData, manualData] = await Promise.all([response.json(), statusResponse.json(), manualResponse.json()]);
+    const [response, statusResponse, manualResponse, sourcesResponse] = await Promise.all([fetch('data/announcements.json'), fetch('data/source-status.json'), fetch('data/manual-check.json'), fetch('data/sources.csv')]);
+    const [data, statusData, manualData, sourcesCsv] = await Promise.all([response.json(), statusResponse.json(), manualResponse.json(), sourcesResponse.text()]);
     announcements = [...(data.announcements || [])].sort((a, b) => String(b.published_at || '').localeCompare(String(a.published_at || '')));
     document.querySelector('#last-updated').textContent = data.last_updated || '尚未更新';
     [...new Set(announcements.map((item) => item.school))].sort().forEach((school) => schoolFilter.add(new Option(school, school)));
     Object.entries(CATEGORIES).forEach(([value, label]) => categoryFilter.add(new Option(label, value)));
     renderLatest();
     renderHistory();
-    renderSources(statusData.sources);
+    renderSources(statusData.sources, activeSourceUrls(sourcesCsv));
     renderManualChecks(manualData.schools || []);
     openHistoryFromHash();
   } catch {
