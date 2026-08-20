@@ -2,9 +2,9 @@
   "sources": {
     "https://www.ypps.tp.edu.tw/nss/p/index": {
       "school": "延平國小",
-      "checked_at": "2026-08-19T22:07:04+08:00",
+      "checked_at": "2026-08-20T12:20:55+08:00",
       "content_changed": true,
-      "digest": "282f6332d1afde74439380439126095ae70e59edf43283aa63f32c33cec3b3eb",
+      "digest": "4038dc91acadb453475901753c41bf3f71b3e2bd2ad02b546b89f568fe749f36",
       "candidate_count": 9,
       "candidate_titles": [
         "本校活動中心1樓羽球場地115年第3季星期日8-10點登記抽籤結果",
@@ -23,13 +23,13 @@
     },
     "https://www.ccps.tp.edu.tw/nss/p/index": {
       "school": "長春國小",
-      "checked_at": "2026-08-19T22:07:15+08:00",
+      "checked_at": "2026-08-20T12:21:03+08:00",
       "content_changed": true,
-      "digest": "7f3f86c920b84486cfd18f3c60350b14e80200fdb6907b07298f21095dbf7e5b",
+      "digest": "c57cd3524f30b38c17e29a593fd8d2fb91c23efd8c044ff8bcbb57273ed8853d",
       "candidate_count": 2,
       "candidate_titles": [
-        "本校115年第3季活動中心羽球場地租用登記暨抽籤公告",
-        "長春國民小學活動中心場地租借管理辦法"
+        "長春國民小學活動中心場地租借管理辦法",
+        "本校115年第3季活動中心羽球場地租用登記暨抽籤公告"
       ],
       "nss_feed_count": 1,
       "nss_announcement_count": 100,
