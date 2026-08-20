@@ -1,15 +1,6 @@
 {
-  "last_updated": "2026-08-20 22:56（台灣時間）",
+  "last_updated": "2026-08-20 23:04（台灣時間）",
   "announcements": [
-    {
-      "school": "中崙高中",
-      "title": "置頂 重要 中崙高中115年第四季羽球場地租借抽籤辦法(即日起至8月25日止)",
-      "published_at": "2026-08-18",
-      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：置頂 重要 中崙高中115年第四季羽球場地租借抽籤辦法(即日起至8月25日止)。請以校方原始公告為準。",
-      "category": "registration",
-      "type": "自動偵測候選公告",
-      "source_url": "https://www.zlsh.tp.edu.tw/news/中崙高中115年第四季羽球場地租借抽籤辦法即日起/"
-    },
     {
       "school": "和平高中",
       "title": "【公告】本校115年9月及第四季(9/1-12/31)校園羽球場地抽籤結果及繳費事宜",
@@ -27,6 +18,15 @@
       "category": "result",
       "type": "全文檢索公告",
       "source_url": "https://www.hpsh.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/5Nl6pHN7474/6a866a18e7da941a8d6a7b0a"
+    },
+    {
+      "school": "中崙高中",
+      "title": "置頂 重要 中崙高中115年第四季羽球場地租借抽籤辦法(即日起至8月25日止)",
+      "published_at": "2026-08-18",
+      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：置頂 重要 中崙高中115年第四季羽球場地租借抽籤辦法(即日起至8月25日止)。請以校方原始公告為準。",
+      "category": "registration",
+      "type": "自動偵測候選公告",
+      "source_url": "https://www.zlsh.tp.edu.tw/news/中崙高中115年第四季羽球場地租借抽籤辦法即日起/"
     },
     {
       "school": "光復國小",
@@ -105,7 +105,7 @@
       "title": "【羽球場地抽籤】115年7~8月份羽球場地報名抽籤(第3次)",
       "published_at": "2026-06-30",
       "summary": "一、本校115年7~8月份羽球場地租借(第3次)開放申請，本次採線上與紙本併行方式報名(本次可接受同一人重複報名不同時段)，並採線上抽籤，請報名單位詳閱附件規範(附件1)。 二、本季開放租借及抽籤資訊如下： (一)報名日期：自即日起至115年7月6日(一)17:00截止(線上開放報名至23:59)，請依相關文件報名下載並印出親簽。(附件2、3) (二)抽籤日",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.kfps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/PXlkYxh9079/6a432b279cbe99376072bce6"
     },
@@ -132,7 +132,7 @@
       "title": "【羽球場地抽籤】115年7~8月份羽球場地第2次正取通知寄出通知",
       "published_at": "2026-06-24",
       "summary": "一、115年7~8月份羽球場地第2次抽籤正取通知已寄至各球隊第1及第2聯絡人，如為正取名單卻未收到信件者，可先至垃圾信件搜尋(信件主旨：115年7~8月份第2次申請正取球隊通知信)。如仍未看到信請主動來信本校事務組蔡組長(kfga01@kfps.tp.edu.tw)。 二、繳費期限(僅限現金繳費)： (一)115年6月30日(二)下班前(依教育規定公告後3日",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.kfps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/PXlkYxh9079/6a3b888c14e07acdf1090fdf"
     },
@@ -150,7 +150,7 @@
       "title": "【羽球場地抽籤】115年7~8月份羽球場地報名抽籤(第2次)",
       "published_at": "2026-06-16",
       "summary": "一、本校115年7~8月份羽球場地租借(第2次)開放申請，本次採線上與紙本併行方式報名，並採線上抽籤，請報名單位詳閱附件規範(附件1)。 二、本季開放租借及抽籤資訊如下： (一)報名日期：自即日起至115年6月23日(二)17:00截止(線上開放報名至23:59)，請依相關文件報名下載並印出親簽。(附件2、3) (二)抽籤日期：115年6月24日(三)15:",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.kfps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/PXlkYxh9079/6a30a3ed693256b9c0fc92bf"
     },
@@ -159,7 +159,7 @@
       "title": "【羽球場地抽籤】115年7~8月份羽球場地第1次正取通知寄出通知",
       "published_at": "2026-06-12",
       "summary": "一、115年7~8月份羽球場地正取通知已寄至各球隊第1及第2聯絡人，如為正取名單卻未收到信件者，可先至垃圾信件搜尋(信件主旨：115年7~8月份第1次申請正取球隊通知信)。如仍未看到信請主動來信本校事務組蔡組長(kfga01@kfps.tp.edu.tw)。 二、繳費期限(僅限現金繳費)： (一)115年6月17日(三)下班前(依教育規定公告後3日內繳款)；",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.kfps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/PXlkYxh9079/6a2bfe4423fe00d41dd26d09"
     },
@@ -195,7 +195,7 @@
       "title": "本校115年第3季活動中心羽球場地租用登記暨抽籤公告",
       "published_at": "2026-06-05",
       "summary": "依據：臺北市立高級中等以下學校校園場地開放使用管理辦法及臺北市中山區長春國民小學活動中心場地租借管理辦法。 公告事項： 一、本校場地開放使用時段： (一) 115 年 7 月 1 日至 115 年 9 月 30 日每星期一至星期五 18 時 20 分至 21 時 50 分，除星期二、三以外，每日皆有 2 時段可提供申請，共計 8 個時段。 (二)因申請人數眾",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.ccps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/9ZS4ZpY0802/6a222248b545b9ee23617041"
     },
@@ -249,7 +249,7 @@
       "title": "【羽球場地抽籤】115年7~8月份羽球場地報名抽籤(第1次)",
       "published_at": "2026-05-26",
       "summary": "一、本校115年7~8月份羽球場地租借開放申請，本次採線上與紙本併行方式報名，並採線上抽籤，請報名單位詳閱附件規範(附件1)。 二、本季開放租借及抽籤資訊如下： (一)報名日期：自即日起至115年6月9日(二)17:00截止(線上開放報名至23:59)，請依相關文件報名下載並印出親簽。(附件2) (二)抽籤日期：115年6月10日(三)15:00於本校光復樓",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.kfps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/PXlkYxh9079/6a1517f3ec5ceb7c2400ce0c"
     },
@@ -321,7 +321,7 @@
       "title": "【羽球場地】115年度1~3月份羽球場地第3次抽籤公告(星期六場地)",
       "published_at": "2025-12-24",
       "summary": "星期六上午(8:00~10:00)尚餘1場地及下午(13:00~15:00)尚餘4場地，故開放第3次報名，報名自即日起至12/29(一)止，並預定於12/30(一)抽籤，相關文件請至附件下載。(線上報名網址：https://forms.gle/LBP2Fujh2B2AYjnQ6)",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.kfps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/PXlkYxh9079/694b42854445b425165fb1c9"
     },
@@ -339,7 +339,7 @@
       "title": "【羽球場地抽籤】115年1~3月份羽球場地報名抽籤(第1次)",
       "published_at": "2025-12-03",
       "summary": "一、本校115年1~3月份羽球場地租借開放申請，本次採線上與紙本併行方式報名，並採線上抽籤，請報名單位詳閱附件規範(附件1)。 二、本季開放租借及抽籤資訊如下： (一)報名日期：自即日起至114年12月9日(二)17:00截止(線上開放報名至23:59)，請依相關文件報名下載並印出親簽。(附件2) (二)抽籤日期：114年12月10日(三)15:00於本校光",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.kfps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/PXlkYxh9079/692fc8ca78c32eab0834a731"
     },
@@ -348,7 +348,7 @@
       "title": "【公告】臺北市大安區銘傳國民小學115年第1季場地租借說明",
       "published_at": "2025-12-02",
       "summary": "臺北市大安區銘傳國民小學活動中心 115 年第一季 場地租借說明公告 ( 學校校網 ) 一、 依據本校校園場地開放使用管理補充規定。 本季租借日期為 115 年 1 月 1 日至 115 年 3 月 31 日。 登記報名時間：自 114 年 12 月 8 日 ( 星期一 ) 上午 8 時起至 114 年 12 月 15 日 ( 星期一 ) 下午 4 時止 。",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.mhps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/EEnTHfN4464/692e9db68e08933651d7bb45"
     },
@@ -357,7 +357,7 @@
       "title": "【場地租借】本校活動中心租借團體家數暨抽籤場地公告",
       "published_at": "2025-11-24",
       "summary": "&nbsp; 公告本校活動中心 2 樓籃球場 115 年度第 1 季開放團體申請租借名單，各時段與申請團體如附件， 週六 13:15~15:15 及週日 14:00~16:00 時段，僅 1 家團體申請，無須到場抽籤。 請同時段有 2 家 ( 包含 2 家 ) 以上申請之團體， 於 114 年 12 月 5 日 ( 五 ) 中午 12 時 30 分 ( 可提",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.chwjh.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/zcW3IvQ5441/692402ec027d0646f09286f3"
     },
@@ -375,7 +375,7 @@
       "title": "【場地租借】本校活動中心租借團體家數暨抽籤場地公告",
       "published_at": "2025-09-10",
       "summary": "&nbsp; 公告本校活動中心 2 樓籃球場 114 年度第 4 季開放團體申請租借名單，各時段與申請團體如附件， 週六 13:15~15:15 及週日 14:00~16:00 時段，僅 1 家團體申請，無須到場抽籤。 請同時段有 2 家 ( 包含 2 家 ) 以上申請之團體， 於 114 年 9 月 17 日 ( 三 ) 中午 12 時 30 分 ( 可提",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.chwjh.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/zcW3IvQ5441/68c13c4babd4ebd8108692df"
     },
@@ -402,7 +402,7 @@
       "title": "【羽球場地抽籤】114年9~11月及續租12月份羽球場地報名抽籤(第1次)",
       "published_at": "2025-08-13",
       "summary": "一、本校114年9~11月及續租12月份羽球場地租借開放申請，本次採線上與紙本併行方式報名，並採線上抽籤，請報名單位詳閱附件規範(附件1)。 二、本季開放租借及抽籤資訊如下： (一)報名日期：自即日起至114年8月19日(二)17:00截止(線上開放報名至23:59)，請依相關文件報名下載並印出親簽。(附件2) (二)抽籤日期：114年8月20日(三)14:",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.kfps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/PXlkYxh9079/689c111e1feded87906cfa22"
     },
@@ -456,7 +456,7 @@
       "title": "【場地租借】本校活動中心租借團體家數暨抽籤場地公告",
       "published_at": "2025-06-04",
       "summary": "公告本校活動中心 2 樓籃球場 114 年度第 3 季開放團體申請租借名單，各時段與申請團體如附件， 週六 13:15~15:15 及週日 14:00~16:00 時段，僅 1 家團體申請，無須到場抽籤。 請同時段有 2 家 ( 包含 2 家 ) 以上申請之團體， 於 114 年 6 月 16 日 ( 一 ) 中午 12 時 30 分 ( 可提早 20 分鐘",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.chwjh.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/zcW3IvQ5441/683fe5bb3034b5b341af660f"
     },
@@ -465,7 +465,7 @@
       "title": "【羽球場地抽籤】114年7~8月份羽球場地報名抽籤(第1次)",
       "published_at": "2025-05-28",
       "summary": "一、本校114年7~8月份羽球場地租借開放申請，本次採線上報名及抽籤方式，請報名單位詳閱附件規範(附件1)。 二、本次7-8月份(暑假)開放租借及抽籤資訊如下： (一)報名日期：自即日起至114年6月9日(一)17:00截止，請依相關文件報名下載。(附件2) (二)抽籤日期：114年6月11日(三)10:00於本校光復樓1樓會議室舉行，並開放報名隊伍觀禮(仍",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.kfps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/PXlkYxh9079/68368f773ae439b36e940747"
     },
@@ -492,7 +492,7 @@
       "title": "【公告】臺北市大安區銘傳國民小學114年第1季場地租借說明",
       "published_at": "2024-12-03",
       "summary": "一、依據本校校園場地開放使用管理補充規定。 1.本季租借日期為114年1月1日至114年3月31日。 2. 登記報名時間：自113年12月10日(星期二)上午8時起至113年12月18日(星期三)下午4時止 。 3. 本季採google表單進行場租登記， 一人僅限登記一場次 ， 如經校 &nbsp; 方發現同一人登記二筆以上場次(含同一場次)，將取消其所申請",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.mhps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/EEnTHfN4464/674e73c7ba189a66c549e9f0"
     },
@@ -519,7 +519,7 @@
       "title": "活動中心羽球場地租借9/23(一)下午3點前交件，9/25(三)上午9點抽籤。",
       "published_at": "2024-09-12",
       "summary": "一、活動中心羽球場地租借9/23(一)下午3點前交件，9/25(三)上午9點抽籤。 二、本季開始依臺北市立高級中等以下學校校園場地開放使用收費基準表暨113學年度第1次校務會議決議通過（詳如9/11公告)，每面球場單價調整為新臺幣500元整。 三、歡迎各隊指派一人到場觀抽。 四、辦理方式如附件。",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.kfps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/PXlkYxh9079/66e262cfb68a63c52c7ae3a9"
     },
@@ -528,7 +528,7 @@
       "title": "【公告】臺北市大安區銘傳國民小學113年第4季場地租借說明",
       "published_at": "2024-09-03",
       "summary": "一、 依據本校校園場地開放使用管理補充規定。 1.本季租借日期為113年10月1日至113年12月31日。 2.&nbsp; 登記報名時間：自113年9月10日(星期二)上午8時起至113年9月19日(星期四)下午4時止 。 3.&nbsp; 本季採google表單進行場租登記，一人僅限登記一場次， 如經校方發現同一人登記二筆以上場次(含同一場次)，將取消其",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.mhps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/EEnTHfN4464/66d6cd4a7ed8f0c4c745e8c6"
     },
@@ -573,7 +573,7 @@
       "title": "【公告】臺北市大安區銘傳國民小學113年第3季場地租借說明",
       "published_at": "2024-06-05",
       "summary": "一、 依據本校校園場地開放使用管理補充規定。 1.本季租借日期為113年7月1日至113年9月30日。 2.&nbsp; 登記報名時間：自113年6月11日(星期二)上午8時起至113年6月19日(星期三)下午4時止 。 3.&nbsp; 本季採google表單進行場租登記，一人僅限登記一場次， 如經校方發現同一人登記二筆以上場次(含同一場次)，將取消其所申",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.mhps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/EEnTHfN4464/665faed18d1b87a37fa8cb2e"
     },
@@ -609,7 +609,7 @@
       "title": "【公告】臺北市大安區銘傳國民小學113年第2季場地租借說明",
       "published_at": "2024-03-06",
       "summary": "一、 依據本校校園場地開放使用管理補充規定。 1. 本季租借日期為113年4月1日至113年6月30日。 &nbsp; 2.&nbsp; 登記報名時間： 自113年3月11日(星期一)上午8時起至113年3月18日(星期一)下午6時止 。 3.&nbsp; 本季採google表單進行場租登記，一人僅限登記一場次， 如經校方發現同一人申請二筆以上場次(含同一場",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.mhps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/EEnTHfN4464/65e7e7becf0f62b50237dae1"
     },
@@ -645,7 +645,7 @@
       "title": "長春國民小學活動中心場地租借管理辦法",
       "published_at": "2023-12-22",
       "summary": "長春國民小學活動中心場地租借管理辦法 &nbsp; 壹、依&nbsp; 據： 依據臺北市政府102年11月8日府法綜字第10233555000 號令修正發布「臺北市立高級中等以下學校校園場地開放使用管理辦法」 貳、目&nbsp; 的： 為加強本校(以下簡稱本校)校園開放使用管理，特訂定本辦法。 參、開放範圍： 活動中心3樓羽球場地(共3面) 。 肆、開放時間",
-      "category": "rule",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.ccps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/9ZS4ZpY0802/65852525d1cb481c1e19b233"
     },
@@ -681,7 +681,7 @@
       "title": "【公告】臺北市大安區銘傳國民小學113年第1季場地租借說明",
       "published_at": "2023-12-06",
       "summary": "一、 依據本校校園場地開放使用管理補充規定。 1. 本季租借日期為 113 年 1 月 1 日至 113 年 3 月 31 日。 2.&nbsp; 登記報名時間：自 112 年 12 月 11 日 ( 星期一 ) 上午 8 時起至 112 年 12 月 19 日 ( 星期二 ) 下午 4 時止。 3.&nbsp; &nbsp; 本季採 google 表單進行",
-      "category": "result",
+      "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.mhps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/EEnTHfN4464/65700823412d5b1c9f1a6d76"
     },
