@@ -55,7 +55,10 @@ def categorize(title: str, description: str = "") -> str:
 
 
 DATE = re.compile(r"(?:\d{3,4}[./年-])?\d{1,2}[./月-]\d{1,2}(?:日)?")
-SEARCH_TERMS = ("羽球", "羽球場地", "場地抽籤", "場地登記", "場地借用")
+# Some schools call the same information "場租" or "場地租借" and only mention
+# badminton / the draw in the body of the notice. The relevance check still
+# filters ordinary rental notices out.
+SEARCH_TERMS = ("羽球", "羽球場地", "場地抽籤", "場地登記", "場地借用", "場地租借", "場租")
 
 class PageExtractor(HTMLParser):
     """Extract readable page text and ordinary links without external packages."""
@@ -158,32 +161,36 @@ def nss_items(feed_url: str) -> list[dict[str, str]]:
 def nss_fulltext_items(home_url: str, html: str) -> list[dict[str, str]]:
     """Use the public NSS full-text index, which includes archived announcements."""
     match = re.search(r'"uniq":"([^"\\]+)', html)
-    if not match:
-        return []
     endpoint = urljoin(home_url, "/nss/ext/fulltext")
     seen: set[str] = set()
     items = []
-    for term in SEARCH_TERMS:
-        response = post_json(endpoint, {"keyword": term, "each": 100, "page": 1, "partten": "", "searchRange": match.group(1)})
-        for result in response.get("data", {}).get("result", []):
-            identifier = result.get("_id") or result.get("freeze")
-            if not identifier or identifier in seen:
-                continue
-            seen.add(identifier)
-            content = result.get("data", {})
-            title = content.get("title") or content.get("name") or ""
-            description = content.get("content") or ""
-            if isinstance(description, list):
-                description = " ".join(map(str, description))
-            text = f"{title} {description}"
-            if not title or not is_relevant(text):
-                continue
-            items.append({
-                "title": title,
-                "url": urljoin(home_url, result.get("freeze", "")),
-                "description": re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", str(description))).strip(),
-                "published_at": str(result.get("ctime", ""))[:10] or "日期待確認",
-            })
+    # An empty searchRange searches the whole public site.  The first `uniq`
+    # in a home page can be a menu module instead of its announcements module.
+    search_ranges = [""]
+    if match:
+        search_ranges.append(match.group(1))
+    for search_range in search_ranges:
+        for term in SEARCH_TERMS:
+            response = post_json(endpoint, {"keyword": term, "each": 100, "page": 1, "partten": "", "searchRange": search_range})
+            for result in response.get("data", {}).get("result", []):
+                identifier = result.get("_id") or result.get("freeze")
+                if not identifier or identifier in seen:
+                    continue
+                seen.add(identifier)
+                content = result.get("data", {})
+                title = content.get("title") or content.get("name") or ""
+                description = content.get("content") or ""
+                if isinstance(description, list):
+                    description = " ".join(map(str, description))
+                text = f"{title} {description}"
+                if not title or not is_relevant(text):
+                    continue
+                items.append({
+                    "title": title,
+                    "url": urljoin(home_url, result.get("freeze", "")),
+                    "description": re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", str(description))).strip(),
+                    "published_at": str(result.get("ctime", ""))[:10] or "日期待確認",
+                })
     return items
 
 
