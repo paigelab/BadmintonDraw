@@ -2,9 +2,9 @@
   "sources": {
     "https://www.ypps.tp.edu.tw/nss/p/index": {
       "school": "延平國小",
-      "checked_at": "2026-08-20T21:07:43+08:00",
+      "checked_at": "2026-08-20T21:25:09+08:00",
       "content_changed": true,
-      "digest": "8307515ff6b57d3c5e3f2fc532d5df72d27ba5bb6fb7bb07d32fdd52de32e780",
+      "digest": "f3ee2954be5a6de2b3d0e18babdb453fd612e5e890d1048b01e3b21598f34c39",
       "candidate_count": 9,
       "candidate_titles": [
         "本校活動中心1樓羽球場地115年第3季星期日8-10點登記抽籤結果",
@@ -23,9 +23,9 @@
     },
     "https://www.ccps.tp.edu.tw/nss/p/index": {
       "school": "長春國小",
-      "checked_at": "2026-08-20T21:07:53+08:00",
+      "checked_at": "2026-08-20T21:25:19+08:00",
       "content_changed": true,
-      "digest": "f47609f6e12a100c9210ab8204d7afd93319923ae0aae8a7e8e81c611a9fa9e3",
+      "digest": "6641db144b15be85a926899fe5b6cfe839efae36d9b088fbf8c3cc060d149eeb",
       "candidate_count": 2,
       "candidate_titles": [
         "長春國民小學活動中心場地租借管理辦法",
@@ -34,6 +34,28 @@
       "nss_feed_count": 1,
       "nss_announcement_count": 100,
       "nss_fulltext_candidate_count": 2
+    },
+    "https://www.csps.tp.edu.tw/nss/p/index": {
+      "school": "中山國小",
+      "checked_at": "2026-08-20T21:25:30+08:00",
+      "content_changed": true,
+      "digest": "fee621c9e64145c39e0b4e2946fe926212811626b8f0e7e8c23d86c823f2bf5a",
+      "candidate_count": 13,
+      "candidate_titles": [
+        "本校115年度第3季（7-9月）羽球場地租借於115年〝6月12日(五)至6月18 日(四)〞之上班時間:上午8時30分至下午4時30分開放報名(為響應政府節能減紙政策，申請表請自行列印)",
+        "【重要訊息】110學年度寒假課程調整通知",
+        "公告本校111學年度國民小學體育績優生(體育班)甄選入學招生簡章，敬請欲報名之學生留意報名及考試期程",
+        "臺北市中山區中山國民小學113年度第1季（1-3月）羽球場地租借-抽籤結果名單公告",
+        "中山國民小學109年度第1季（1-3月）羽球場地租借",
+        "110年度第2季羽球場地租借公告資訊",
+        "本校115年度第3季（7-9月）羽球場地租借星期六場：□19：50~ 21：50開放申請租借，欲報名者請盡速。",
+        "中山國民小學110年度第1季（1-3月）羽球場地租借",
+        "中山國民小學110年度第1季（1-3月）羽球場地租借-中籤名單公告",
+        "本校113年第1季羽球場地租借申請，自112年12月1日上午八點三十分起至112年12月8日(星期五)下午四點三十分截止"
+      ],
+      "nss_feed_count": 0,
+      "nss_announcement_count": 0,
+      "nss_fulltext_candidate_count": 13
     }
   }
 }
