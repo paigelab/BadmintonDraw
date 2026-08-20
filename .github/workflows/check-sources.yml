@@ -40,6 +40,12 @@ jobs:
   deploy-updated-data:
     needs: check
     runs-on: ubuntu-latest
+    # Use the same deployment queue as pages.yml. A crawler update pushes data
+    # while the normal Pages workflow is also triggered, so only the newest
+    # deployment should be allowed to continue.
+    concurrency:
+      group: pages
+      cancel-in-progress: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
