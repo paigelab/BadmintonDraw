@@ -1,21 +1,12 @@
 {
-  "last_updated": "2026-08-20 22:16（台灣時間）",
+  "last_updated": "2026-08-20 22:53（台灣時間）",
   "announcements": [
-    {
-      "school": "忠孝國中",
-      "title": "置頂 公告 本校活動中心羽球場地租借時段，尚有空時段，歡迎承租。",
-      "published_at": "日期待確認",
-      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：置頂 公告 本校活動中心羽球場地租借時段，尚有空時段，歡迎承租。。請以校方原始公告為準。",
-      "category": "other",
-      "type": "自動偵測候選公告",
-      "source_url": "https://www.chjh.tp.edu.tw/news/%e6%9c%ac%e6%a0%a1%e6%b4%bb%e5%8b%95%e4%b8%ad%e5%bf%83%e7%be%bd%e7%90%83%e5%a0%b4%e5%9c%b0%e7%a7%9f%e5%80%9f%e6%99%82%e6%ae%b5%ef%bc%8c%e5%b0%9a%e6%9c%89%e7%a9%ba%e6%99%82%e6%ae%b5%ef%bc%8c%e6%ad%a1/"
-    },
     {
       "school": "中崙高中",
       "title": "置頂 重要 中崙高中115年第四季羽球場地租借抽籤辦法(即日起至8月25日止)",
-      "published_at": "8月25日",
+      "published_at": "2026-08-20",
       "summary": "偵測到可能與羽球場地抽籤相關的公開公告：置頂 重要 中崙高中115年第四季羽球場地租借抽籤辦法(即日起至8月25日止)。請以校方原始公告為準。",
-      "category": "other",
+      "category": "result",
       "type": "自動偵測候選公告",
       "source_url": "https://www.zlsh.tp.edu.tw/news/中崙高中115年第四季羽球場地租借抽籤辦法即日起/"
     },

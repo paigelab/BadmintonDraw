@@ -39,7 +39,7 @@ def categorize(title: str, description: str = "") -> str:
     details = re.sub(r"\s+", "", description)
     # A headline is more reliable than an explanatory paragraph. For example,
     # registration notices often say that winners will be announced later.
-    if any(word in headline for word in ("抽籤結果", "中籤名單", "抽籤名單", "登記結果", "錄取結果")):
+    if any(word in headline for word in ("抽籤", "中籤名單", "抽籤名單", "登記結果", "錄取結果")):
         return "result"
     if any(word in headline for word in ("登記", "報名", "申請", "出租", "租用", "預約")):
         return "registration"
