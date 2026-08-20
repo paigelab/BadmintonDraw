@@ -2,10 +2,10 @@
   "sources": {
     "https://www.ypps.tp.edu.tw/nss/p/index": {
       "school": "延平國小",
-      "checked_at": "2026-08-20T21:30:08+08:00",
+      "checked_at": "2026-08-20T21:40:01+08:00",
       "content_changed": true,
-      "digest": "109604901c7b680b07ffc7516829b8645a2c26f883ead1ed7e53bcb6c00a5b2d",
-      "candidate_count": 9,
+      "digest": "9eabea1750b3e502c7e8b35d62fa8b27fb097130b06a74c121923d554b3d3c2a",
+      "candidate_count": 10,
       "candidate_titles": [
         "本校活動中心1樓羽球場地115年第3季星期日8-10點登記抽籤結果",
         "延平國小115年第1季(1-3月)-週日17-19時活動中心羽球場登記網址",
@@ -15,17 +15,18 @@
         "115年第3季(7-9月)-週一-週五(晚間19:00-21:00)週六-週日(8:00-21:00共6個時段)_活動中心羽球場登記出租登記網址(限打羽球)",
         "本校活動中心1樓羽球場地115年第3季各時段登記抽籤結果",
         "115年第3季(7-9月)-週日8-10時活動中心羽球場登記出租登記(限打羽球)",
-        "115年第3季(7-9月)-週日8-10時活動中心羽球場登記出租登記網址(限打羽球)"
+        "115年第3季(7-9月)-週日8-10時活動中心羽球場登記出租登記網址(限打羽球)",
+        "本校校園場地開放訊息"
       ],
       "nss_feed_count": 0,
       "nss_announcement_count": 0,
-      "nss_fulltext_candidate_count": 9
+      "nss_fulltext_candidate_count": 10
     },
     "https://www.ccps.tp.edu.tw/nss/p/index": {
       "school": "長春國小",
-      "checked_at": "2026-08-20T21:30:15+08:00",
+      "checked_at": "2026-08-20T21:40:20+08:00",
       "content_changed": true,
-      "digest": "539ffabcda21d913ab51b7ad06b1ec29dea665d4f3d4936d4cc56029ed842757",
+      "digest": "9ab69cd01f6c98b66bea700dd38bf9ccb413bbb38b9776ac4d20f2cdc7e55c4d",
       "candidate_count": 2,
       "candidate_titles": [
         "長春國民小學活動中心場地租借管理辦法",
@@ -37,9 +38,9 @@
     },
     "https://www.csps.tp.edu.tw/nss/p/index": {
       "school": "中山國小",
-      "checked_at": "2026-08-20T21:30:23+08:00",
+      "checked_at": "2026-08-20T21:40:41+08:00",
       "content_changed": true,
-      "digest": "b2d10f691fc654ed4c1ac7d2e90eb455114dc52dfe17bf72fb0a72b7be443ef7",
+      "digest": "4e768588614056aa6014760b2e88cb87cab9d487f20f4455159cd87bc68564be",
       "candidate_count": 13,
       "candidate_titles": [
         "本校115年度第3季（7-9月）羽球場地租借於115年〝6月12日(五)至6月18 日(四)〞之上班時間:上午8時30分至下午4時30分開放報名(為響應政府節能減紙政策，申請表請自行列印)",
@@ -59,14 +60,25 @@
     },
     "https://www.chwjh.tp.edu.tw/nss/p/index": {
       "school": "金華國中",
-      "checked_at": "2026-08-20T21:30:29+08:00",
+      "checked_at": "2026-08-20T21:40:58+08:00",
       "content_changed": true,
-      "digest": "f4edc6b8fcb65f913de86e3db9fa995767fbd34171b2915b88d98ea24da91073",
-      "candidate_count": 0,
-      "candidate_titles": [],
+      "digest": "4b1f4b32c4d214cca1281a578e62dfda4f43e6857a5d12004ac7191322b02002",
+      "candidate_count": 16,
+      "candidate_titles": [
+        "【場地租借】本校活動中心115年度第3季場租公告",
+        "【場地租借】本校活動中心114年度第3季場租公告",
+        "活動中心球場108年1月至3月場地租借申請公告，即日起至107年12月14日(五)截止報名",
+        "活動中心球場113年第2季(4-6月)場地租借，即日起開放申請至113年3月8日(五)截止報名。",
+        "活動中心球場109年9月至12月場地租借申請公告，即日起至109年9月11日(五)截止報名。",
+        "活動中心球場113年第3季(7-9月)場地租借，即日起開放申請至113年6月7日(五)截止報名。",
+        "【場地租借】本校活動中心租借團體家數暨抽籤場地公告",
+        "活動中心球場112年第3季(7-9月)場地租借，即日起開放申請至112年6月7日(三)截止報名。",
+        "【場地租借】本校活動中心租借團體家數暨抽籤場地公告",
+        "活動中心籃球場112年第4季(10-12月)場地租借，即日起開放申請至112年9月13日(三)截止報名"
+      ],
       "nss_feed_count": 0,
       "nss_announcement_count": 0,
-      "nss_fulltext_candidate_count": 0
+      "nss_fulltext_candidate_count": 16
     }
   }
 }
