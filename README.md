@@ -12,6 +12,7 @@
 - `data/sources.csv`：學校公開公告來源清單
 - `data/announcements.json`：crawler 整理後、供網站顯示的公告資料
 - `data/source-status.json`：各來源最近檢查時間與讀取狀態
+- `data/manual-check.json`：暫不納入排程、改由人工確認的公告頁清單
 - `scripts/check_announcements.py`：公告 crawler 與 NSS 全文檢索整合
 - `.github/workflows/check-sources.yml`：巡查、更新資料與部署最新資料
 - `.github/workflows/pages.yml`：一般網站部署
@@ -21,6 +22,7 @@
 - **最新公告**：每間學校最多顯示兩筆，分別是最新的「登記／報名」與「抽籤結果」公告。
 - **歷史資料**：預設收合，展開後可依學校、公告類型及關鍵字篩選全部已蒐集公告。
 - **正在監測的學校**：保留每個來源的最近檢查時間與讀取狀態，不顯示候選公告數量。
+- **人工檢查**：爬蟲無法讀取的公告頁保留校方連結，但不會納入排程掃描。
 
 ## 公告資料與分類
 
@@ -59,6 +61,8 @@ school,source_url,enabled
 ```
 
 `enabled` 設為 `true` 才會納入巡查。不同網站格式可能不同，新增來源後請先確認 Actions 執行結果。
+
+若來源長期無法讀取，請從 `data/sources.csv` 移除，並加入 `data/manual-check.json`。該清單會顯示在網站的「人工檢查」區塊，保留連至校方公告頁的按鈕，但排程不會掃描它。
 
 ## GitHub 設定
 

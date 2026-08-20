@@ -1,0 +1,29 @@
+{
+  "schools": [
+    {
+      "school": "忠孝國中",
+      "source_url": "https://www.chjh.tp.edu.tw/category/news/",
+      "reason": "公告頁目前無法由爬蟲讀取，請人工確認。"
+    },
+    {
+      "school": "興雅國中",
+      "source_url": "https://www.syajh.tp.edu.tw/",
+      "reason": "公告頁目前無法由爬蟲讀取，請人工確認。"
+    },
+    {
+      "school": "中崙高中",
+      "source_url": "https://www.zlsh.tp.edu.tw/category/news/news_01/",
+      "reason": "公告頁目前無法由爬蟲讀取，請人工確認。"
+    },
+    {
+      "school": "永吉國中",
+      "source_url": "https://www.yjjh.tp.edu.tw/category/news/",
+      "reason": "公告頁目前無法由爬蟲讀取，請人工確認。"
+    },
+    {
+      "school": "弘道國中",
+      "source_url": "https://www.htjh.tp.edu.tw/category/news/news1/",
+      "reason": "公告頁目前無法由爬蟲讀取，請人工確認。"
+    }
+  ]
+}

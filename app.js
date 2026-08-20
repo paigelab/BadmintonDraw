@@ -7,6 +7,7 @@ const latestCount = document.querySelector('#result-count');
 const historyCount = document.querySelector('#history-count');
 const historyDetails = document.querySelector('#history-details');
 const sourceList = document.querySelector('#source-list');
+const manualCheckList = document.querySelector('#manual-check-list');
 
 const LATEST_LIMIT = 6;
 const CATEGORIES = {
@@ -84,14 +85,23 @@ function renderSources(sources) {
   }).join('') : '<p class="empty">尚未加入學校公告來源。</p>';
 }
 
+function renderManualChecks(schools) {
+  manualCheckList.innerHTML = schools.length ? schools.map((item) => `<article class="source-card">
+    <span class="status">需人工檢查</span>
+    <h3>${item.school}</h3>
+    <p>${item.reason || '請直接前往校方公告頁確認。'}</p>
+    <a href="${item.source_url}" target="_blank" rel="noopener noreferrer">開啟校方公告頁 →</a>
+  </article>`).join('') : '<p class="empty">目前沒有需要人工檢查的學校。</p>';
+}
+
 function openHistoryFromHash() {
   if (location.hash === '#history') historyDetails.open = true;
 }
 
 async function init() {
   try {
-    const [response, statusResponse] = await Promise.all([fetch('data/announcements.json'), fetch('data/source-status.json')]);
-    const [data, statusData] = await Promise.all([response.json(), statusResponse.json()]);
+    const [response, statusResponse, manualResponse] = await Promise.all([fetch('data/announcements.json'), fetch('data/source-status.json'), fetch('data/manual-check.json')]);
+    const [data, statusData, manualData] = await Promise.all([response.json(), statusResponse.json(), manualResponse.json()]);
     announcements = [...(data.announcements || [])].sort((a, b) => String(b.published_at || '').localeCompare(String(a.published_at || '')));
     document.querySelector('#last-updated').textContent = data.last_updated || '尚未更新';
     [...new Set(announcements.map((item) => item.school))].sort().forEach((school) => schoolFilter.add(new Option(school, school)));
@@ -99,6 +109,7 @@ async function init() {
     renderLatest();
     renderHistory();
     renderSources(statusData.sources);
+    renderManualChecks(manualData.schools || []);
     openHistoryFromHash();
   } catch {
     latestList.innerHTML = '<p class="empty">公告資料暫時無法讀取。</p>';

@@ -211,8 +211,11 @@ def main() -> None:
     existing = {item.get("source_url"): item for item in data.get("announcements", [])}
     taipei = timezone(timedelta(hours=8))
     with SOURCES.open(encoding="utf-8", newline="") as file:
-        for row in csv.DictReader(line for line in file if not line.lstrip().startswith("#")):
-            if row.get("enabled", "").lower() != "true": continue
+        rows = [row for row in csv.DictReader(line for line in file if not line.lstrip().startswith("#")) if row.get("enabled", "").lower() == "true"]
+        active_urls = {row["source_url"].strip() for row in rows}
+        for stale_url in set(records) - active_urls:
+            records.pop(stale_url)
+        for row in rows:
             url = row["source_url"].strip()
             try:
                 raw_html = get_text(url)
