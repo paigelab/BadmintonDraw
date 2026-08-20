@@ -2,9 +2,9 @@
   "sources": {
     "https://www.ypps.tp.edu.tw/nss/p/index": {
       "school": "延平國小",
-      "checked_at": "2026-08-20T21:40:01+08:00",
+      "checked_at": "2026-08-20T21:46:33+08:00",
       "content_changed": true,
-      "digest": "9eabea1750b3e502c7e8b35d62fa8b27fb097130b06a74c121923d554b3d3c2a",
+      "digest": "ff63e5ff4bffd0e978aa3057382a20fccabe8b6ffc491bb731fb3b641afba093",
       "candidate_count": 10,
       "candidate_titles": [
         "本校活動中心1樓羽球場地115年第3季星期日8-10點登記抽籤結果",
@@ -24,9 +24,9 @@
     },
     "https://www.ccps.tp.edu.tw/nss/p/index": {
       "school": "長春國小",
-      "checked_at": "2026-08-20T21:40:20+08:00",
+      "checked_at": "2026-08-20T21:46:46+08:00",
       "content_changed": true,
-      "digest": "9ab69cd01f6c98b66bea700dd38bf9ccb413bbb38b9776ac4d20f2cdc7e55c4d",
+      "digest": "f7d002ec12566a4a34c098b71b67f05a413001958584228e04eac7204428cd67",
       "candidate_count": 2,
       "candidate_titles": [
         "長春國民小學活動中心場地租借管理辦法",
@@ -38,9 +38,9 @@
     },
     "https://www.csps.tp.edu.tw/nss/p/index": {
       "school": "中山國小",
-      "checked_at": "2026-08-20T21:40:41+08:00",
+      "checked_at": "2026-08-20T21:47:02+08:00",
       "content_changed": true,
-      "digest": "4e768588614056aa6014760b2e88cb87cab9d487f20f4455159cd87bc68564be",
+      "digest": "b472b9d9aaaaac56819186732820372b38c5badb49fa2f2b1148add760a6fba6",
       "candidate_count": 13,
       "candidate_titles": [
         "本校115年度第3季（7-9月）羽球場地租借於115年〝6月12日(五)至6月18 日(四)〞之上班時間:上午8時30分至下午4時30分開放報名(為響應政府節能減紙政策，申請表請自行列印)",
@@ -60,9 +60,9 @@
     },
     "https://www.chwjh.tp.edu.tw/nss/p/index": {
       "school": "金華國中",
-      "checked_at": "2026-08-20T21:40:58+08:00",
+      "checked_at": "2026-08-20T21:47:14+08:00",
       "content_changed": true,
-      "digest": "4b1f4b32c4d214cca1281a578e62dfda4f43e6857a5d12004ac7191322b02002",
+      "digest": "dd08fe6e835adea070e780a58710463b0efd3f76d1dfa18d0bd977c11a81ea9f",
       "candidate_count": 16,
       "candidate_titles": [
         "【場地租借】本校活動中心115年度第3季場租公告",
@@ -79,6 +79,33 @@
       "nss_feed_count": 0,
       "nss_announcement_count": 0,
       "nss_fulltext_candidate_count": 16
+    },
+    "https://www.mhps.tp.edu.tw/nss/p/index": {
+      "school": "銘傳國小",
+      "checked_at": "2026-08-20T21:47:27+08:00",
+      "content_changed": true,
+      "digest": "8c3d5971b230a88d027b1064049ecf8e30493428a52c1834d1d985c59deec28d",
+      "candidate_count": 19,
+      "candidate_titles": [
+        "臺北市大安區銘傳國民小學115學年度羽球代表隊甄選辦法",
+        "【公告】113年第2季活動中心場租(剩餘場次)",
+        "臺北市大安區銘傳國民小學112年第四季場地租借說明公告",
+        "【公告】臺北市大安區銘傳國民小學114年第1季場地租借說明",
+        "【公告】臺北市大安區銘傳國民小學113年第3季場地租借說明",
+        "本校114學年度第二學期新增開設社團新增「週三羽球班」課程",
+        "【公告】臺北市大安區銘傳國民小學115年第1季場地租借說明",
+        "【公告】臺北市大安區銘傳國民小學113年第4季場地租借說明",
+        "【公告】臺北市大安區銘傳國民小學113年第1季場地租借說明",
+        "【公告】113年第1季場地租借(剩餘場租)"
+      ],
+      "nss_feed_count": 0,
+      "nss_announcement_count": 0,
+      "nss_fulltext_candidate_count": 19
+    },
+    "https://www.chjh.tp.edu.tw/": {
+      "school": "忠孝國中",
+      "checked_at": "2026-08-20T21:47:30+08:00",
+      "error": "HTTP Error 404: Not Found"
     }
   }
 }
