@@ -37,16 +37,25 @@ function card(item) {
 }
 
 function renderLatest() {
+  const now = new Date();
+  const oneMonthAgo = new Date(now);
+  oneMonthAgo.setMonth(now.getMonth() - 1);
+  oneMonthAgo.setHours(0, 0, 0, 0);
+  now.setHours(23, 59, 59, 999);
   const latestBySchoolAndCategory = new Map();
   announcements
-    .filter((item) => ['registration', 'result'].includes(categoryOf(item)))
+    .filter((item) => {
+      if (!['registration', 'result'].includes(categoryOf(item))) return false;
+      const publishedAt = new Date(`${item.published_at}T00:00:00`);
+      return !Number.isNaN(publishedAt.getTime()) && publishedAt >= oneMonthAgo && publishedAt <= now;
+    })
     .forEach((item) => {
       const key = `${item.school}::${categoryOf(item)}`;
       if (!latestBySchoolAndCategory.has(key)) latestBySchoolAndCategory.set(key, item);
     });
   const latest = [...latestBySchoolAndCategory.values()].slice(0, LATEST_LIMIT);
   latestCount.textContent = latest.length ? `共 ${latest.length} 筆` : '';
-  latestList.innerHTML = latest.length ? latest.map(card).join('') : '<p class="empty">尚無公告資料。</p>';
+  latestList.innerHTML = latest.length ? latest.map(card).join('') : '<p class="empty">近一個月內尚無符合條件的公告。</p>';
 }
 
 function renderHistory() {
