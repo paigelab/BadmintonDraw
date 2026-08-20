@@ -33,6 +33,18 @@ def is_relevant(text: str) -> bool:
     )
 
 
+def categorize(title: str, description: str = "") -> str:
+    """Classify a relevant notice for concise presentation on the website."""
+    text = re.sub(r"\s+", "", f"{title}{description}")
+    if any(word in text for word in ("中籤", "抽籤結果", "抽籤名單", "登記結果", "錄取結果")):
+        return "result"
+    if any(word in text for word in ("登記", "報名", "申請", "出租", "租用", "預約")):
+        return "registration"
+    if any(word in text for word in ("管理辦法", "使用規則", "使用管理", "租借管理")):
+        return "rule"
+    return "other"
+
+
 DATE = re.compile(r"(?:\d{3,4}[./年-])?\d{1,2}[./月-]\d{1,2}(?:日)?")
 SEARCH_TERMS = ("羽球", "羽球場地", "場地抽籤", "場地登記", "場地借用")
 
@@ -202,6 +214,7 @@ def main() -> None:
                             "title": title,
                             "published_at": DATE.search(title).group(0) if DATE.search(title) else "日期待確認",
                             "summary": summary_for(title),
+                            "category": categorize(title),
                             "type": "自動偵測候選公告",
                             "source_url": source_url,
                         }
@@ -219,6 +232,7 @@ def main() -> None:
                             "title": item["title"],
                             "published_at": item["published_at"],
                             "summary": summary_for(item["title"], item["description"]),
+                            "category": categorize(item["title"], item["description"]),
                             "type": "自動擷取公告",
                             "source_url": item["url"],
                         }
@@ -230,6 +244,7 @@ def main() -> None:
                         "title": item["title"],
                         "published_at": item["published_at"],
                         "summary": summary_for(item["title"], item["description"]),
+                        "category": categorize(item["title"], item["description"]),
                         "type": "全文檢索公告",
                         "source_url": item["url"],
                     }

@@ -16,19 +16,8 @@
 
     <main>
       <section class="notice" aria-label="資料說明">
-        <strong>資料仍在建置中</strong>
-        <span>目前尚未加入學校來源；公告資料會保留原始連結，請以校方最新公告為準。</span>
-      </section>
-
-      <section class="controls" aria-label="公告篩選">
-        <label>
-          搜尋公告或學校
-          <input id="search" type="search" placeholder="例如：臺灣大學、抽籤、羽球" />
-        </label>
-        <label>
-          學校
-          <select id="school-filter"><option value="">全部學校</option></select>
-        </label>
+        <strong>近期羽球場地資訊</strong>
+        <span>公告資料來自各校公開網站；請以校方原始公告為準。</span>
       </section>
 
       <section aria-labelledby="announcements-title">
@@ -37,6 +26,23 @@
           <p id="result-count" aria-live="polite"></p>
         </div>
         <div id="announcement-list" class="announcement-list"></div>
+      </section>
+
+      <p class="history-link"><a href="#history">查看更多歷史公告 ↓</a></p>
+
+      <section id="history" class="history" aria-labelledby="history-title">
+        <details id="history-details">
+          <summary><span><p class="eyebrow">ARCHIVE</p><h2 id="history-title">歷史資料</h2></span><span class="summary-hint">展開查詢</span></summary>
+          <div class="history-content">
+            <div class="history-controls" aria-label="歷史公告篩選">
+              <label>關鍵字搜尋<input id="search" type="search" placeholder="例如：抽籤、羽球、場地" /></label>
+              <label>學校<select id="school-filter"><option value="">全部學校</option></select></label>
+              <label>公告類型<select id="category-filter"><option value="">全部類型</option></select></label>
+            </div>
+            <p id="history-count" class="history-count" aria-live="polite"></p>
+            <div id="history-list" class="announcement-list"></div>
+          </div>
+        </details>
       </section>
 
       <section class="monitoring" aria-labelledby="monitoring-title">
