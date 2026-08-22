@@ -15,6 +15,8 @@ from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
 from pathlib import Path
+from time import sleep
+from urllib.error import HTTPError, URLError
 from urllib.parse import quote, urljoin, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 from xml.etree import ElementTree
@@ -104,8 +106,14 @@ def get_text(url: str) -> str:
     parts = urlsplit(url)
     request_url = urlunsplit((parts.scheme, parts.netloc, quote(parts.path, safe="/%"), quote(parts.query, safe="=&/%"), ""))
     request = Request(request_url, headers={"User-Agent": "BadmintonDraw-monitor/0.1 (+GitHub Actions)"})
-    with urlopen(request, timeout=25) as response:
-        return response.read().decode(response.headers.get_content_charset() or "utf-8", errors="replace")
+    for attempt in range(3):
+        try:
+            with urlopen(request, timeout=25) as response:
+                return response.read().decode(response.headers.get_content_charset() or "utf-8", errors="replace")
+        except (HTTPError, URLError):
+            if attempt == 2:
+                raise
+            sleep(attempt + 1)
 
 
 def post_json(url: str, payload: dict) -> dict:
@@ -379,7 +387,17 @@ def main() -> None:
                             "type": "自動擷取公告",
                             "source_url": item["url"],
                         }
-                fulltext_items = nss_fulltext_items(url, raw_html)
+                # Google Sites and WordPress sources do not provide the NSS
+                # full-text endpoint.  Their ordinary page links are still
+                # useful, so a missing optional NSS endpoint must not mark
+                # the whole school as unreadable.
+                fulltext_items = []
+                is_nss_source = "/nss/" in url or "/nss/" in raw_html
+                if is_nss_source:
+                    try:
+                        fulltext_items = nss_fulltext_items(url, raw_html)
+                    except Exception as error:
+                        print(f"NSS full-text search skipped for {row['school']}: {error}")
                 for item in fulltext_items:
                     candidates.append(item["title"])
                     existing[item["url"]] = {
