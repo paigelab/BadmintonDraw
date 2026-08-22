@@ -45,10 +45,12 @@
       </section>
 
       <section class="monitoring" aria-labelledby="monitoring-title">
-        <div class="section-heading">
-          <div><p class="eyebrow">MONITORING</p><h2 id="monitoring-title">正在監測的學校</h2></div>
-        </div>
-        <div id="source-list" class="source-list"></div>
+        <details id="monitoring-details">
+          <summary><span><p class="eyebrow">MONITORING</p><h2 id="monitoring-title">正在監測的學校</h2></span><span id="monitoring-count" class="summary-hint">展開查看</span></summary>
+          <div class="monitoring-content">
+            <div id="source-list" class="source-list"></div>
+          </div>
+        </details>
       </section>
 
       <section class="manual-check" aria-labelledby="manual-check-title">

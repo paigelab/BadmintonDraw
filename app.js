@@ -7,6 +7,7 @@ const latestCount = document.querySelector('#result-count');
 const historyCount = document.querySelector('#history-count');
 const historyDetails = document.querySelector('#history-details');
 const sourceList = document.querySelector('#source-list');
+const monitoringCount = document.querySelector('#monitoring-count');
 const manualCheckList = document.querySelector('#manual-check-list');
 
 const LATEST_LIMIT = 6;
@@ -73,6 +74,7 @@ function renderHistory() {
 
 function renderSources(sources, activeUrls) {
   const entries = Object.entries(sources || {}).filter(([url]) => activeUrls.has(url));
+  monitoringCount.textContent = entries.length ? `${entries.length} 所・展開查看` : '展開查看';
   sourceList.innerHTML = entries.length ? entries.map(([url, item]) => {
     const checked = (item.checked_at || '尚未檢查').replace('T', ' ').replace(/:\d{2}\+08:00$/, '');
     const status = item.error ? '暫時無法讀取' : '已完成公告檢查';
