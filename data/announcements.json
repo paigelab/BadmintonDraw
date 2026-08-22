@@ -1,6 +1,78 @@
 {
-  "last_updated": "2026-08-22 21:23（台灣時間）",
+  "last_updated": "2026-08-22 21:36（台灣時間）",
   "announcements": [
+    {
+      "school": "五常國中",
+      "title": "115年第3季場租抽籤結果",
+      "published_at": "日期待確認",
+      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：115年第3季場租抽籤結果。請以校方原始公告為準。",
+      "category": "result",
+      "type": "自動偵測候選公告",
+      "source_url": "https://sites.google.com/wcjhs.tp.edu.tw/1120524/115年第3季場租抽籤結果"
+    },
+    {
+      "school": "五常國中",
+      "title": "115年第3季場租抽籤名單",
+      "published_at": "日期待確認",
+      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：115年第3季場租抽籤名單。請以校方原始公告為準。",
+      "category": "result",
+      "type": "自動偵測候選公告",
+      "source_url": "https://sites.google.com/wcjhs.tp.edu.tw/1120524/115年第3季場租抽籤名單"
+    },
+    {
+      "school": "五常國中",
+      "title": "115年第2季場租抽籤結果",
+      "published_at": "日期待確認",
+      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：115年第2季場租抽籤結果。請以校方原始公告為準。",
+      "category": "result",
+      "type": "自動偵測候選公告",
+      "source_url": "https://sites.google.com/wcjhs.tp.edu.tw/1120524/115年第2季場租抽籤結果"
+    },
+    {
+      "school": "五常國中",
+      "title": "115年第2季場租抽籤名單",
+      "published_at": "日期待確認",
+      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：115年第2季場租抽籤名單。請以校方原始公告為準。",
+      "category": "result",
+      "type": "自動偵測候選公告",
+      "source_url": "https://sites.google.com/wcjhs.tp.edu.tw/1120524/115年第2季場租抽籤名單"
+    },
+    {
+      "school": "五常國中",
+      "title": "● 115年第 3 季場租抽籤結果",
+      "published_at": "日期待確認",
+      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：● 115年第 3 季場租抽籤結果。請以校方原始公告為準。",
+      "category": "result",
+      "type": "自動偵測候選公告",
+      "source_url": "https://sites.google.com/wcjhs.tp.edu.tw/1120524/115%E5%B9%B4%E7%AC%AC3%E5%AD%A3%E5%A0%B4%E7%A7%9F%E6%8A%BD%E7%B1%A4%E7%B5%90%E6%9E%9C?authuser=0"
+    },
+    {
+      "school": "五常國中",
+      "title": "● 115年第 3 季場租抽籤名單",
+      "published_at": "日期待確認",
+      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：● 115年第 3 季場租抽籤名單。請以校方原始公告為準。",
+      "category": "result",
+      "type": "自動偵測候選公告",
+      "source_url": "https://sites.google.com/wcjhs.tp.edu.tw/1120524/115%E5%B9%B4%E7%AC%AC3%E5%AD%A3%E5%A0%B4%E7%A7%9F%E6%8A%BD%E7%B1%A4%E5%90%8D%E5%96%AE?authuser=0"
+    },
+    {
+      "school": "五常國中",
+      "title": "● 115年第2季場租抽籤結果",
+      "published_at": "日期待確認",
+      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：● 115年第2季場租抽籤結果。請以校方原始公告為準。",
+      "category": "result",
+      "type": "自動偵測候選公告",
+      "source_url": "https://sites.google.com/wcjhs.tp.edu.tw/1120524/115%E5%B9%B4%E7%AC%AC2%E5%AD%A3%E5%A0%B4%E7%A7%9F%E6%8A%BD%E7%B1%A4%E7%B5%90%E6%9E%9C?authuser=0"
+    },
+    {
+      "school": "五常國中",
+      "title": "● 115年第2季場租抽籤名單",
+      "published_at": "日期待確認",
+      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：● 115年第2季場租抽籤名單。請以校方原始公告為準。",
+      "category": "result",
+      "type": "自動偵測候選公告",
+      "source_url": "https://sites.google.com/wcjhs.tp.edu.tw/1120524/115%E5%B9%B4%E7%AC%AC2%E5%AD%A3%E5%A0%B4%E7%A7%9F%E6%8A%BD%E7%B1%A4%E5%90%8D%E5%96%AE?authuser=0"
+    },
     {
       "school": "金華國中",
       "title": "【場地租借】本校活動中心115年度第4季場租公告",
