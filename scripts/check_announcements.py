@@ -255,6 +255,25 @@ def send_discord_notification(webhook_url: str, item: dict) -> bool:
         return False
 
 
+def send_discord_test_notification() -> None:
+    """Send an opt-in verification message without touching delivery records."""
+    if os.environ.get("DISCORD_TEST_NOTIFICATION", "").lower() != "true":
+        return
+    webhook_url = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
+    if not webhook_url:
+        print("Discord test skipped: DISCORD_WEBHOOK_URL is not configured.")
+        return
+    test_item = {
+        "school": "BadmintonDraw 測試",
+        "category": "registration",
+        "title": "Discord Webhook 設定成功",
+        "published_at": datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d"),
+        "source_url": "https://github.com/paigelab/BadmintonDraw",
+    }
+    if send_discord_notification(webhook_url, test_item):
+        print("Discord test notification sent successfully.")
+
+
 def notify_new_announcements(announcements: list[dict], now: datetime) -> None:
     """Seed historic records once, then notify only first-seen eligible URLs."""
     notified = load_notified()
@@ -370,5 +389,6 @@ def main() -> None:
     data["last_updated"] = datetime.now(taipei).strftime("%Y-%m-%d %H:%M（台灣時間）")
     ANNOUNCEMENTS.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     notify_new_announcements(data["announcements"], datetime.now(taipei))
+    send_discord_test_notification()
 
 if __name__ == "__main__": main()

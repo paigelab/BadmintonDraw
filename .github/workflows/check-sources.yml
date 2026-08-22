@@ -10,6 +10,12 @@ on:
     # 02:08 and 10:08 UTC = 10:08 and 18:08 in Taiwan (UTC+8)
     - cron: "8 2,10 * * *"
   workflow_dispatch:
+    inputs:
+      send_test_discord_notification:
+        description: "Send one Discord test notification without changing notification records"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -29,6 +35,7 @@ jobs:
       - run: python scripts/check_announcements.py
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_TEST_NOTIFICATION: ${{ inputs.send_test_discord_notification || 'false' }}
       - name: Commit changed monitoring status
         id: commit
         run: |

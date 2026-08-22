@@ -87,3 +87,7 @@ Webhook URL 只會在 GitHub Actions 執行時以 Secret 環境變數讀取，�
 通知只涵蓋 `registration`（登記／報名）與 `result`（抽籤結果）。每則公告以 `source_url` 去重；Discord 成功接收後才會寫入 `data/notified.json`。若發送失敗或尚未設定 Secret，該公告不會被標示為已通知，下一次排程會重試。
 
 初次啟用時，crawler 會將當前所有符合分類的歷史公告寫入 `data/notified.json` 作為基準，**不會補發歷史通知**；只有基準建立後新出現的公告才會通知。
+
+### 測試 Webhook
+
+在 GitHub 的 **Actions → Check school announcement pages → Run workflow** 中，勾選 `send_test_discord_notification` 後執行。成功時 Discord 會收到一則「BadmintonDraw 測試」通知；這不會新增或修改 `data/notified.json`，也不會影響正式公告的去重紀錄。
