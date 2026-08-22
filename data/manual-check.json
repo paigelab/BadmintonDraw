@@ -19,6 +19,26 @@
     {
       "school": "弘道國中",
       "source_url": "https://www.htjh.tp.edu.tw/category/news/news1/"
+    },
+    {
+      "school": "日新國小",
+      "source_url": "https://www.zhps.tp.edu.tw/nss/p/index"
+    },
+    {
+      "school": "幸安國小",
+      "source_url": "https://www.haps.tp.edu.tw/nss/p/index"
+    },
+    {
+      "school": "芳和實驗國中",
+      "source_url": "https://www.fhehs.tp.edu.tw/"
+    },
+    {
+      "school": "中正國中",
+      "source_url": "https://www.ccjhs.tp.edu.tw/"
+    },
+    {
+      "school": "五常國中",
+      "source_url": "https://sites.google.com/wcjhs.tp.edu.tw/1120524/%E9%A6%96%E9%A0%81"
     }
   ]
 }
