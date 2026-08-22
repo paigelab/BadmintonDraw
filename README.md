@@ -13,6 +13,7 @@
 - `data/announcements.json`：crawler 整理後、供網站顯示的公告資料
 - `data/source-status.json`：各來源最近檢查時間與讀取狀態
 - `data/manual-check.json`：暫不納入排程、改由人工確認的公告頁清單
+- `data/notified.json`：Discord 通知初始化基準與已成功發送的公告網址
 - `scripts/check_announcements.py`：公告 crawler 與 NSS 全文檢索整合
 - `.github/workflows/check-sources.yml`：巡查、更新資料與部署最新資料
 - `.github/workflows/pages.yml`：一般網站部署
@@ -49,7 +50,8 @@
 2. 針對 NSS 網站自動發現公開公告 RSS 與全文檢索端點。
 3. 以羽球、場地抽籤、場地登記與場地借用等關鍵字搜尋公告與歷史資料。
 4. 篩選羽球場地相關內容、分類並寫入 `announcements.json`。
-5. 更新監控狀態後，部署最新資料至 GitHub Pages。
+5. 首次執行時建立 Discord 通知基準；之後只對新出現的登記／報名或抽籤結果公告發送通知。
+6. 更新監控狀態後，部署最新資料至 GitHub Pages。
 
 ## 新增學校來源
 
@@ -71,3 +73,17 @@ school,source_url,enabled
 巡查排程為台灣時間每日 **10:08** 與 **18:08**；新增或修改來源資料、crawler 程式時也會立即巡查。每次巡查完成後會部署最新資料至 GitHub Pages。
 
 GitHub Actions 的整點排程可能延遲，因此刻意避開整點。公告資訊仍應以校方原始公告為準。
+
+## Discord 通知設定
+
+Crawler 可透過 Discord Webhook 通知新發現的羽球場地公告，不需要主機或資料庫。
+
+1. 在 Discord 伺服器的目標頻道開啟 **編輯頻道 → 整合 → Webhooks → 新增 Webhook**，複製 Webhook URL。
+2. 開啟 GitHub Repository 的 **Settings → Secrets and variables → Actions → New repository secret**。
+3. Name 輸入 `DISCORD_WEBHOOK_URL`，Value 貼上 Discord Webhook URL 後儲存。
+
+Webhook URL 只會在 GitHub Actions 執行時以 Secret 環境變數讀取，不會寫入程式碼或資料檔。
+
+通知只涵蓋 `registration`（登記／報名）與 `result`（抽籤結果）。每則公告以 `source_url` 去重；Discord 成功接收後才會寫入 `data/notified.json`。若發送失敗或尚未設定 Secret，該公告不會被標示為已通知，下一次排程會重試。
+
+初次啟用時，crawler 會將當前所有符合分類的歷史公告寫入 `data/notified.json` 作為基準，**不會補發歷史通知**；只有基準建立後新出現的公告才會通知。

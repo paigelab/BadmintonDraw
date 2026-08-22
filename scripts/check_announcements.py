@@ -9,6 +9,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 import re
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
@@ -22,6 +23,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCES = ROOT / "data" / "sources.csv"
 STATUS = ROOT / "data" / "source-status.json"
 ANNOUNCEMENTS = ROOT / "data" / "announcements.json"
+NOTIFIED = ROOT / "data" / "notified.json"
+NOTIFIABLE_CATEGORIES = {"registration", "result"}
+CATEGORY_LABELS = {"registration": "登記／報名", "result": "抽籤結果"}
 
 # We deliberately require a strong combination.  A school homepage often has
 # menu entries such as "場地預約" or "羽球隊", which are not lottery notices.
@@ -200,6 +204,87 @@ def load_announcements() -> dict:
     return {"last_updated": "尚未更新", "announcements": []}
 
 
+def load_notified() -> dict:
+    """Load delivery records; a blank initialization is intentionally safe."""
+    if NOTIFIED.exists():
+        return json.loads(NOTIFIED.read_text(encoding="utf-8"))
+    return {"initialized_at": None, "notified": []}
+
+
+def save_notified(notified: dict) -> None:
+    NOTIFIED.write_text(json.dumps(notified, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def notification_record(item: dict, notified_at: str, delivery: str) -> dict:
+    return {
+        "source_url": item["source_url"],
+        "notified_at": notified_at,
+        "school": item.get("school", "學校待確認"),
+        "title": item.get("title", "公告標題待確認"),
+        "delivery": delivery,
+    }
+
+
+def send_discord_notification(webhook_url: str, item: dict) -> bool:
+    """Deliver one Discord embed and return True only when Discord accepts it."""
+    title = str(item.get("title", "公告標題待確認"))[:256]
+    payload = {
+        "embeds": [{
+            "title": "🏸 新羽球場地公告",
+            "url": item["source_url"],
+            "color": 1532757,
+            "fields": [
+                {"name": "學校", "value": str(item.get("school", "學校待確認"))[:1024], "inline": True},
+                {"name": "公告類型", "value": CATEGORY_LABELS[item["category"]], "inline": True},
+                {"name": "公告日期", "value": str(item.get("published_at", "日期待確認"))[:1024], "inline": True},
+                {"name": "公告標題", "value": title, "inline": False},
+                {"name": "原始公告", "value": f"[點擊前往原始公告]({item['source_url']})", "inline": False},
+            ],
+        }],
+    }
+    try:
+        body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        request = Request(webhook_url, data=body, headers={"Content-Type": "application/json", "User-Agent": "BadmintonDraw-monitor/0.1 (+GitHub Actions)"})
+        with urlopen(request, timeout=20) as response:
+            if response.status not in (200, 204):
+                print(f"Discord notification rejected for {item['source_url']}: HTTP {response.status}")
+                return False
+        return True
+    except Exception as error:
+        print(f"Discord notification failed for {item['source_url']}: {error}")
+        return False
+
+
+def notify_new_announcements(announcements: list[dict], now: datetime) -> None:
+    """Seed historic records once, then notify only first-seen eligible URLs."""
+    notified = load_notified()
+    timestamp = now.isoformat(timespec="seconds")
+    eligible = [item for item in announcements if item.get("category") in NOTIFIABLE_CATEGORIES and item.get("source_url")]
+
+    # The first execution deliberately records history without sending it.
+    if not notified.get("initialized_at"):
+        notified["initialized_at"] = timestamp
+        notified["notified"] = [notification_record(item, timestamp, "initialization") for item in eligible]
+        save_notified(notified)
+        print(f"Discord notification baseline initialized with {len(eligible)} existing announcements.")
+        return
+
+    webhook_url = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
+    if not webhook_url:
+        print("DISCORD_WEBHOOK_URL is not configured; new announcements will be retried later.")
+        return
+
+    notified_urls = {item.get("source_url") for item in notified.get("notified", [])}
+    for item in eligible:
+        if item["source_url"] in notified_urls:
+            continue
+        if send_discord_notification(webhook_url, item):
+            notified.setdefault("notified", []).append(notification_record(item, timestamp, "discord"))
+            # Persist immediately: a later failure must not resend a successful delivery.
+            save_notified(notified)
+            notified_urls.add(item["source_url"])
+
+
 def summary_for(title: str, description: str = "") -> str:
     clean_description = description[:180].rstrip()
     return clean_description or f"偵測到可能與羽球場地抽籤相關的公開公告：{title}。請以校方原始公告為準。"
@@ -284,5 +369,6 @@ def main() -> None:
     data["announcements"] = sorted(existing.values(), key=lambda item: item.get("published_at", ""), reverse=True)
     data["last_updated"] = datetime.now(taipei).strftime("%Y-%m-%d %H:%M（台灣時間）")
     ANNOUNCEMENTS.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    notify_new_announcements(data["announcements"], datetime.now(taipei))
 
 if __name__ == "__main__": main()
