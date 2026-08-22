@@ -70,7 +70,7 @@ school,source_url,enabled
 
 推送到 GitHub 後，在 Repository 的 **Settings → Pages**，將 Source 設為 **GitHub Actions**。網站將在每次推送後自動部署。
 
-巡查排程為台灣時間每日 **10:08** 與 **18:08**；新增或修改來源資料、crawler 程式時也會立即巡查。每次巡查完成後會部署最新資料至 GitHub Pages。
+巡查排程為台灣時間每日 **10:08** 與 **18:08**，每次都會檢查全部啟用學校。若推送內容**只**變更 `data/sources.csv`，則立即巡查只會檢查新增或異動的學校來源；crawler 程式有變更或手動執行時，則仍會檢查全部啟用學校。每次巡查完成後會部署最新資料至 GitHub Pages。
 
 GitHub Actions 的整點排程可能延遲，因此刻意避開整點。公告資訊仍應以校方原始公告為準。
 

@@ -40,6 +40,23 @@ jobs:
       commit_sha: ${{ steps.commit.outputs.commit_sha }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The push event can contain more than one commit; inspect all of it
+          # before deciding whether this is a source-only update.
+          fetch-depth: 0
+      - name: Choose crawl scope
+        id: crawl-scope
+        shell: bash
+        run: |
+          scope=all
+          if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
+            changed_files="$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}")"
+            if [ "$changed_files" = "data/sources.csv" ]; then
+              scope=changed
+            fi
+          fi
+          echo "scope=$scope" >> "$GITHUB_OUTPUT"
+          echo "Crawler scope: $scope"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -49,6 +66,7 @@ jobs:
           DISCORD_ERROR_WEBHOOK_URL: ${{ secrets.DISCORD_ERROR_WEBHOOK_URL }}
           DISCORD_TEST_NOTIFICATION: ${{ inputs.send_test_discord_notification || 'false' }}
           DISCORD_ERROR_TEST_NOTIFICATION: ${{ inputs.send_test_discord_error_notification || 'false' }}
+          CRAWL_SCOPE: ${{ steps.crawl-scope.outputs.scope }}
       - name: Commit changed monitoring status
         id: commit
         run: |

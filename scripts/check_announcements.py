@@ -216,6 +216,15 @@ def load_announcements() -> dict:
     return {"last_updated": "尚未更新", "announcements": []}
 
 
+def source_configuration(row: dict) -> dict:
+    """Return the source fields whose change requires a fresh crawl."""
+    return {
+        "school": row.get("school", "").strip(),
+        "source_url": row.get("source_url", "").strip(),
+        "enabled": row.get("enabled", "").strip().lower(),
+    }
+
+
 def load_notified() -> dict:
     """Load delivery records; a blank initialization is intentionally safe."""
     if NOTIFIED.exists():
@@ -442,12 +451,32 @@ def main() -> None:
     data = load_announcements()
     existing = {item.get("source_url"): item for item in data.get("announcements", [])}
     taipei = timezone(timedelta(hours=8))
+    crawl_scope = os.environ.get("CRAWL_SCOPE", "all").strip().lower()
     with SOURCES.open(encoding="utf-8", newline="") as file:
         rows = [row for row in csv.DictReader(line for line in file if not line.lstrip().startswith("#")) if row.get("enabled", "").lower() == "true"]
         active_urls = {row["source_url"].strip() for row in rows}
         for stale_url in set(records) - active_urls:
             records.pop(stale_url)
+
+        # Status files created before selective crawling did not contain this
+        # configuration snapshot. Seed it without needlessly recrawling every
+        # existing school on the first source-only update.
         for row in rows:
+            url = row["source_url"].strip()
+            if url in records and "source_configuration" not in records[url]:
+                records[url]["source_configuration"] = source_configuration(row)
+
+        if crawl_scope == "changed":
+            rows_to_crawl = [
+                row for row in rows
+                if records.get(row["source_url"].strip(), {}).get("source_configuration") != source_configuration(row)
+            ]
+            print(f"Selective source update: crawling {len(rows_to_crawl)} changed or new school source(s).")
+        else:
+            rows_to_crawl = rows
+            print(f"Full scheduled/manual crawl: crawling {len(rows_to_crawl)} school source(s).")
+
+        for row in rows_to_crawl:
             url = row["source_url"].strip()
             try:
                 raw_html = get_text(url)
@@ -519,9 +548,15 @@ def main() -> None:
                     "nss_feed_count": len(feed_urls),
                     "nss_announcement_count": feed_item_count,
                     "nss_fulltext_candidate_count": len(fulltext_items),
+                    "source_configuration": source_configuration(row),
                 }
             except Exception as error:
-                records[url] = {"school": row["school"], "checked_at": datetime.now(taipei).isoformat(timespec="seconds"), "error": str(error)}
+                records[url] = {
+                    "school": row["school"],
+                    "checked_at": datetime.now(taipei).isoformat(timespec="seconds"),
+                    "error": str(error),
+                    "source_configuration": source_configuration(row),
+                }
     STATUS.write_text(json.dumps(prior, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     data["announcements"] = sorted(existing.values(), key=lambda item: item.get("published_at", ""), reverse=True)
     data["last_updated"] = datetime.now(taipei).strftime("%Y-%m-%d %H:%M（台灣時間）")
