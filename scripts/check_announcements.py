@@ -15,7 +15,7 @@ from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import quote, urljoin, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 from xml.etree import ElementTree
 
@@ -99,7 +99,11 @@ class PageExtractor(HTMLParser):
         return " ".join(self.parts)
 
 def get_text(url: str) -> str:
-    request = Request(url, headers={"User-Agent": "BadmintonDraw-monitor/0.1 (+GitHub Actions)"})
+    # urllib requires non-ASCII paths (such as Google Sites page names) to be
+    # percent-encoded before building a request.
+    parts = urlsplit(url)
+    request_url = urlunsplit((parts.scheme, parts.netloc, quote(parts.path, safe="/%"), quote(parts.query, safe="=&/%"), ""))
+    request = Request(request_url, headers={"User-Agent": "BadmintonDraw-monitor/0.1 (+GitHub Actions)"})
     with urlopen(request, timeout=25) as response:
         return response.read().decode(response.headers.get_content_charset() or "utf-8", errors="replace")
 
