@@ -33,7 +33,7 @@ def is_relevant(text: str) -> bool:
     normalized = re.sub(r"\s+", "", text)
     return (
         ("羽球" in normalized and any(word in normalized for word in ("抽籤", "場地", "登記", "借用", "申請", "租借", "預約", "使用")))
-        or ("抽籤" in normalized and any(word in normalized for word in ("場地", "球場", "體育館")))
+        or ("抽籤" in normalized and any(word in normalized for word in ("場地", "球場", "體育館", "場租")))
     )
 
 
