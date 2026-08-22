@@ -27,11 +27,11 @@ permissions:
   pages: write
   id-token: write
 
-# A crawler run commits generated JSON back to main.  Keep only the newest
-# run alive so overlapping schedule/push runs cannot race to push that commit.
+# A crawler run commits generated JSON back to main. Serialize runs to avoid
+# push races, but do not cancel a user-requested/manual check once it starts.
 concurrency:
   group: check-school-announcements
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   check:
