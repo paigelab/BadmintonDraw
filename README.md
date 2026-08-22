@@ -76,18 +76,29 @@ GitHub Actions 的整點排程可能延遲，因此刻意避開整點。公告�
 
 ## Discord 通知設定
 
-Crawler 可透過 Discord Webhook 通知新發現的羽球場地公告，不需要主機或資料庫。
+Crawler 可透過 Discord Webhook 通知新發現的羽球場地公告，不需要主機或資料庫。公告通知與來源異常通知使用不同的 Webhook，因此可以送到不同 Discord 頻道。
 
 1. 在 Discord 伺服器的目標頻道開啟 **編輯頻道 → 整合 → Webhooks → 新增 Webhook**，複製 Webhook URL。
 2. 開啟 GitHub Repository 的 **Settings → Secrets and variables → Actions → New repository secret**。
 3. Name 輸入 `DISCORD_WEBHOOK_URL`，Value 貼上 Discord Webhook URL 後儲存。
 
-Webhook URL 只會在 GitHub Actions 執行時以 Secret 環境變數讀取，不會寫入程式碼或資料檔。
+公告頻道的 Webhook URL 只會在 GitHub Actions 執行時以 Secret 環境變數 `DISCORD_WEBHOOK_URL` 讀取，不會寫入程式碼或資料檔。
 
 通知只涵蓋 `registration`（登記／報名）與 `result`（抽籤結果），且公告日期必須在 crawler 執行日的最近 31 天內。每則公告以 `source_url` 去重；Discord 成功接收後才會寫入 `data/notified.json`。若發送失敗或尚未設定 Secret，該公告不會被標示為已通知，下一次排程會重試。超過 31 天或沒有標準日期的首次發現資料會記為歷史基準，不發送通知也不重試，避免新增學校來源時補發舊公告。
 
 初次啟用時，crawler 會將當前所有符合分類的歷史公告寫入 `data/notified.json` 作為基準，**不會補發歷史通知**；只有基準建立後新出現的公告才會通知。
 
+### 公告來源異常通知
+
+請在要接收異常通知的**另一個 Discord 頻道**建立 Webhook，並於 GitHub Repository 的 **Settings → Secrets and variables → Actions** 新增 Secret：`DISCORD_ERROR_WEBHOOK_URL`。它與 `DISCORD_WEBHOOK_URL` 完全分開；未設定時不會影響一般公告通知。
+
+啟用中的學校公告頁若無法讀取，Discord 會收到一則「學校公告來源讀取異常」通知，內容含學校、錯誤訊息、檢查時間與校方公告頁連結。同一來源持續出現相同錯誤時不會重複通知；成功讀取後會解除異常狀態，之後若再次失敗才會重新通知。異常狀態同樣只在 Discord 成功接收後才寫入 `data/notified.json`，因此傳送失敗會在下次排程重試。人工檢查清單的學校不會由 crawler 掃描，也不會觸發此通知。
+
 ### 測試 Webhook
 
-在 GitHub 的 **Actions → Check school announcement pages → Run workflow** 中，勾選 `send_test_discord_notification` 後執行。成功時 Discord 會收到一則「BadmintonDraw 測試」通知；這不會新增或修改 `data/notified.json`，也不會影響正式公告的去重紀錄。
+在 GitHub 的 **Actions → Check school announcement pages → Run workflow** 中，可以勾選以下任一項後執行：
+
+- `send_test_discord_notification`：在一般公告頻道收到一則「BadmintonDraw 測試」通知。
+- `send_test_discord_error_notification`：在異常通知頻道收到一則模擬的「學校公告來源讀取異常」通知。
+
+兩種測試皆不會新增或修改 `data/notified.json`，也不會影響正式通知的去重紀錄。

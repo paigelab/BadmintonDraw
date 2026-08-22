@@ -237,6 +237,16 @@ def notification_record(item: dict, notified_at: str, delivery: str) -> dict:
     }
 
 
+def source_error_record(source_url: str, item: dict, notified_at: str) -> dict:
+    """Keep the current alerted error state for one monitored source."""
+    return {
+        "source_url": source_url,
+        "notified_at": notified_at,
+        "school": item.get("school", "學校待確認"),
+        "error": item.get("error", "讀取公告頁時發生未知錯誤"),
+    }
+
+
 def send_discord_notification(webhook_url: str, item: dict) -> bool:
     """Deliver one Discord embed and return True only when Discord accepts it."""
     title = str(item.get("title", "公告標題待確認"))[:256]
@@ -267,6 +277,35 @@ def send_discord_notification(webhook_url: str, item: dict) -> bool:
         return False
 
 
+def send_discord_source_error_notification(webhook_url: str, source_url: str, item: dict) -> bool:
+    """Send one alert for a source that the crawler cannot currently read."""
+    error_message = str(item.get("error", "讀取公告頁時發生未知錯誤"))[:1024]
+    payload = {
+        "embeds": [{
+            "title": "⚠️ 學校公告來源讀取異常",
+            "url": source_url,
+            "color": 15158332,
+            "fields": [
+                {"name": "學校", "value": str(item.get("school", "學校待確認"))[:1024], "inline": True},
+                {"name": "檢查時間", "value": str(item.get("checked_at", "時間待確認"))[:1024], "inline": True},
+                {"name": "錯誤訊息", "value": error_message, "inline": False},
+                {"name": "校方公告頁", "value": f"[點擊前往校方公告頁]({source_url})", "inline": False},
+            ],
+        }],
+    }
+    try:
+        body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        request = Request(webhook_url, data=body, headers={"Content-Type": "application/json", "User-Agent": "BadmintonDraw-monitor/0.1 (+GitHub Actions)"})
+        with urlopen(request, timeout=20) as response:
+            if response.status not in (200, 204):
+                print(f"Discord source-error notification rejected for {source_url}: HTTP {response.status}")
+                return False
+        return True
+    except Exception as error:
+        print(f"Discord source-error notification failed for {source_url}: {error}")
+        return False
+
+
 def send_discord_test_notification() -> None:
     """Send an opt-in verification message without touching delivery records."""
     if os.environ.get("DISCORD_TEST_NOTIFICATION", "").lower() != "true":
@@ -284,6 +323,24 @@ def send_discord_test_notification() -> None:
     }
     if send_discord_notification(webhook_url, test_item):
         print("Discord test notification sent successfully.")
+
+
+def send_discord_source_error_test_notification() -> None:
+    """Send an opt-in error-channel verification message without saving state."""
+    if os.environ.get("DISCORD_ERROR_TEST_NOTIFICATION", "").lower() != "true":
+        return
+    webhook_url = os.environ.get("DISCORD_ERROR_WEBHOOK_URL", "").strip()
+    if not webhook_url:
+        print("Discord error test skipped: DISCORD_ERROR_WEBHOOK_URL is not configured.")
+        return
+    test_source_url = "https://github.com/paigelab/BadmintonDraw"
+    test_item = {
+        "school": "BadmintonDraw 測試",
+        "checked_at": datetime.now(timezone(timedelta(hours=8))).isoformat(timespec="seconds"),
+        "error": "這是一則測試訊息，並非實際的公告頁讀取異常。",
+    }
+    if send_discord_source_error_notification(webhook_url, test_source_url, test_item):
+        print("Discord source-error test notification sent successfully.")
 
 
 def is_recent_for_notification(item: dict, now: datetime) -> bool:
@@ -330,6 +387,49 @@ def notify_new_announcements(announcements: list[dict], now: datetime) -> None:
             # Persist immediately: a later failure must not resend a successful delivery.
             save_notified(notified)
             notified_urls.add(item["source_url"])
+
+
+def notify_source_errors(records: dict, now: datetime) -> None:
+    """Alert once per ongoing source error, and reset it after recovery."""
+    notified = load_notified()
+    timestamp = now.isoformat(timespec="seconds")
+    current_errors = {
+        source_url: item
+        for source_url, item in records.items()
+        if item.get("error")
+    }
+    prior_errors = notified.get("source_errors", [])
+
+    # A source that recovered is removed from the active-error state. If it
+    # fails again later, it is treated as a new incident and can alert again.
+    retained_errors = [
+        item for item in prior_errors
+        if item.get("source_url") in current_errors
+    ]
+    if len(retained_errors) != len(prior_errors):
+        notified["source_errors"] = retained_errors
+        save_notified(notified)
+        print("Cleared recovered source error notification state.")
+
+    webhook_url = os.environ.get("DISCORD_ERROR_WEBHOOK_URL", "").strip()
+    if not webhook_url:
+        if current_errors:
+            print("DISCORD_ERROR_WEBHOOK_URL is not configured; source error alerts will be retried later.")
+        return
+
+    alerted_by_url = {item.get("source_url"): item for item in retained_errors}
+    for source_url, item in current_errors.items():
+        prior = alerted_by_url.get(source_url)
+        if prior and prior.get("error") == item.get("error"):
+            continue
+        if send_discord_source_error_notification(webhook_url, source_url, item):
+            # Replace a changed error message for this source with the newest
+            # successful alert; matching errors remain silent on later runs.
+            retained_errors = [entry for entry in retained_errors if entry.get("source_url") != source_url]
+            retained_errors.append(source_error_record(source_url, item, timestamp))
+            notified["source_errors"] = retained_errors
+            save_notified(notified)
+            alerted_by_url[source_url] = retained_errors[-1]
 
 
 def summary_for(title: str, description: str = "") -> str:
@@ -426,7 +526,10 @@ def main() -> None:
     data["announcements"] = sorted(existing.values(), key=lambda item: item.get("published_at", ""), reverse=True)
     data["last_updated"] = datetime.now(taipei).strftime("%Y-%m-%d %H:%M（台灣時間）")
     ANNOUNCEMENTS.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    notify_new_announcements(data["announcements"], datetime.now(taipei))
+    now = datetime.now(taipei)
+    notify_new_announcements(data["announcements"], now)
+    notify_source_errors(records, now)
     send_discord_test_notification()
+    send_discord_source_error_test_notification()
 
 if __name__ == "__main__": main()

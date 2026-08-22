@@ -16,6 +16,11 @@ on:
         required: false
         default: false
         type: boolean
+      send_test_discord_error_notification:
+        description: "Send one Discord source-error test notification without changing notification records"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -41,7 +46,9 @@ jobs:
       - run: python scripts/check_announcements.py
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_ERROR_WEBHOOK_URL: ${{ secrets.DISCORD_ERROR_WEBHOOK_URL }}
           DISCORD_TEST_NOTIFICATION: ${{ inputs.send_test_discord_notification || 'false' }}
+          DISCORD_ERROR_TEST_NOTIFICATION: ${{ inputs.send_test_discord_error_notification || 'false' }}
       - name: Commit changed monitoring status
         id: commit
         run: |
