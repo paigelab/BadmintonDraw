@@ -274,6 +274,15 @@ def send_discord_test_notification() -> None:
         print("Discord test notification sent successfully.")
 
 
+def is_recent_for_notification(item: dict, now: datetime) -> bool:
+    """Do not alert for historic results discovered by a newly added source."""
+    try:
+        published_at = datetime.strptime(str(item.get("published_at", "")), "%Y-%m-%d").date()
+    except ValueError:
+        return False
+    return published_at >= (now - timedelta(days=31)).date()
+
+
 def notify_new_announcements(announcements: list[dict], now: datetime) -> None:
     """Seed historic records once, then notify only first-seen eligible URLs."""
     notified = load_notified()
@@ -296,6 +305,13 @@ def notify_new_announcements(announcements: list[dict], now: datetime) -> None:
     notified_urls = {item.get("source_url") for item in notified.get("notified", [])}
     for item in eligible:
         if item["source_url"] in notified_urls:
+            continue
+        if not is_recent_for_notification(item, now):
+            # A source can expose years of archive results only after it is
+            # added. Record those once as history rather than alerting users.
+            notified.setdefault("notified", []).append(notification_record(item, timestamp, "historical"))
+            save_notified(notified)
+            notified_urls.add(item["source_url"])
             continue
         if send_discord_notification(webhook_url, item):
             notified.setdefault("notified", []).append(notification_record(item, timestamp, "discord"))

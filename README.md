@@ -84,7 +84,7 @@ Crawler 可透過 Discord Webhook 通知新發現的羽球場地公告，不需�
 
 Webhook URL 只會在 GitHub Actions 執行時以 Secret 環境變數讀取，不會寫入程式碼或資料檔。
 
-通知只涵蓋 `registration`（登記／報名）與 `result`（抽籤結果）。每則公告以 `source_url` 去重；Discord 成功接收後才會寫入 `data/notified.json`。若發送失敗或尚未設定 Secret，該公告不會被標示為已通知，下一次排程會重試。
+通知只涵蓋 `registration`（登記／報名）與 `result`（抽籤結果），且公告日期必須在 crawler 執行日的最近 31 天內。每則公告以 `source_url` 去重；Discord 成功接收後才會寫入 `data/notified.json`。若發送失敗或尚未設定 Secret，該公告不會被標示為已通知，下一次排程會重試。超過 31 天或沒有標準日期的首次發現資料會記為歷史基準，不發送通知也不重試，避免新增學校來源時補發舊公告。
 
 初次啟用時，crawler 會將當前所有符合分類的歷史公告寫入 `data/notified.json` 作為基準，**不會補發歷史通知**；只有基準建立後新出現的公告才會通知。
 
