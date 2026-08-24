@@ -11,6 +11,7 @@ import hashlib
 import json
 import os
 import re
+import unicodedata
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
@@ -239,11 +240,41 @@ def save_notified(notified: dict) -> None:
 def notification_record(item: dict, notified_at: str, delivery: str) -> dict:
     return {
         "source_url": item["source_url"],
+        "announcement_key": announcement_key(item),
         "notified_at": notified_at,
         "school": item.get("school", "學校待確認"),
         "title": item.get("title", "公告標題待確認"),
         "delivery": delivery,
     }
+
+
+def announcement_key(item: dict) -> str:
+    """Identify the same notice even when an NSS site changes its URL path."""
+    def normalized(value: object) -> str:
+        text = unicodedata.normalize("NFKC", str(value or "")).lower()
+        return re.sub(r"\s+", "", text)
+
+    return "|".join((
+        normalized(item.get("school")),
+        normalized(item.get("title")),
+        normalized(item.get("published_at")),
+        normalized(item.get("category")),
+    ))
+
+
+def backfill_notification_keys(notified: dict, announcements: list[dict]) -> bool:
+    """Add fallback identities to old delivery records without resending them."""
+    by_url = {item.get("source_url"): item for item in announcements if item.get("source_url")}
+    changed = False
+    for record in notified.get("notified", []):
+        if record.get("announcement_key"):
+            continue
+        source_item = by_url.get(record.get("source_url"))
+        if not source_item:
+            continue
+        record["announcement_key"] = announcement_key(source_item)
+        changed = True
+    return changed
 
 
 def source_error_record(source_url: str, item: dict, notified_at: str) -> dict:
@@ -362,7 +393,7 @@ def is_recent_for_notification(item: dict, now: datetime) -> bool:
 
 
 def notify_new_announcements(announcements: list[dict], now: datetime) -> None:
-    """Seed historic records once, then notify only first-seen eligible URLs."""
+    """Seed history once, then notify only genuinely first-seen announcements."""
     notified = load_notified()
     timestamp = now.isoformat(timespec="seconds")
     eligible = [item for item in announcements if item.get("category") in NOTIFIABLE_CATEGORIES and item.get("source_url")]
@@ -375,14 +406,19 @@ def notify_new_announcements(announcements: list[dict], now: datetime) -> None:
         print(f"Discord notification baseline initialized with {len(eligible)} existing announcements.")
         return
 
+    if backfill_notification_keys(notified, announcements):
+        save_notified(notified)
+
     webhook_url = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
     if not webhook_url:
         print("DISCORD_WEBHOOK_URL is not configured; new announcements will be retried later.")
         return
 
     notified_urls = {item.get("source_url") for item in notified.get("notified", [])}
+    notified_keys = {item.get("announcement_key") for item in notified.get("notified", [])}
     for item in eligible:
-        if item["source_url"] in notified_urls:
+        item_key = announcement_key(item)
+        if item["source_url"] in notified_urls or item_key in notified_keys:
             continue
         if not is_recent_for_notification(item, now):
             # A source can expose years of archive results only after it is
@@ -390,12 +426,14 @@ def notify_new_announcements(announcements: list[dict], now: datetime) -> None:
             notified.setdefault("notified", []).append(notification_record(item, timestamp, "historical"))
             save_notified(notified)
             notified_urls.add(item["source_url"])
+            notified_keys.add(item_key)
             continue
         if send_discord_notification(webhook_url, item):
             notified.setdefault("notified", []).append(notification_record(item, timestamp, "discord"))
             # Persist immediately: a later failure must not resend a successful delivery.
             save_notified(notified)
             notified_urls.add(item["source_url"])
+            notified_keys.add(item_key)
 
 
 def notify_source_errors(records: dict, now: datetime) -> None:
