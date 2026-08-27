@@ -2,7 +2,7 @@
 
 蒐集各校公開的羽球場地登記、抽籤與使用公告，並統一整理在 GitHub Pages 網站。
 
-網站部署於 GitHub Pages，不需自行架設主機；GitHub Actions 會定期更新資料。
+網站部署於 GitHub Pages，不需自行架設主機；GitHub Actions 會依外部排程更新資料。
 
 ## 專案結構
 
@@ -70,9 +70,9 @@ school,source_url,enabled
 
 推送到 GitHub 後，在 Repository 的 **Settings → Pages**，將 Source 設為 **GitHub Actions**。網站將在每次推送後自動部署。
 
-巡查排程為台灣時間每日 **10:08** 與 **18:08**，每次都會檢查全部啟用學校。若推送內容**只**變更 `data/sources.csv`，則立即巡查只會檢查新增或異動的學校來源；crawler 程式有變更或手動執行時，則仍會檢查全部啟用學校。每次巡查完成後會部署最新資料至 GitHub Pages。
+定時巡查由 [cron-job.org](https://cron-job.org) 在台灣時間每日 **10:08** 與 **18:08** 觸發 GitHub Actions 的 `workflow_dispatch`。每次定時巡查都會檢查全部啟用學校；若推送內容**只**變更 `data/sources.csv`，則立即巡查只會檢查新增或異動的學校來源；crawler 程式有變更或手動執行時，則仍會檢查全部啟用學校。每次巡查完成後會部署最新資料至 GitHub Pages。
 
-GitHub Actions 的整點排程可能延遲，因此刻意避開整點。公告資訊仍應以校方原始公告為準。
+cron-job.org 的兩個工作皆以 `POST` 呼叫 GitHub Actions 的 workflow dispatch API，並使用僅限 `BadmintonDraw`、具備 `Actions: Read and write` 權限的 Fine-grained personal access token。Token 不應提交到此專案或分享給他人。公告資訊仍應以校方原始公告為準。
 
 ## Discord 通知設定
 

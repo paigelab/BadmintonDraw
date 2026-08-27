@@ -6,9 +6,6 @@ on:
     paths:
       - "data/sources.csv"
       - "scripts/check_announcements.py"
-  schedule:
-    # 02:08 and 10:08 UTC = 10:08 and 18:08 in Taiwan (UTC+8)
-    - cron: "8 2,10 * * *"
   workflow_dispatch:
     inputs:
       send_test_discord_notification:
