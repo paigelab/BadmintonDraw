@@ -2184,6 +2184,22 @@
       "school": "興雅國小",
       "title": "公告本校羽球場地租借管理施行細則及租借申請及繳費事宜.20240904",
       "delivery": "historical"
+    },
+    {
+      "source_url": "https://www.ypps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/NNSpLfP6176/6a9a1b279f8b9605bae90ad9",
+      "announcement_key": "延平國小|115年第4季(10-12月)-週一-週五(晚間19:00-21:00)週六-週日(8:00-21:00共6個時段)_活動中心羽球場登記出租登記網址(限打羽球)|2026-09-04|registration",
+      "notified_at": "2026-09-04T10:13:50+08:00",
+      "school": "延平國小",
+      "title": "115年第4季(10-12月)-週一-週五(晚間19:00-21:00)週六-週日(8:00-21:00共6個時段)_活動中心羽球場登記出租登記網址(限打羽球)",
+      "delivery": "discord"
+    },
+    {
+      "source_url": "https://www.chwjh.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/zcW3IvQ5441/6a993c45d60700d990d0f9b6",
+      "announcement_key": "金華國中|【場地租借】|2026-09-03|registration",
+      "notified_at": "2026-09-04T10:13:50+08:00",
+      "school": "金華國中",
+      "title": "【場地租借】",
+      "delivery": "discord"
     }
   ]
 }
