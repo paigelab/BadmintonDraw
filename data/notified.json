@@ -2200,6 +2200,30 @@
       "school": "金華國中",
       "title": "【場地租借】",
       "delivery": "discord"
+    },
+    {
+      "source_url": "https://www.ccps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/9ZS4ZpY0802/6a9a29f91027570bc7e5b688",
+      "announcement_key": "長春國小|本校115年第4季活動中心羽球場地租用登記暨抽籤公告|2026-09-04|registration",
+      "notified_at": "2026-09-04T17:14:08+08:00",
+      "school": "長春國小",
+      "title": "本校115年第4季活動中心羽球場地租用登記暨抽籤公告",
+      "delivery": "discord"
+    },
+    {
+      "source_url": "https://www.caps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/PEp2ZGk4625/6a9a8b2a2c2a69216cef665d",
+      "announcement_key": "長安國小|【重要公告】115年第4季(10~12月)體育館租借申請公告。(尚有2時段可申請,詳閱內文)(9/4更新)|2026-09-04|registration",
+      "notified_at": "2026-09-04T17:14:08+08:00",
+      "school": "長安國小",
+      "title": "【重要公告】115年第4季(10~12月)體育館租借申請公告。(尚有2時段可申請，詳閱內文)(9/4更新)",
+      "delivery": "discord"
+    },
+    {
+      "source_url": "https://www.kfps.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/QOp9Na24754/685620feeac21daa5df58406",
+      "announcement_key": "光復國小|【羽球場地】114年度7~8月份羽球場地第2次抽籤結果及第3次抽籤公告|2025-06-21|result",
+      "notified_at": "2026-09-04T17:14:08+08:00",
+      "school": "光復國小",
+      "title": "【羽球場地】114年度7~8月份羽球場地第2次抽籤結果及第3次抽籤公告",
+      "delivery": "historical"
     }
   ]
 }
