@@ -1,10 +1,6 @@
 {
   "schools": [
     {
-      "school": "忠孝國中",
-      "source_url": "https://www.chjh.tp.edu.tw/category/news/"
-    },
-    {
       "school": "興雅國中",
       "source_url": "https://www.syajh.tp.edu.tw/"
     },
@@ -27,10 +23,6 @@
     {
       "school": "幸安國小",
       "source_url": "https://www.haps.tp.edu.tw/nss/p/index"
-    },
-    {
-      "school": "芳和實驗國中",
-      "source_url": "https://www.fhehs.tp.edu.tw/"
     },
     {
       "school": "中正國中",
