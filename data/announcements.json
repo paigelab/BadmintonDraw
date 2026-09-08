@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-08 10:13（台灣時間）",
+  "last_updated": "2026-09-08 17:12（台灣時間）",
   "announcements": [
     {
       "school": "芳和實驗國中",
@@ -9,6 +9,15 @@
       "category": "registration",
       "type": "自動偵測候選公告",
       "source_url": "https://www.fhehs.tp.edu.tw/news/%e6%9c%ac%e6%a0%a1%e8%87%aa%e5%8d%b3%e6%97%a5%e8%b5%b7%e5%8f%97%e7%90%86115%e5%b9%b4%e5%ba%a6%e7%ac%ac%e4%b8%89%e5%ad%a37%e6%9c%88-9%e6%9c%88%e5%8d%8a%e6%88%b6%e5%a4%96%e7%90%83%e5%a0%b4%e3%80%81/"
+    },
+    {
+      "school": "民族實驗中學",
+      "title": "115年第4季10月-12月臺北市民族實驗國民中學活動中心校園場地租借抽籤申請序號之公告",
+      "published_at": "2026-09-08",
+      "summary": "本校 115 年第 4 季 10 月 -12 月活動中心場地租借抽籤申請已於 115 年 9 月 4 日（五）下午 17 時截止。 ※總計 661 人次填寫申請表單。 ※總計 2 人姓名不全，不予受理。 ※總計 12 人身分證不全，不予受理。 ※總計 4 人重複申請，不予受理。 ※總計 1 人手機號碼不全，不予受理。 ※總計 6 人電子信箱不全，不予受理。",
+      "category": "registration",
+      "type": "全文檢索公告",
+      "source_url": "https://www.mtjh.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/rSI1TPO0891/6a9fa6cf5fb8ad22362b0e42"
     },
     {
       "school": "中山國小",
@@ -1469,6 +1478,15 @@
       "source_url": "https://www.sles.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/3TD7Afw1183/6758f46597a1d48802bcd19d"
     },
     {
+      "school": "蓬萊國小",
+      "title": "更正114場地開放時間公告",
+      "published_at": "2024-12-11",
+      "summary": "原開放登記時段「禮堂 星期六 11：30~13：30 」，此為本校保留時段，已於報名系統取消該時段之登記，並延長登記時間至12 月12&nbsp; 日16：00 止 ，請借用人登記其他時段，其餘規定詳參相關附件。 ( 一 ) 登記時間：113 年12 月10 日10：00 起，至12 月12 日16：00 止。 ( 二 ) 登記地點：上網登記（路徑：本校首頁",
+      "category": "result",
+      "type": "全文檢索公告",
+      "source_url": "https://www.sles.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/LAcpnfJ3360/6758f465373bc088d3f3c5f4"
+    },
+    {
       "school": "長安國小",
       "title": "【重要公告】114年第1季(1月至3月)體育館場地租借抽籤結果公告",
       "published_at": "2024-12-10",
@@ -2513,6 +2531,15 @@
       "source_url": "https://www.sles.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/3TD7Afw1183/6409481e261d498ad28962d0"
     },
     {
+      "school": "蓬萊國小",
+      "title": "111學年度臺北市國小教育盃羽球錦標賽-抽籤及賽程表",
+      "published_at": "2023-03-09",
+      "summary": "111學年度臺北市國小教育盃羽球錦標賽-賽程表，詳如附件。",
+      "category": "other",
+      "type": "全文檢索公告",
+      "source_url": "https://www.sles.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/LAcpnfJ3360/6409481e46e34d8ae634b7ec"
+    },
+    {
       "school": "長安國小",
       "title": "【重要公告】112年第2季(4~6月)體育館租借申請公告(尚有2時段可申請，詳閱內文)",
       "published_at": "2023-03-08",
@@ -2547,6 +2574,15 @@
       "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.chwjh.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/zcW3IvQ5441/63f6c55852c89a78c0347748"
+    },
+    {
+      "school": "蓬萊國小",
+      "title": "111學年度臺北市國小教育盃羽球錦標賽-抽籤及賽程表",
+      "published_at": "2023-02-10",
+      "summary": "111學年度臺北市國小教育盃羽球錦標賽-賽程表(男教職組賽程更新)，詳如附件。",
+      "category": "other",
+      "type": "全文檢索公告",
+      "source_url": "https://www.sles.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/LAcpnfJ3360/63e5d82694bf3dd46bf1ca1a"
     },
     {
       "school": "幸安國小",
