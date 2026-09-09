@@ -2264,6 +2264,22 @@
       "school": "民族實驗中學",
       "title": "115年第4季10月-12月臺北市民族實驗國民中學活動中心校園場地租借抽籤申請序號之公告",
       "delivery": "discord"
+    },
+    {
+      "source_url": "https://www.ypps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/NNSpLfP6176/6aa0d418cbd77e5c86fe7722",
+      "announcement_key": "延平國小|本校活動中心1樓羽球場地115年第4季各時段登記抽籤結果|2026-09-09|result",
+      "notified_at": "2026-09-09T17:14:00+08:00",
+      "school": "延平國小",
+      "title": "本校活動中心1樓羽球場地115年第4季各時段登記抽籤結果",
+      "delivery": "discord"
+    },
+    {
+      "source_url": "https://www.mtjh.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/rSI1TPO0891/6aa0d26842830d5fe840a9a3",
+      "announcement_key": "民族實驗中學|115年第4季10月-12月活動中心及足球場場地租借抽籤結果公告|2026-09-09|result",
+      "notified_at": "2026-09-09T17:14:00+08:00",
+      "school": "民族實驗中學",
+      "title": "115年第4季10月-12月活動中心及足球場場地租借抽籤結果公告",
+      "delivery": "discord"
     }
   ]
 }
