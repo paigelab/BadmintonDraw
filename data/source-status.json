@@ -2,9 +2,9 @@
   "sources": {
     "https://www.ypps.tp.edu.tw/nss/p/index": {
       "school": "延平國小",
-      "checked_at": "2026-09-08T17:08:26+08:00",
+      "checked_at": "2026-09-09T10:08:27+08:00",
       "content_changed": true,
-      "digest": "f188d5c26f89638dbc4a097e1ad3c3eaee2e3a4a439c42d49b315ada2ff6e596",
+      "digest": "fe214cef43a91924a3018b8f1d73bb49ddd1715b5c6d6ad1f52a7cb487f386dd",
       "candidate_count": 12,
       "candidate_titles": [
         "115年第4季(10-12月)-週一-週五(晚間19:00-21:00)週六-週日(8:00-21:00共6個時段)_活動中心羽球場登記出租登記網址(限打羽球)",
@@ -29,9 +29,9 @@
     },
     "https://www.ccps.tp.edu.tw/nss/p/index": {
       "school": "長春國小",
-      "checked_at": "2026-09-08T17:08:39+08:00",
+      "checked_at": "2026-09-09T10:08:42+08:00",
       "content_changed": true,
-      "digest": "2892990cd5b3780eddfaf7b38f65647d66b3a5a5656ef404a1eaf5832f1f64d9",
+      "digest": "85495c80e661055575db2fb092f2665e05aeeff884cded012aec7e66a4a2c640",
       "candidate_count": 3,
       "candidate_titles": [
         "本校115年第4季活動中心羽球場地租用登記暨抽籤公告",
@@ -49,9 +49,9 @@
     },
     "https://www.csps.tp.edu.tw/nss/p/index": {
       "school": "中山國小",
-      "checked_at": "2026-09-08T17:08:57+08:00",
+      "checked_at": "2026-09-09T10:09:02+08:00",
       "content_changed": true,
-      "digest": "925a172ab69b17d0ded92e3339eaa5258db41c1ac2cb60de8efde5c103645f26",
+      "digest": "21ae310a8bab4fb7685d87617b3d8cd73e23d32c865b9ece630e595b9a34b3eb",
       "candidate_count": 15,
       "candidate_titles": [
         "本校115年度第4季（10-12月）羽球場地租借於115年9月14日(一)至9月18 日(五)之上班時間:上午8時30分至下午4時30分開放報名(為響應政府節能減紙政策，申請表請自行列印)",
@@ -76,21 +76,21 @@
     },
     "https://www.chwjh.tp.edu.tw/nss/p/index": {
       "school": "金華國中",
-      "checked_at": "2026-09-08T17:09:09+08:00",
+      "checked_at": "2026-09-09T10:09:16+08:00",
       "content_changed": true,
-      "digest": "9f1fc96d080c3fee07cb888b580ce147a1f7acaae161e60549aa390fafa668ae",
+      "digest": "0eb30f29405b80066cb52b50cb3229630400689cbae2ab8fd2c6656871d4b751",
       "candidate_count": 18,
       "candidate_titles": [
         "【場地租借】本校活動中心115年度第4季場租公告",
-        "活動中心球場108年1月至3月場地租借申請公告，即日起至107年12月14日(五)截止報名",
         "【場地租借】本校活動中心租借團體家數暨抽籤場地公告",
+        "【場地租借】本校活動中心租借團體家數暨抽籤場地公告",
+        "活動中心球場109年9月至12月場地租借申請公告，即日起至109年9月11日(五)截止報名。",
+        "活動中心球場108年1月至3月場地租借申請公告，即日起至107年12月14日(五)截止報名",
         "活動中心球場113年第4季(10-12月)場地租借，自113年9月2日(一)起至113年9月6日(五)截止報名。",
         "【場地租借】本校活動中心115年度第3季場租公告",
         "【場地租借】本校活動中心114年度第3季場租公告",
-        "活動中心球場109年9月至12月場地租借申請公告，即日起至109年9月11日(五)截止報名。",
         "【場地租借】本校活動中心114年度第4季場租公告",
-        "【場地租借】本校活動中心租借團體家數暨抽籤場地公告",
-        "活動中心球場113年第3季(7-9月)場地租借，即日起開放申請至113年6月7日(五)截止報名。"
+        "【場地租借】本校活動中心租借團體家數暨抽籤場地公告"
       ],
       "nss_feed_count": 0,
       "nss_announcement_count": 0,
@@ -103,9 +103,9 @@
     },
     "https://www.mhps.tp.edu.tw/nss/p/index": {
       "school": "銘傳國小",
-      "checked_at": "2026-09-08T17:09:22+08:00",
+      "checked_at": "2026-09-09T10:09:29+08:00",
       "content_changed": true,
-      "digest": "8cd0459824d0b0147f04e7dd73d8ad6901cdce85ba03f1f3f9c58182c4663fa8",
+      "digest": "edfced6d9ef8d8d69154d268a3db7c0e0ded9082ec2e87a0e88dc5a30cd53af9",
       "candidate_count": 20,
       "candidate_titles": [
         "【公告】臺北市大安區銘傳國民小學115年第4季場地租借說明",
@@ -130,9 +130,9 @@
     },
     "https://www.hyps.tp.edu.tw/nss/p/index": {
       "school": "興雅國小",
-      "checked_at": "2026-09-08T17:09:33+08:00",
+      "checked_at": "2026-09-09T10:09:46+08:00",
       "content_changed": true,
-      "digest": "2a717c23fc6c35a449deb1469b108f611ee20daabbbc42ed3c3fe184ff35762d",
+      "digest": "95ec719306dd39a8510b24dbb2a9266d8f0bf8e7de51ca5c4cb4388e42467ab4",
       "candidate_count": 9,
       "candidate_titles": [
         "115年第4季羽球場地租借申請公告時間",
@@ -156,9 +156,9 @@
     },
     "https://www.mtjh.tp.edu.tw/nss/p/index": {
       "school": "民族實驗中學",
-      "checked_at": "2026-09-08T17:09:41+08:00",
+      "checked_at": "2026-09-09T10:09:56+08:00",
       "content_changed": true,
-      "digest": "7c01f34210362b4c4a124b374e09d487e0574b0df7c8ae7167903bd862d67ef5",
+      "digest": "fe1c7db00567f395a519cca0b55f261c1f2b21e0b72e7a41ab0f11f4dbae2e65",
       "candidate_count": 1,
       "candidate_titles": [
         "115年第4季10月-12月臺北市民族實驗國民中學活動中心校園場地租借抽籤申請序號之公告"
@@ -174,19 +174,19 @@
     },
     "https://www.hpsh.tp.edu.tw/nss/p/index": {
       "school": "和平高中",
-      "checked_at": "2026-09-08T17:10:02+08:00",
+      "checked_at": "2026-09-09T10:10:20+08:00",
       "content_changed": true,
-      "digest": "75ad22f0d65e9cf0b595f9f8f9c69a54d4df841046c7005f332c6be82e847847",
+      "digest": "8f552d780dde8a747252bc2789f21207a60943646a409c97deefc473e8503f78",
       "candidate_count": 108,
       "candidate_titles": [
         "【公告】本校115年7-8月室內羽球及籃球場地暫停開放",
         "【公告】本校115年9月及第四季(9/1〜12/31)校園羽球場地抽籤登記事宜",
         "【公告】本校115年9月及第四季(9/1-12/31)校園羽球場地抽籤結果及繳費事宜",
+        "112年度第一季羽球場公告",
         "【公告】本校115年7-8月室內羽球及籃球場地暫停開放",
         "【公告】本校115年9月及第四季(9/1〜12/31)校園羽球場地抽籤登記事宜",
         "【公告】本校115年9月及第四季(9/1-12/31)校園羽球場地抽籤結果及繳費事宜",
         "羽球場申請表",
-        "112年度第一季羽球場公告",
         "【公告】本校115年9月及第四季(9/1-12/31)校園羽球場地抽籤結果及繳費事宜",
         "【公告】本校115年7-8月室內羽球及籃球場地暫停開放"
       ],
@@ -201,9 +201,9 @@
     },
     "https://www.mqes.tp.edu.tw/nss/p/index": {
       "school": "民權國小",
-      "checked_at": "2026-09-08T17:10:12+08:00",
+      "checked_at": "2026-09-09T10:10:33+08:00",
       "content_changed": true,
-      "digest": "486d6924ab21550764cfd5e0287b16a1c7be5a38b7324f79abaae9d6c5e85c9e",
+      "digest": "6d2a8077f855712fb80e3697f15e98a3bed420d5b10e000b794f52e8a6e62f3a",
       "candidate_count": 5,
       "candidate_titles": [
         "113年寒假體育社團冬令營12/15開始線上報名(幼兒園學生請持紙本報名表至學務處報名)，詳情請參閱簡章",
@@ -223,21 +223,21 @@
     },
     "https://www.kfps.tp.edu.tw/nss/p/index": {
       "school": "光復國小",
-      "checked_at": "2026-09-08T17:10:26+08:00",
+      "checked_at": "2026-09-09T10:10:49+08:00",
       "content_changed": true,
-      "digest": "6ebf43f7dff88e5bf85cb2ffb43e03b087fc03627c37fc5cda1930b32eb54e2d",
+      "digest": "e13bdaf8356e05b0f1edb3f06d205f62453b4b516d34c3c803b917f067cb8812",
       "candidate_count": 44,
       "candidate_titles": [
         "【羽球場地】114年7~8月份羽球場地第1次申請抽籤結果",
-        "【羽球場地抽籤】115年9~11月及續租12月份羽球場地(第2次)報名抽籤結果",
-        "【羽球場地抽籤】115年9~11月及續租12月份羽球場地(第1次)報名抽籤結果",
         "【羽球場地抽籤】115年9~11月份暨續租12月份羽球場地報名抽籤(第1次)",
         "【羽球場地抽籤】115年7~8月份羽球場地報名抽籤(第1次)",
         "【羽球場地抽籤】115年9~11月及續租12月份羽球場地(第2次)報名抽籤結果",
+        "【羽球場地抽籤】115年9~11月及續租12月份羽球場地(第1次)報名抽籤結果",
+        "【羽球場地抽籤】115年9~11月份暨續租12月份羽球場地報名抽籤(第1次)",
+        "【羽球場地抽籤】115年9~11月及續租12月份羽球場地(第2次)報名抽籤結果",
         "【羽球場地抽籤】115年9~11月暨續租12月份羽球場地報名抽籤(第2次)",
         "【羽球場地抽籤】115年9~11月及續租12月份羽球場地(第1次)報名抽籤結果",
-        "【羽球場地抽籤】115年9~11月暨續租12月份羽球場地報名抽籤(第2次)",
-        "【羽球場地抽籤】115年9~11月份暨續租12月份羽球場地報名抽籤(第1次)"
+        "【羽球場地抽籤】115年9~11月暨續租12月份羽球場地報名抽籤(第2次)"
       ],
       "nss_feed_count": 0,
       "nss_announcement_count": 0,
@@ -250,9 +250,9 @@
     },
     "https://www.wsps.tp.edu.tw/nss/p/index": {
       "school": "吳興國小",
-      "checked_at": "2026-09-08T17:10:35+08:00",
+      "checked_at": "2026-09-09T10:11:00+08:00",
       "content_changed": true,
-      "digest": "f3cbad5d7c5fef73fe8cdfe2801b72e88ffaddca33c71add81109ced473cd298",
+      "digest": "b0c14122c628bdefc6e4c917f8392d8558f8d1c41dcace5fa7eb131650cf5a6c",
       "candidate_count": 0,
       "candidate_titles": [],
       "nss_feed_count": 0,
@@ -266,9 +266,9 @@
     },
     "https://www.yyes.tp.edu.tw/nss/p/index": {
       "school": "雙永國小",
-      "checked_at": "2026-09-08T17:10:45+08:00",
+      "checked_at": "2026-09-09T10:11:10+08:00",
       "content_changed": true,
-      "digest": "0aaa82bad411532aaa84ebc834d3a6680a3175de9e02ea52bc8110b9fc7e4d7c",
+      "digest": "26d5f43f2ac4f9a9e9aefe11e86fa1b6884f74ab71748d405b0e88a665667942",
       "candidate_count": 1,
       "candidate_titles": [
         "[公告] 第2次臺北市信義區雙永國民小學115年7~9月羽球場場地租用公告(僅尚未出租場次)"
@@ -284,9 +284,9 @@
     },
     "https://www.dlps.tp.edu.tw/nss/p/index": {
       "school": "大龍國小",
-      "checked_at": "2026-09-08T17:10:55+08:00",
+      "checked_at": "2026-09-09T10:11:22+08:00",
       "content_changed": true,
-      "digest": "638671171a753b031eba8ea4d4f6616bd98482634a52366f3bc6d73ab305a963",
+      "digest": "c03556e5e287fb9bd4cf8c014183a0e3930ea1ef5a9a79d9d9db1b17a1e62fd4",
       "candidate_count": 0,
       "candidate_titles": [],
       "nss_feed_count": 0,
@@ -300,9 +300,9 @@
     },
     "https://www.sles.tp.edu.tw/nss/p/index": {
       "school": "蓬萊國小",
-      "checked_at": "2026-09-08T17:11:14+08:00",
+      "checked_at": "2026-09-09T10:11:42+08:00",
       "content_changed": true,
-      "digest": "27c5bcbb2882e758ce42624fa5af23352b3c03a076348e85647aaa45e6767082",
+      "digest": "0a34ea3c3a5d01592ddcd293349445cbd612bc9fd8a6fc6276caf0326f339562",
       "candidate_count": 5,
       "candidate_titles": [
         "111學年度臺北市國小教育盃羽球錦標賽-抽籤及賽程表",
@@ -322,9 +322,9 @@
     },
     "https://www.syes.tp.edu.tw/nss/p/index": {
       "school": "信義國小",
-      "checked_at": "2026-09-08T17:11:26+08:00",
+      "checked_at": "2026-09-09T10:11:55+08:00",
       "content_changed": true,
-      "digest": "1634307dd50f41d76948acd23e5703a8eaaf24edee1e18012502c012e7a5ca8f",
+      "digest": "f4b6407b512383c515efd3aebcae5094f70c4a97f58be7e8584d25174ee1dff3",
       "candidate_count": 6,
       "candidate_titles": [
         "112年第3季羽球場租租借，自112年6月20日上午10時開放線上申請，注意事項(連結版)如附件",
@@ -345,21 +345,21 @@
     },
     "https://www.caps.tp.edu.tw/nss/p/index": {
       "school": "長安國小",
-      "checked_at": "2026-09-08T17:11:39+08:00",
+      "checked_at": "2026-09-09T10:12:11+08:00",
       "content_changed": true,
-      "digest": "5944c9dce144e4c7bbdce8e199d8862bc2c0f59a16a7ea623da108641b1d0f45",
+      "digest": "44705dde3ef6e75766c8e3a14da9dc4ca2fe4d02526db3c769254dd6637c8587",
       "candidate_count": 31,
       "candidate_titles": [
-        "【重要公告】115年第4季(10~12月)體育館租借申請公告。(尚有2時段可申請，詳閱內文)(9/4更新)",
         "【重要公告】115年第1季(1~3月)體育館租借申請公告，即日起開放申請。",
-        "【重要公告】115年第2季(4~6月)體育館租借申請公告(尚有3時段可申請，詳閱內文)",
         "【重要公告】115年第3季(7~9月)體育館租借申請公告，即日起開放申請。",
-        "【重要公告】114年第1季(1~3月)體育館租借申請公告，即日起開放申請。",
-        "【重要公告】113年第3季(7月至9月)體育館場地租借抽籤結果公告",
-        "【重要公告】112年第1季(1~3月)體育館租借申請公告(12/5更新)",
+        "【重要公告】115年第4季(10~12月)體育館租借申請公告。(尚有2時段可申請，詳閱內文)(9/4更新)",
+        "【重要公告】115年第2季(4~6月)體育館租借申請公告(尚有3時段可申請，詳閱內文)",
+        "【重要公告】115年第1季(1月至3月)體育館場地租借抽籤結果公告",
+        "【重要公告】112年第4季(10-12月)體育館場地租借抽籤結果公告",
         "【重要公告】113年第2季(4-6月)體育館場地租借抽籤結果公告",
-        "【重要公告】113年第1季(1~3月)體育館租借申請公告",
-        "【重要公告】113年第1季(1月至3月)體育館場地租借抽籤結果公告"
+        "【重要公告】113年第1季(1月至3月)體育館場地租借抽籤結果公告",
+        "【重要公告】112年第3季(7月至9月)體育館場地租借抽籤結果公告",
+        "【重要公告】113年第3季(7月至9月)體育館場地租借抽籤結果公告"
       ],
       "nss_feed_count": 0,
       "nss_announcement_count": 0,
@@ -372,9 +372,9 @@
     },
     "https://www.clps.tp.edu.tw/nss/p/index": {
       "school": "吉林國小",
-      "checked_at": "2026-09-08T17:11:49+08:00",
+      "checked_at": "2026-09-09T10:12:22+08:00",
       "content_changed": true,
-      "digest": "083589e175eca2e47d66e8eb043be57dd6f4d4fcde20a8092098709f3bfe0723",
+      "digest": "51dd138b64bbd73eaa19186511ad90a04cab4cc6038c329f084e3d89bf50666c",
       "candidate_count": 4,
       "candidate_titles": [
         "115年第1季1-3月活動中心4樓羽球場地租借-抽籤結果公告",
@@ -393,14 +393,14 @@
     },
     "https://www.japs.tp.edu.tw/nss/p/index": {
       "school": "仁愛國小",
-      "checked_at": "2026-09-08T17:11:58+08:00",
+      "checked_at": "2026-09-09T10:12:32+08:00",
       "content_changed": true,
-      "digest": "42cba69c38d9a2e37177a3d34287b51d24d5c821e942f1e1472d804142175397",
+      "digest": "0fd5fcc388c895a9ced1e1ab151c3acc2c3c2f4f980175e29f6b0d243aae440c",
       "candidate_count": 3,
       "candidate_titles": [
         "本校羽球場第3季(7-9月)對外租借暫停",
-        "仁愛國小113學年度課外社團活動教師開課調查，收件至4月19日(五)截止",
-        "轉知：「2025雙北世界壯年運動會」（以下稱世壯運）尚有報名 額度，鼓勵所屬人員報名參賽"
+        "轉知：「2025雙北世界壯年運動會」（以下稱世壯運）尚有報名 額度，鼓勵所屬人員報名參賽",
+        "仁愛國小113學年度課外社團活動教師開課調查，收件至4月19日(五)截止"
       ],
       "nss_feed_count": 0,
       "nss_announcement_count": 0,
@@ -413,14 +413,14 @@
     },
     "https://www.lmjh.tp.edu.tw/nss/p/index": {
       "school": "龍門國中",
-      "checked_at": "2026-09-08T17:12:08+08:00",
+      "checked_at": "2026-09-09T10:12:46+08:00",
       "content_changed": true,
-      "digest": "4fe2c6df1b403ed2ed8148b8e8acf2518601f2106b628c65543bd694f6c371e6",
+      "digest": "cd89322bb096fbc514b6677e6fa91daa6467ed7198033c488a71d32539f335a6",
       "candidate_count": 5,
       "candidate_titles": [
+        "【活動中心綜合球場】115年第3季(7-9月)球場空置場地開放民眾自由登記及繳費",
         "115年第4季綜合球場定期租用抽籤結果【詳情如內文】",
         "【活動中心綜合球場】115年第4季(10-12月)球場空置場地開放民眾自由登記及繳費(本公告會依場地租用情況每日更新空置場地數量)",
-        "【活動中心綜合球場】115年第3季(7-9月)球場空置場地開放民眾自由登記及繳費",
         "臺北市113學年度教育盃中等學校羽球錦標賽，歡迎踴躍報名參加。",
         "114年第3季籃球場、羽球場抽籤結果公布"
       ],
@@ -435,9 +435,9 @@
     },
     "https://www.tmps.tp.edu.tw/nss/p/index": {
       "school": "東門國小",
-      "checked_at": "2026-09-08T17:12:21+08:00",
+      "checked_at": "2026-09-09T10:13:01+08:00",
       "content_changed": true,
-      "digest": "e15bed5e74b07cdca05db6e64435705a2caa981dcda354c59d605634c3c4772a",
+      "digest": "124817e494ce2d691ab8939fc54eadb12a8a910523f569b323151b8a2808fa4a",
       "candidate_count": 2,
       "candidate_titles": [
         "本校114年02~4月活動中心羽球場抽籤會議公告，抽籤地點:本校會議室(二)",
@@ -454,18 +454,18 @@
     },
     "https://www.jcjh.tp.edu.tw/nss/s/main/index": {
       "school": "建成國中",
-      "checked_at": "2026-09-08T17:12:32+08:00",
+      "checked_at": "2026-09-09T10:13:17+08:00",
       "content_changed": true,
-      "digest": "287f08cd719b78c7fca4d986e001502b470a6344960eb5697a58f5b8829ef1d1",
+      "digest": "537154ec7ecb50617e359e86aee12d20704d574302f9771aa971c3618bba8db3",
       "candidate_count": 7,
       "candidate_titles": [
         "[競賽報名]「2025雙北世界壯年運動會」（以下稱世壯運）尚有報名額度，鼓勵報名參賽",
+        "[115球場抽籤合格名單]",
         "「114場租承租名單」",
         "[115球場承租名單]二樓禮堂及四樓球場場租名冊",
         "[114球場抽籤名單]",
         "[四樓球場租借] 本校112年(每季3個月)四樓球場開放抽籤結果名單",
-        "[114場租抽籤辦法]",
-        "[115球場抽籤合格名單]"
+        "[114場租抽籤辦法]"
       ],
       "nss_feed_count": 0,
       "nss_announcement_count": 0,
@@ -478,9 +478,9 @@
     },
     "https://www.chjh.tp.edu.tw/category/news/": {
       "school": "忠孝國中",
-      "checked_at": "2026-09-08T17:12:34+08:00",
+      "checked_at": "2026-09-09T10:13:21+08:00",
       "content_changed": true,
-      "digest": "e99d05d0603016a05c63576a823c0d57b9d554629b843448f73bf02f18474696",
+      "digest": "920fb8227b0da4036359bcf706d09a146e02d1977937130835bcb0309746f25b",
       "candidate_count": 1,
       "candidate_titles": [
         "置頂 公告 本校校園場地開放(活動中心羽球場)115年第4季(10月1日~12月31日)申請注意事項"
@@ -496,14 +496,11 @@
     },
     "https://www.fhehs.tp.edu.tw/": {
       "school": "芳和實驗國中",
-      "checked_at": "2026-09-08T17:12:36+08:00",
+      "checked_at": "2026-09-09T10:13:22+08:00",
       "content_changed": true,
-      "digest": "b1bcf317f9765853909e9c698466ee79fb27f63ea14fc6c9e9e57fd77f473ffa",
-      "candidate_count": 2,
-      "candidate_titles": [
-        "置頂 本校自即日起受理115年度第四季(10月-12月)半戶外球場、光電球場場租抽籤登記",
-        "置頂 本校自即日起受理115年度第四季(10月-12月)半戶外球場、光電球場場租抽籤登記"
-      ],
+      "digest": "692357d2fb6dcc70aef86e039a9b044e9de8e413734a734f9c405ef1ab360b26",
+      "candidate_count": 0,
+      "candidate_titles": [],
       "nss_feed_count": 0,
       "nss_announcement_count": 0,
       "nss_fulltext_candidate_count": 0,
