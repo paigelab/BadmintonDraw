@@ -156,6 +156,17 @@ def article_published_at(source_url: str) -> str | None:
     return "-".join((match.group(1), match.group(2).zfill(2), match.group(3).zfill(2)))
 
 
+def backfill_missing_publication_dates(existing: dict[str, dict]) -> None:
+    """Fill pending dates on retained ordinary announcements no longer listed on their index page."""
+    for item in existing.values():
+        if item.get("type") != "自動偵測候選公告" or item.get("published_at") != "日期待確認":
+            continue
+        published_at = article_published_at(str(item.get("source_url", "")))
+        if published_at:
+            item["published_at"] = published_at
+            print(f"Backfilled publication date: {item.get('school', '')} {published_at}")
+
+
 def government_rental_item(school: str, source_url: str, page: PageExtractor) -> dict | None:
     """Turn one Taipei City venue-detail page into its current registration item."""
     if not GOVERNMENT_VENUE_URL.match(source_url) or not is_relevant(page.text):
@@ -610,6 +621,7 @@ def main() -> None:
         for item in data.get("announcements", [])
         if item.get("source_url")
     }
+    backfill_missing_publication_dates(existing)
     taipei = timezone(timedelta(hours=8))
     crawl_scope = os.environ.get("CRAWL_SCOPE", "all").strip().lower()
     with SOURCES.open(encoding="utf-8", newline="") as file:
