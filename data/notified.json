@@ -2304,6 +2304,30 @@
       "school": "雙永國小",
       "title": "【公告】臺北市信義區雙永國民小學 115年10~12月 \"羽球場\" 場地租用申請案",
       "delivery": "discord"
+    },
+    {
+      "source_url": "https://service.gov.taipei/rental/RentalDownload/b1IDbK0Tg8AfrdVS5TJ5UQ==",
+      "announcement_key": "敦化國小|臺北市敦化國小羽球場地開放租用日期及時段一覽表12.pdf|日期待確認|registration",
+      "notified_at": "2026-09-10T17:28:42+08:00",
+      "school": "敦化國小",
+      "title": "臺北市敦化國小羽球場地開放租用日期及時段一覽表 12.pdf",
+      "delivery": "historical"
+    },
+    {
+      "source_url": "https://service.gov.taipei/rental/VenueDetail/1082b8c1ac0f",
+      "announcement_key": "敦化國小|臺北市松山區敦化國民小學|3f活動中心羽球場場地租借登記|2026-09-12|registration",
+      "notified_at": "2026-09-10T17:28:42+08:00",
+      "school": "敦化國小",
+      "title": "臺北市松山區敦化國民小學 | 3F活動中心羽球場 場地租借登記",
+      "delivery": "discord"
+    },
+    {
+      "source_url": "https://service.gov.taipei/rental/VenueDetail/27ee824a3be0",
+      "announcement_key": "介壽國中|臺北市立介壽國民中學|3樓活動中心-籃球、羽球場場地租借登記|2026-09-05|registration",
+      "notified_at": "2026-09-10T17:28:42+08:00",
+      "school": "介壽國中",
+      "title": "臺北市立介壽國民中學 | 3樓活動中心-籃球、羽球場 場地租借登記",
+      "delivery": "historical"
     }
   ]
 }

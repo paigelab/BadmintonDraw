@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-10 17:12（台灣時間）",
+  "last_updated": "2026-09-10 17:28（台灣時間）",
   "announcements": [
     {
       "school": "芳和實驗國中",
@@ -9,6 +9,36 @@
       "category": "registration",
       "type": "自動偵測候選公告",
       "source_url": "https://www.fhehs.tp.edu.tw/news/%e6%9c%ac%e6%a0%a1%e8%87%aa%e5%8d%b3%e6%97%a5%e8%b5%b7%e5%8f%97%e7%90%86115%e5%b9%b4%e5%ba%a6%e7%ac%ac%e4%b8%89%e5%ad%a37%e6%9c%88-9%e6%9c%88%e5%8d%8a%e6%88%b6%e5%a4%96%e7%90%83%e5%a0%b4%e3%80%81/"
+    },
+    {
+      "school": "敦化國小",
+      "title": "臺北市敦化國小羽球場地開放租用日期及時段一覽表 12.pdf",
+      "published_at": "日期待確認",
+      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：臺北市敦化國小羽球場地開放租用日期及時段一覽表 12.pdf。請以校方原始公告為準。",
+      "category": "registration",
+      "type": "自動偵測候選公告",
+      "source_url": "https://service.gov.taipei/rental/RentalDownload/b1IDbK0Tg8AfrdVS5TJ5UQ=="
+    },
+    {
+      "school": "敦化國小",
+      "title": "臺北市敦化國小羽球場地開放租用日期及時段一覽表 12.pdf",
+      "published_at": "日期待確認",
+      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：臺北市敦化國小羽球場地開放租用日期及時段一覽表 12.pdf。請以校方原始公告為準。",
+      "category": "registration",
+      "type": "自動偵測候選公告",
+      "source_url": "https://service.gov.taipei/rental/RentalDownload/RziDtfwiW_wpq8hPcc25sQ=="
+    },
+    {
+      "school": "敦化國小",
+      "title": "臺北市松山區敦化國民小學 | 3F活動中心羽球場 場地租借登記",
+      "published_at": "2026-09-12",
+      "registration_start": "2026-09-12",
+      "registration_end": "2026-09-13",
+      "summary": "本季球場登錄時間：115 年 9 月 12 日(六)00 時起至 9 月 13 日(日)24時止，先申請者優先取得承租權，請於通知後，於 9 月 15 日(二)起至 18 日(五)將相關紙本資料繳交至本校總務處， 並繳費完成後(可先至銀行匯款)，租用程序始完備。",
+      "category": "registration",
+      "type": "政府場租頁",
+      "government_rental": true,
+      "source_url": "https://service.gov.taipei/rental/VenueDetail/1082b8c1ac0f"
     },
     {
       "school": "興雅國小",
@@ -99,6 +129,18 @@
       "category": "registration",
       "type": "全文檢索公告",
       "source_url": "https://www.mhps.tp.edu.tw/nss/main/freeze/5a9759adef37531ea27bf1b0/EEnTHfN4464/6a9b9280c191495348069798"
+    },
+    {
+      "school": "介壽國中",
+      "title": "臺北市立介壽國民中學 | 3樓活動中心-籃球、羽球場 場地租借登記",
+      "published_at": "2026-09-05",
+      "registration_start": "2026-09-05",
+      "registration_end": "2026-09-05",
+      "summary": "一、登記方式及網址： （一）學校場租採線上登記（先申請者，優先取得使用權）。 （二）登記網址：臺北市政府公用場地租用系統：https://service.gov.taipei/rental。 二、登記時間：115年9月5日(六)凌晨00:00開放線上登記。 三、公告正取名單： （一）正取1名（第一位登記者），9月6日(日)10時前於本校校網公告正取名單，並以",
+      "category": "registration",
+      "type": "政府場租頁",
+      "government_rental": true,
+      "source_url": "https://service.gov.taipei/rental/VenueDetail/27ee824a3be0"
     },
     {
       "school": "延平國小",
