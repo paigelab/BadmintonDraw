@@ -138,6 +138,24 @@ def fetch_page(url: str) -> PageExtractor:
     return parser
 
 
+def article_published_at(source_url: str) -> str | None:
+    """Read an ordinary announcement page's visible publication date when available."""
+    if urlsplit(source_url).path.lower().endswith(".pdf"):
+        return None
+    try:
+        html = get_text(source_url)
+    except (HTTPError, URLError):
+        return None
+    match = re.search(
+        r"<th[^>]*>\s*(?:發佈|發布)日期\s*</th>\s*<td[^>]*>\s*(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日",
+        html,
+        re.IGNORECASE,
+    )
+    if not match:
+        return None
+    return "-".join((match.group(1), match.group(2).zfill(2), match.group(3).zfill(2)))
+
+
 def government_rental_item(school: str, source_url: str, page: PageExtractor) -> dict | None:
     """Turn one Taipei City venue-detail page into its current registration item."""
     if not GOVERNMENT_VENUE_URL.match(source_url) or not is_relevant(page.text):
@@ -630,20 +648,32 @@ def main() -> None:
                 if government_item:
                     candidates.append(government_item["title"])
                     existing[announcement_storage_key(government_item)] = government_item
-                for link in page.links:
-                    title = re.sub(r"\s+", " ", link["title"])
-                    if is_relevant(title):
-                        source_url = urljoin(url, link["url"])
-                        candidates.append(title)
-                        existing[source_url] = {
-                            "school": row["school"],
-                            "title": title,
-                            "published_at": DATE.search(title).group(0) if DATE.search(title) else "日期待確認",
-                            "summary": summary_for(title),
-                            "category": categorize(title),
-                            "type": "自動偵測候選公告",
-                            "source_url": source_url,
-                        }
+                    # The venue page repeats downloadable attachments in more
+                    # than one section. Its dedicated item is the only notice
+                    # users need, so remove attachment-only candidates from
+                    # previous runs and skip generic link scanning here.
+                    for key, item in list(existing.items()):
+                        path = urlsplit(str(item.get("source_url", ""))).path
+                        if item.get("school") == row["school"] and path.startswith("/rental/RentalDownload/"):
+                            existing.pop(key)
+                else:
+                    for link in page.links:
+                        title = re.sub(r"\s+", " ", link["title"])
+                        if is_relevant(title):
+                            source_url = urljoin(url, link["url"])
+                            published_at = DATE.search(title).group(0) if DATE.search(title) else "日期待確認"
+                            if published_at == "日期待確認":
+                                published_at = article_published_at(source_url) or published_at
+                            candidates.append(title)
+                            existing[source_url] = {
+                                "school": row["school"],
+                                "title": title,
+                                "published_at": published_at,
+                                "summary": summary_for(title),
+                                "category": categorize(title),
+                                "type": "自動偵測候選公告",
+                                "source_url": source_url,
+                            }
                 feed_urls = nss_feed_urls(url, raw_html)
                 feed_item_count = 0
                 for feed_url in feed_urls:
