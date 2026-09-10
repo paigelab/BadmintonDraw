@@ -191,6 +191,35 @@ def nss_feed_urls(home_url: str, html: str) -> list[str]:
     return list(dict.fromkeys(candidates))
 
 
+def nss_public_announcement_module(html: str) -> tuple[str, str] | None:
+    """Find the public announcement module used by a school's NSS homepage."""
+    pattern = re.compile(
+        r'"sid":"([^"]+)","mid":"([^"]+)".{0,400}?"setting":\{[^}]*?"name":"([^"]*)"'
+    )
+    modules = [(sid, mid, name) for sid, mid, name in pattern.findall(html) if mid == "5abf2d62aa93092cee58ceb4"]
+    for preferred_name in ("公告資訊", "最新消息"):
+        for sid, mid, name in modules:
+            if name == preferred_name:
+                return mid, sid
+    for sid, mid, name in modules:
+        if "公告" in name or "消息" in name:
+            return mid, sid
+    return None
+
+
+def nss_item_url(home_url: str, result: dict, public_module: tuple[str, str] | None) -> tuple[str, str | None]:
+    """Prefer an NSS item's public remote record over its private search index."""
+    index_url = urljoin(home_url, result.get("freeze", ""))
+    remotes = result.get("data", {}).get("remotes") or []
+    remote_ids = [str(remote).rsplit("#", 1)[-1] for remote in remotes if "#" in str(remote)]
+    if public_module and remote_ids:
+        mid, sid = public_module
+        origin = urlsplit(home_url)
+        public_url = urlunsplit((origin.scheme, origin.netloc, f"/nss/main/freeze/{mid}/{sid}/{remote_ids[0]}", "vector=private&static=false", ""))
+        return public_url, index_url
+    return index_url, None
+
+
 def local_name(element) -> str:
     return element.tag.rsplit("}", 1)[-1]
 
@@ -227,6 +256,7 @@ def nss_fulltext_items(home_url: str, html: str) -> list[dict[str, str]]:
     """Use the public NSS full-text index, which includes archived announcements."""
     match = re.search(r'"uniq":"([^"\\]+)', html)
     endpoint = urljoin(home_url, "/nss/ext/fulltext")
+    public_module = nss_public_announcement_module(html)
     seen: set[str] = set()
     items = []
     # An empty searchRange searches the whole public site.  The first `uniq`
@@ -250,9 +280,11 @@ def nss_fulltext_items(home_url: str, html: str) -> list[dict[str, str]]:
                 text = f"{title} {description}"
                 if not title or not is_relevant(text):
                     continue
+                item_url, replaces_url = nss_item_url(home_url, result, public_module)
                 items.append({
                     "title": title,
-                    "url": urljoin(home_url, result.get("freeze", "")),
+                    "url": item_url,
+                    "replaces_url": replaces_url,
                     "description": re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", str(description))).strip(),
                     "published_at": str(result.get("ctime", ""))[:10] or "日期待確認",
                 })
@@ -643,6 +675,8 @@ def main() -> None:
                         print(f"NSS full-text search skipped for {row['school']}: {error}")
                 for item in fulltext_items:
                     candidates.append(item["title"])
+                    if item.get("replaces_url"):
+                        existing.pop(item["replaces_url"], None)
                     existing[item["url"]] = {
                         "school": row["school"],
                         "title": item["title"],
