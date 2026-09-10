@@ -62,6 +62,10 @@ def categorize(title: str, description: str = "") -> str:
 
 
 DATE = re.compile(r"(?:\d{3,4}[./年-])?\d{1,2}[./月-]\d{1,2}(?:日)?")
+GOVERNMENT_VENUE_URL = re.compile(r"^https://service\.gov\.taipei/rental/VenueDetail/", re.IGNORECASE)
+ACCEPTANCE_PERIOD = re.compile(
+    r"受理期間為\s*(\d{4})/(\d{1,2})/(\d{1,2})\s*[～~至]\s*(\d{4})/(\d{1,2})/(\d{1,2})"
+)
 # Some schools call the same information "場租" or "場地租借" and only mention
 # badminton / the draw in the body of the notice. The relevance check still
 # filters ordinary rental notices out.
@@ -132,6 +136,50 @@ def fetch_page(url: str) -> PageExtractor:
     parser = PageExtractor()
     parser.feed(get_text(url))
     return parser
+
+
+def government_rental_item(school: str, source_url: str, page: PageExtractor) -> dict | None:
+    """Turn one Taipei City venue-detail page into its current registration item."""
+    if not GOVERNMENT_VENUE_URL.match(source_url) or not is_relevant(page.text):
+        return None
+
+    text = re.sub(r"\s+", " ", page.text).strip()
+    # VenueDetail pages place CSS before the visible heading in their HTML.
+    # Bound each side of the separator so that embedded style text is never
+    # mistaken for part of the venue name.
+    venue_match = re.search(r"(臺北市[^|]{1,100}?\|\s*[^|]{1,80}?)\s+受理期間為", text)
+    venue_name = venue_match.group(1).strip() if venue_match else school
+    period_match = ACCEPTANCE_PERIOD.search(text)
+    registration_start = registration_end = None
+    published_at = "日期待確認"
+    if period_match:
+        registration_start = "-".join((period_match.group(1), period_match.group(2).zfill(2), period_match.group(3).zfill(2)))
+        registration_end = "-".join((period_match.group(4), period_match.group(5).zfill(2), period_match.group(6).zfill(2)))
+        published_at = registration_start
+
+    instructions_match = re.search(r"線上租借說明\s*(.*?)(?=\s*(?:受理期間為|網站地圖|臺北市政府資料開放宣告|$))", text)
+    instructions = instructions_match.group(1).strip() if instructions_match else text
+    title = f"{venue_name} 場地租借登記"
+    return {
+        "school": school,
+        "title": title,
+        "published_at": published_at,
+        "registration_start": registration_start,
+        "registration_end": registration_end,
+        "summary": summary_for(title, instructions),
+        "category": "registration",
+        "type": "政府場租頁",
+        "government_rental": True,
+        "source_url": source_url,
+    }
+
+
+def announcement_storage_key(item: dict) -> str:
+    """Keep a separate history entry for every acceptance period on a live venue page."""
+    source_url = item.get("source_url", "")
+    if item.get("government_rental") and item.get("registration_start"):
+        return f"{source_url}#registration-{item['registration_start']}"
+    return source_url
 
 
 def nss_feed_urls(home_url: str, html: str) -> list[str]:
@@ -392,6 +440,17 @@ def is_recent_for_notification(item: dict, now: datetime) -> bool:
     return published_at >= (now - timedelta(days=31)).date()
 
 
+def is_expired_government_registration(item: dict, now: datetime) -> bool:
+    """Do not announce a closed period merely because its live page was added today."""
+    if not item.get("government_rental"):
+        return False
+    try:
+        registration_end = datetime.strptime(str(item.get("registration_end", "")), "%Y-%m-%d").date()
+    except ValueError:
+        return False
+    return registration_end < now.date()
+
+
 def notify_new_announcements(announcements: list[dict], now: datetime) -> None:
     """Seed history once, then notify only genuinely first-seen announcements."""
     notified = load_notified()
@@ -418,7 +477,16 @@ def notify_new_announcements(announcements: list[dict], now: datetime) -> None:
     notified_keys = {item.get("announcement_key") for item in notified.get("notified", [])}
     for item in eligible:
         item_key = announcement_key(item)
-        if item["source_url"] in notified_urls or item_key in notified_keys:
+        # A government venue page is a live page reused each quarter. Its URL
+        # stays the same, so the acceptance period key—not the URL—identifies
+        # the next registration window.
+        if (not item.get("government_rental") and item["source_url"] in notified_urls) or item_key in notified_keys:
+            continue
+        if is_expired_government_registration(item, now):
+            notified.setdefault("notified", []).append(notification_record(item, timestamp, "historical"))
+            save_notified(notified)
+            notified_urls.add(item["source_url"])
+            notified_keys.add(item_key)
             continue
         if not is_recent_for_notification(item, now):
             # A source can expose years of archive results only after it is
@@ -487,7 +555,11 @@ def main() -> None:
     prior = json.loads(STATUS.read_text(encoding="utf-8")) if STATUS.exists() else {"sources": {}}
     records = prior.setdefault("sources", {})
     data = load_announcements()
-    existing = {item.get("source_url"): item for item in data.get("announcements", [])}
+    existing = {
+        announcement_storage_key(item): item
+        for item in data.get("announcements", [])
+        if item.get("source_url")
+    }
     taipei = timezone(timedelta(hours=8))
     crawl_scope = os.environ.get("CRAWL_SCOPE", "all").strip().lower()
     with SOURCES.open(encoding="utf-8", newline="") as file:
@@ -522,6 +594,10 @@ def main() -> None:
                 page.feed(raw_html)
                 digest = hashlib.sha256(page.text.encode()).hexdigest()
                 candidates = []
+                government_item = government_rental_item(row["school"], url, page)
+                if government_item:
+                    candidates.append(government_item["title"])
+                    existing[announcement_storage_key(government_item)] = government_item
                 for link in page.links:
                     title = re.sub(r"\s+", " ", link["title"])
                     if is_relevant(title):
