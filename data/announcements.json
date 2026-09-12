@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-09-11 17:12（台灣時間）",
+  "last_updated": "2026-09-12 10:13（台灣時間）",
   "announcements": [
+    {
+      "school": "敦化國小",
+      "title": "敦化國小 場地租借登記",
+      "published_at": "日期待確認",
+      "registration_start": null,
+      "registration_end": null,
+      "summary": "本季球場登錄時間：115 年 9 月 12 日(六)00 時起至 9 月 13 日(日)24時止，先申請者優先取得承租權，請於通知後，於 9 月 15 日(二)起至 18 日(五)將相關紙本資料繳交至本校總務處， 並繳費完成後(可先至銀行匯款)，租用程序始完備。 線上租借",
+      "category": "registration",
+      "type": "政府場租頁",
+      "government_rental": true,
+      "source_url": "https://service.gov.taipei/rental/VenueDetail/1082b8c1ac0f"
+    },
     {
       "school": "敦化國小",
       "title": "臺北市松山區敦化國民小學 | 3F活動中心羽球場 場地租借登記",
