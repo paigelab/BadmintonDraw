@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-14 10:14（台灣時間）",
+  "last_updated": "2026-09-14 17:13（台灣時間）",
   "announcements": [
     {
       "school": "敦化國小",
@@ -12,6 +12,15 @@
       "type": "政府場租頁",
       "government_rental": true,
       "source_url": "https://service.gov.taipei/rental/VenueDetail/1082b8c1ac0f"
+    },
+    {
+      "school": "芳和實驗國中",
+      "title": "115年度第4季各球場抽籤正取名單公告",
+      "published_at": "2026-09-13",
+      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：115年度第4季各球場抽籤正取名單公告。請以校方原始公告為準。",
+      "category": "other",
+      "type": "自動偵測候選公告",
+      "source_url": "https://www.fhehs.tp.edu.tw/news/%e6%9a%91%e6%9c%9f%e7%99%bd%e5%a4%a9%e7%90%83%e5%a0%b4%e4%b8%ad%e7%b1%a4%e5%90%8d%e5%96%ae%e5%85%ac%e5%91%8a/"
     },
     {
       "school": "敦化國小",
@@ -2943,6 +2952,15 @@
       "category": "registration",
       "type": "自動偵測候選公告",
       "source_url": "https://www.chjh.tp.edu.tw/news/%e6%9c%ac%e6%a0%a1%e6%a0%a1%e5%9c%92%e5%a0%b4%e5%9c%b0%e9%96%8b%e6%94%be%e6%b4%bb%e5%8b%95%e4%b8%ad%e5%bf%83%e7%be%bd%e7%90%83%e5%a0%b4115%e5%b9%b4%e7%ac%ac4%e5%ad%a310%e6%9c%881%e6%97%a512/"
+    },
+    {
+      "school": "忠孝國中",
+      "title": "置頂 公告 本校115年第4季(10月1日~12月31日)場地租借抽籤時段及相關事宜公告",
+      "published_at": "10月1日",
+      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：置頂 公告 本校115年第4季(10月1日~12月31日)場地租借抽籤時段及相關事宜公告。請以校方原始公告為準。",
+      "category": "registration",
+      "type": "自動偵測候選公告",
+      "source_url": "https://www.chjh.tp.edu.tw/news/%e6%9c%ac%e6%a0%a1115%e5%b9%b4%e7%ac%ac4%e5%ad%a310%e6%9c%881%e6%97%a512%e6%9c%8831%e6%97%a5%e5%a0%b4%e5%9c%b0%e7%a7%9f%e5%80%9f%e6%8a%bd%e7%b1%a4%e6%99%82%e6%ae%b5%e5%8f%8a%e7%9b%b8%e9%97%9c/"
     }
   ]
 }
