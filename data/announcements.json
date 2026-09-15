@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-14 17:13（台灣時間）",
+  "last_updated": "2026-09-15 10:14（台灣時間）",
   "announcements": [
     {
       "school": "敦化國小",
@@ -12,6 +12,15 @@
       "type": "政府場租頁",
       "government_rental": true,
       "source_url": "https://service.gov.taipei/rental/VenueDetail/1082b8c1ac0f"
+    },
+    {
+      "school": "長春國小",
+      "title": "本校活動中心羽球場地115年第4季租用登記抽籤結果公告",
+      "published_at": "2026-09-15",
+      "summary": "一、本校活動中心羽球場地 115 年第 4 季租用登記抽籤結果如下表： 租用時段 場地使用費 ( 含電費 ) 正取者 &nbsp; 備取者 星期一 18:20-20:20 &nbsp; $15,510 楊芷宜 李則言 李承恩 沈如妍 星期一 20:20-21:50 &nbsp; $11,638 章毓庭 胡睿喬 蘇琮傑 葉建輝 星期二 20:20-21:50",
+      "category": "result",
+      "type": "全文檢索公告",
+      "source_url": "https://www.ccps.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/TcbXKIC2576/6aa89f62b1e7940c88e98eb9?vector=private&static=false"
     },
     {
       "school": "芳和實驗國中",
