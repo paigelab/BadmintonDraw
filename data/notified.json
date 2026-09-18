@@ -2392,6 +2392,46 @@
       "school": "忠孝國中",
       "title": "置頂 公告 本校校園場地開放(活動中心羽球場) 115年第4季場地租借抽籤結果及相關事宜公告",
       "delivery": "discord"
+    },
+    {
+      "source_url": "https://service.gov.taipei/rental/VenueDetail/27ee824a3be0",
+      "announcement_key": "介壽國中|介壽國中場地租借登記|日期待確認|registration",
+      "notified_at": "2026-09-18T17:12:57+08:00",
+      "school": "介壽國中",
+      "title": "介壽國中 場地租借登記",
+      "delivery": "historical"
+    },
+    {
+      "source_url": "https://www.mhps.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/OtORgZB7162/6aaccab745f638eaed366f57?vector=private&static=false",
+      "announcement_key": "銘傳國小|【公告】115年第四季活動中心場地租借抽籤結果|2026-09-18|result",
+      "notified_at": "2026-09-18T17:12:57+08:00",
+      "school": "銘傳國小",
+      "title": "【公告】115年第四季活動中心場地租借抽籤結果",
+      "delivery": "discord"
+    },
+    {
+      "source_url": "https://www.hyps.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/1534429046984/6aacf12f72cea0f34efbfd95?vector=private&static=false",
+      "announcement_key": "興雅國小|有關115年第四季羽球場地租借備取相關事宜|2026-09-18|registration",
+      "notified_at": "2026-09-18T17:12:57+08:00",
+      "school": "興雅國小",
+      "title": "有關115年第四季羽球場地租借備取相關事宜",
+      "delivery": "discord"
+    },
+    {
+      "source_url": "https://www.yyes.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/JcaSfWK8749/6aacd60928d26cec9eeb20f1?vector=private&static=false",
+      "announcement_key": "雙永國小|【第2次公告】臺北市信義區雙永國民小學115年10~12月\"羽球場\"場地租用申請案(僅尚未出租場次)|2026-09-18|registration",
+      "notified_at": "2026-09-18T17:12:57+08:00",
+      "school": "雙永國小",
+      "title": "【第2次公告】臺北市信義區雙永國民小學 115年10~12月 \"羽球場\" 場地租用申請案(僅尚未出租場次)",
+      "delivery": "discord"
+    },
+    {
+      "source_url": "https://www.caps.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/YBkWRvv2718/6aacb3671be32ae70d0cb70c?vector=private&static=false",
+      "announcement_key": "長安國小|【重要公告】115年第4季(10-12月)體育館場地租借抽籤結果公告|2026-09-18|result",
+      "notified_at": "2026-09-18T17:12:57+08:00",
+      "school": "長安國小",
+      "title": "【重要公告】115年第4季(10-12月)體育館場地租借抽籤結果公告",
+      "delivery": "discord"
     }
   ]
 }

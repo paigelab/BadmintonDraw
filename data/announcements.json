@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-18 10:15（台灣時間）",
+  "last_updated": "2026-09-18 17:12（台灣時間）",
   "announcements": [
     {
       "school": "敦化國小",
@@ -12,6 +12,63 @@
       "type": "政府場租頁",
       "government_rental": true,
       "source_url": "https://service.gov.taipei/rental/VenueDetail/1082b8c1ac0f"
+    },
+    {
+      "school": "介壽國中",
+      "title": "介壽國中 場地租借登記",
+      "published_at": "日期待確認",
+      "registration_start": null,
+      "registration_end": null,
+      "summary": "臺北市政府 - 公有場地租用 臺北市政府 公有場地租用 熱門關鍵字： 青年練舞據點 小 中 大 字級 案件進度查詢 常見問題 (登出) 登入 window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date",
+      "category": "registration",
+      "type": "政府場租頁",
+      "government_rental": true,
+      "source_url": "https://service.gov.taipei/rental/VenueDetail/27ee824a3be0"
+    },
+    {
+      "school": "銘傳國小",
+      "title": "【公告】115年第四季活動中心場地租借抽籤結果",
+      "published_at": "2026-09-18",
+      "summary": "一、 115 年第四季活動中心場地租借抽籤結果如下， 本校將另以電話以及電子郵件通知以下正取中籤人員 ： &nbsp; 一下 二上 二下 三上 三下 四下 六下 正取 曾 O 瑄 劉 o 雋 李 o 緯 沈 o 裕 陳 o 杰 左 o 晧 毛 o 雪 備 1 王 o 彤 周 o 芝 劉 o 李 o 臻 廖 o 宇 倪 o 豪 蔣 o 軒 備 2 黃 o 熙",
+      "category": "result",
+      "type": "全文檢索公告",
+      "source_url": "https://www.mhps.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/OtORgZB7162/6aaccab745f638eaed366f57?vector=private&static=false"
+    },
+    {
+      "school": "興雅國小",
+      "title": "有關115年第四季羽球場地租借備取相關事宜",
+      "published_at": "2026-09-18",
+      "summary": "115 年第四季校園場地開放 - 羽球場地， 中籤 備取開放辦理，目前時段正取錄取整理後尚有空位者如下 : 星期一 :2 面 星期二 :1 面 星期六 (8-10):3 面 星期六 (10-12):2 面 星期六 (15-17):1 面 星期六 (1730-1930):2 面 星期六 (1930-2130):1 面 星期日 (8-10):6 面 星期日 (1",
+      "category": "registration",
+      "type": "全文檢索公告",
+      "source_url": "https://www.hyps.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/1534429046984/6aacf12f72cea0f34efbfd95?vector=private&static=false"
+    },
+    {
+      "school": "興雅國小",
+      "title": "有關115年第四季羽球場地租借備取相關事宜",
+      "published_at": "2026-09-18",
+      "summary": "115 年第四季校園場地開放 - 羽球場地， 中籤 備取開放辦理，目前時段正取錄取整理後尚有空位者如下 : 星期一 :2 面 星期二 :1 面 星期六 (8-10):3 面 星期六 (10-12):2 面 星期六 (15-17):1 面 星期六 (1730-1930):2 面 星期六 (1930-2130):1 面 星期日 (8-10):6 面 星期日 (1",
+      "category": "registration",
+      "type": "全文檢索公告",
+      "source_url": "https://www.hyps.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/1534429046984/6aacf12f72cea0f34efbfd95"
+    },
+    {
+      "school": "雙永國小",
+      "title": "【第2次公告】臺北市信義區雙永國民小學 115年10~12月 \"羽球場\" 場地租用申請案(僅尚未出租場次)",
+      "published_at": "2026-09-18",
+      "summary": "臺北市信義區雙永國民小學 115 年 10~12 月羽球場場地租用 第二次公告 一、 依據 本校 及 臺北市立高級中等以下學校校園場地開放使用管理辦法 。 1. &nbsp; 登記時間：自 115 年 9 月 21 日上午 9:00( 星期一 ) 起至 9 月 24 日下午 4:00 登記為止 ( 平日週一至週五每日 09:00-16:00) 申請人請攜帶本",
+      "category": "registration",
+      "type": "全文檢索公告",
+      "source_url": "https://www.yyes.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/JcaSfWK8749/6aacd60928d26cec9eeb20f1?vector=private&static=false"
+    },
+    {
+      "school": "長安國小",
+      "title": "【重要公告】115年第4季(10-12月)體育館場地租借抽籤結果公告",
+      "published_at": "2026-09-18",
+      "summary": "臺北市中山區長安國民小學 115年第4季(10月至12月)體育館場地租借 抽籤結果公告 &nbsp;公告日期：115年9月18日 公告115年第4季(10月至12月)體育館場地租借登記抽籤結果及相關說明： 一、 本校將於9/21以電子郵件通知予正取團體 ；如正取團體因故無法承租，請提前回復告知，本校將通 &nbsp; &nbsp; &nbsp; &nbsp;",
+      "category": "result",
+      "type": "全文檢索公告",
+      "source_url": "https://www.caps.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/YBkWRvv2718/6aacb3671be32ae70d0cb70c?vector=private&static=false"
     },
     {
       "school": "長春國小",
