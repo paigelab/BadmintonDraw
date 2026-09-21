@@ -25,14 +25,10 @@ const CATEGORIES = {
 
 let announcements = [];
 
-const PASSWORD_HASH = '80bec2d29bed66b6edd76998800cdbd852db50ab75432d70c85fdbadc18952c7';
+// GitHub Pages has no server-side authentication. This is intentionally only
+// a simple visitor gate, not a mechanism for protecting the public JSON data.
+const SITE_PASSWORD = '840402';
 const LOGIN_STORAGE_KEY = 'badminton-draw-access-granted';
-
-async function passwordHash(value) {
-  const bytes = new TextEncoder().encode(value);
-  const digest = await crypto.subtle.digest('SHA-256', bytes);
-  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('');
-}
 
 function showSite() {
   passwordGate.hidden = true;
@@ -40,10 +36,10 @@ function showSite() {
   init();
 }
 
-passwordForm.addEventListener('submit', async (event) => {
+passwordForm.addEventListener('submit', (event) => {
   event.preventDefault();
   passwordError.hidden = true;
-  if (await passwordHash(passwordInput.value) !== PASSWORD_HASH) {
+  if (passwordInput.value !== SITE_PASSWORD) {
     passwordError.hidden = false;
     passwordInput.select();
     return;
