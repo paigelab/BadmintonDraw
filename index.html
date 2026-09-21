@@ -14,7 +14,10 @@
         <h1 id="password-title">羽球場地抽籤資訊站</h1>
         <p>請輸入密碼以查看公告資料。</p>
         <label for="site-password">密碼
-          <input id="site-password" type="password" inputmode="numeric" autocomplete="current-password" required />
+          <span class="password-input">
+            <input id="site-password" type="password" inputmode="numeric" autocomplete="current-password" required />
+            <button id="password-toggle" type="button" aria-label="顯示密碼" aria-pressed="false" title="顯示密碼">👁</button>
+          </span>
         </label>
         <p class="password-help">需要密碼？請來信 <a href="mailto:paigelab2026@gmail.com">paigelab2026@gmail.com</a> 詢問。</p>
         <p id="password-error" class="password-error" role="alert" hidden>密碼不正確，請再試一次。</p>

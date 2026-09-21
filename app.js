@@ -14,6 +14,7 @@ const appContent = document.querySelector('#app-content');
 const passwordForm = document.querySelector('#password-form');
 const passwordInput = document.querySelector('#site-password');
 const passwordError = document.querySelector('#password-error');
+const passwordToggle = document.querySelector('#password-toggle');
 
 const LATEST_LIMIT = 6;
 const CATEGORIES = {
@@ -33,6 +34,7 @@ const LOGIN_STORAGE_KEY = 'badminton-draw-access-granted';
 function showSite() {
   passwordGate.hidden = true;
   appContent.hidden = false;
+  window.scrollTo(0, 0);
   init();
 }
 
@@ -46,6 +48,16 @@ passwordForm.addEventListener('submit', (event) => {
   }
   sessionStorage.setItem(LOGIN_STORAGE_KEY, 'true');
   showSite();
+});
+
+passwordToggle.addEventListener('click', () => {
+  const isVisible = passwordInput.type === 'text';
+  passwordInput.type = isVisible ? 'password' : 'text';
+  passwordToggle.textContent = isVisible ? '👁' : '🙈';
+  passwordToggle.setAttribute('aria-label', isVisible ? '顯示密碼' : '隱藏密碼');
+  passwordToggle.setAttribute('title', isVisible ? '顯示密碼' : '隱藏密碼');
+  passwordToggle.setAttribute('aria-pressed', String(!isVisible));
+  passwordInput.focus();
 });
 
 function categoryOf(item) {
