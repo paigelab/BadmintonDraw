@@ -8,6 +8,20 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <section id="password-gate" class="password-gate" aria-labelledby="password-title">
+      <form id="password-form" class="password-panel">
+        <p class="eyebrow">BADMINTON DRAW</p>
+        <h1 id="password-title">羽球場地抽籤資訊站</h1>
+        <p>請輸入密碼以查看公告資料。</p>
+        <label for="site-password">密碼
+          <input id="site-password" type="password" inputmode="numeric" autocomplete="current-password" required />
+        </label>
+        <p class="password-help">需要密碼？請來信 <a href="mailto:paigelab2026@gmail.com">paigelab2026@gmail.com</a> 詢問。</p>
+        <p id="password-error" class="password-error" role="alert" hidden>密碼不正確，請再試一次。</p>
+        <button type="submit">進入網站</button>
+      </form>
+    </section>
+    <div id="app-content" hidden>
     <header class="hero">
       <p class="eyebrow">BADMINTON DRAW</p>
       <h1>羽球場地抽籤資訊站</h1>
@@ -63,6 +77,7 @@
     </main>
 
     <footer>資料來自各校公開網站・最後資料更新：<span id="last-updated">—</span></footer>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>

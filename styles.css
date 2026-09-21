@@ -1,6 +1,9 @@
 :root { --ink:#17312a; --leaf:#176b55; --mint:#e8f4ee; --paper:#fcfdfb; --line:#d7e4dd; --muted:#62736c; }
 * { box-sizing:border-box; }
 body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.55 system-ui,-apple-system,"Noto Sans TC",sans-serif; }
+.password-gate { display:grid; min-height:100vh; padding:24px; place-items:center; background:linear-gradient(125deg,#123f35,#197159); }
+.password-panel { width:min(100%,420px); padding:36px; border:1px solid #ffffff40; border-radius:18px; color:#fff; background:#ffffff12; box-shadow:0 18px 48px #06241b50; backdrop-filter:blur(10px); }
+.password-panel h1 { font-size:clamp(1.8rem,5vw,2.5rem); }.password-panel > p { color:#e1f4e9; }.password-panel label { margin-top:24px; color:#fff; }.password-panel input { width:100%; }.password-help { margin:12px 0 0 !important; font-size:.9rem; }.password-help a { color:#fff; font-weight:800; }.password-panel button { width:100%; min-height:43px; margin-top:20px; border:0; border-radius:8px; color:#123f35; background:#d8f0e2; font:inherit; font-weight:800; cursor:pointer; }.password-panel button:hover { background:#fff; }.password-error { margin:12px 0 0; color:#ffe1df !important; font-weight:700; }
 .hero { padding:72px max(24px,calc((100% - 1050px)/2)); color:#fff; background:linear-gradient(125deg,#123f35,#197159); }
 h1 { margin:0; font-size:clamp(2.1rem,5vw,3.6rem); line-height:1.15; }
 .hero p:last-child { max-width:620px; margin:16px 0 0; color:#e1f4e9; font-size:1.08rem; }

@@ -9,6 +9,11 @@ const historyDetails = document.querySelector('#history-details');
 const sourceList = document.querySelector('#source-list');
 const monitoringCount = document.querySelector('#monitoring-count');
 const manualCheckList = document.querySelector('#manual-check-list');
+const passwordGate = document.querySelector('#password-gate');
+const appContent = document.querySelector('#app-content');
+const passwordForm = document.querySelector('#password-form');
+const passwordInput = document.querySelector('#site-password');
+const passwordError = document.querySelector('#password-error');
 
 const LATEST_LIMIT = 6;
 const CATEGORIES = {
@@ -19,6 +24,33 @@ const CATEGORIES = {
 };
 
 let announcements = [];
+
+const PASSWORD_HASH = '80bec2d29bed66b6edd76998800cdbd852db50ab75432d70c85fdbadc18952c7';
+const LOGIN_STORAGE_KEY = 'badminton-draw-access-granted';
+
+async function passwordHash(value) {
+  const bytes = new TextEncoder().encode(value);
+  const digest = await crypto.subtle.digest('SHA-256', bytes);
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
+function showSite() {
+  passwordGate.hidden = true;
+  appContent.hidden = false;
+  init();
+}
+
+passwordForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  passwordError.hidden = true;
+  if (await passwordHash(passwordInput.value) !== PASSWORD_HASH) {
+    passwordError.hidden = false;
+    passwordInput.select();
+    return;
+  }
+  sessionStorage.setItem(LOGIN_STORAGE_KEY, 'true');
+  showSite();
+});
 
 function categoryOf(item) {
   if (item.category) return item.category;
@@ -128,4 +160,8 @@ search.addEventListener('input', renderHistory);
 schoolFilter.addEventListener('change', renderHistory);
 categoryFilter.addEventListener('change', renderHistory);
 window.addEventListener('hashchange', openHistoryFromHash);
-init();
+if (sessionStorage.getItem(LOGIN_STORAGE_KEY) === 'true') {
+  showSite();
+} else {
+  passwordInput.focus();
+}
