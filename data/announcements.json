@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-22 10:16（台灣時間）",
+  "last_updated": "2026-09-22 17:13（台灣時間）",
   "announcements": [
     {
       "school": "敦化國小",
@@ -24,6 +24,33 @@
       "type": "政府場租頁",
       "government_rental": true,
       "source_url": "https://service.gov.taipei/rental/VenueDetail/27ee824a3be0"
+    },
+    {
+      "school": "興雅國小",
+      "title": "有關115年第四季羽球場地租借第三階段登記及繳費相關事宜",
+      "published_at": "2026-09-22",
+      "summary": "115 年第四季校園場地開放 - 羽球場地， 中籤 正取及備取作業結束，目前時段整理後尚有空位者如下 : 星期六 (8-10):2 面 星期六 (15-17):1 面 星期日 (8-10):4 面 星期日 (15-17):2 面 星期日 (1930-2130):5 面 第三階段剩餘場地報名 ( 紙本、電子郵件 : 興雅國小財管幹事 &nbsp; proper",
+      "category": "registration",
+      "type": "全文檢索公告",
+      "source_url": "https://www.hyps.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/1534429046984/6ab22f049f4dd20012128827?vector=private&static=false"
+    },
+    {
+      "school": "興雅國小",
+      "title": "有關115年第四季羽球場地租借第三階段登記及繳費相關事宜",
+      "published_at": "2026-09-22",
+      "summary": "115 年第四季校園場地開放 - 羽球場地， 中籤 正取及備取作業結束，目前時段整理後尚有空位者如下 : 星期六 (8-10):2 面 星期六 (15-17):1 面 星期日 (8-10):4 面 星期日 (15-17):2 面 星期日 (1930-2130):5 面 第三階段剩餘場地報名 ( 紙本、電子郵件 : 興雅國小財管幹事 &nbsp; proper",
+      "category": "registration",
+      "type": "全文檢索公告",
+      "source_url": "https://www.hyps.tp.edu.tw/nss/main/freeze/5abf2d62aa93092cee58ceb4/1534429046984/6ab22f049f4dd20012128827"
+    },
+    {
+      "school": "芳和實驗國中",
+      "title": "115年度第4季各球場抽籤正取名單公告",
+      "published_at": "2026-09-21",
+      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：115年度第4季各球場抽籤正取名單公告。請以校方原始公告為準。",
+      "category": "other",
+      "type": "自動偵測候選公告",
+      "source_url": "https://www.fhehs.tp.edu.tw/news/%e6%9a%91%e6%9c%9f%e7%99%bd%e5%a4%a9%e7%90%83%e5%a0%b4%e4%b8%ad%e7%b1%a4%e5%90%8d%e5%96%ae%e5%85%ac%e5%91%8a/"
     },
     {
       "school": "銘傳國小",
@@ -105,15 +132,6 @@
       "category": "result",
       "type": "自動偵測候選公告",
       "source_url": "https://www.chjh.tp.edu.tw/news/%e6%9c%ac%e6%a0%a1%e6%a0%a1%e5%9c%92%e5%a0%b4%e5%9c%b0%e9%96%8b%e6%94%be%e6%b4%bb%e5%8b%95%e4%b8%ad%e5%bf%83%e7%be%bd%e7%90%83%e5%a0%b4-115%e5%b9%b4%e7%ac%ac4%e5%ad%a3%e5%a0%b4%e5%9c%b0%e7%a7%9f/"
-    },
-    {
-      "school": "芳和實驗國中",
-      "title": "115年度第4季各球場抽籤正取名單公告",
-      "published_at": "2026-09-13",
-      "summary": "偵測到可能與羽球場地抽籤相關的公開公告：115年度第4季各球場抽籤正取名單公告。請以校方原始公告為準。",
-      "category": "other",
-      "type": "自動偵測候選公告",
-      "source_url": "https://www.fhehs.tp.edu.tw/news/%e6%9a%91%e6%9c%9f%e7%99%bd%e5%a4%a9%e7%90%83%e5%a0%b4%e4%b8%ad%e7%b1%a4%e5%90%8d%e5%96%ae%e5%85%ac%e5%91%8a/"
     },
     {
       "school": "敦化國小",
