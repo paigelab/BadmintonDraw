@@ -22,9 +22,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Restore encrypted crawler state
+        run: node scripts/protect-site-data.mjs restore
+        env:
+          SITE_DATA_PASSWORD: ${{ secrets.SITE_DATA_PASSWORD }}
+      - name: Build encrypted website files
+        run: node scripts/protect-site-data.mjs build
+        env:
+          SITE_DATA_PASSWORD: ${{ secrets.SITE_DATA_PASSWORD }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4

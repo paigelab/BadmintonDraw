@@ -6,6 +6,8 @@ on:
     paths:
       - "data/sources.csv"
       - "scripts/check_announcements.py"
+      - "scripts/protect-site-data.mjs"
+      - ".github/workflows/check-sources.yml"
   workflow_dispatch:
     inputs:
       send_test_discord_notification:
@@ -57,6 +59,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Restore encrypted crawler state
+        run: node scripts/protect-site-data.mjs restore
+        env:
+          SITE_DATA_PASSWORD: ${{ secrets.SITE_DATA_PASSWORD }}
       - run: python scripts/check_announcements.py
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
@@ -64,12 +73,17 @@ jobs:
           DISCORD_TEST_NOTIFICATION: ${{ inputs.send_test_discord_notification || 'false' }}
           DISCORD_ERROR_TEST_NOTIFICATION: ${{ inputs.send_test_discord_error_notification || 'false' }}
           CRAWL_SCOPE: ${{ steps.crawl-scope.outputs.scope }}
+      - name: Encrypt crawler state and website data
+        run: node scripts/protect-site-data.mjs build
+        env:
+          SITE_DATA_PASSWORD: ${{ secrets.SITE_DATA_PASSWORD }}
       - name: Commit changed monitoring status
         id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/source-status.json data/announcements.json data/notified.json
+          git add data/private-state.encrypted.json
+          git rm --ignore-unmatch data/source-status.json data/announcements.json data/notified.json
           git diff --cached --quiet || git commit -m "chore: update source monitoring status"
           git push
           echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
@@ -91,9 +105,20 @@ jobs:
         with:
           # Deploy the exact commit created by the preceding monitoring job.
           ref: ${{ needs.check.outputs.commit_sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Restore encrypted crawler state
+        run: node scripts/protect-site-data.mjs restore
+        env:
+          SITE_DATA_PASSWORD: ${{ secrets.SITE_DATA_PASSWORD }}
+      - name: Build encrypted website files
+        run: node scripts/protect-site-data.mjs build
+        env:
+          SITE_DATA_PASSWORD: ${{ secrets.SITE_DATA_PASSWORD }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4

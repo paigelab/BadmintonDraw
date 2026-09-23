@@ -26,28 +26,56 @@ const CATEGORIES = {
 
 let announcements = [];
 
-// GitHub Pages has no server-side authentication. This is intentionally only
-// a simple visitor gate, not a mechanism for protecting the public JSON data.
-const SITE_PASSWORD = '840402';
-const LOGIN_STORAGE_KEY = 'badminton-draw-access-granted';
+function base64Bytes(value) {
+  return Uint8Array.from(atob(value), (character) => character.charCodeAt(0));
+}
 
-function showSite() {
+async function decryptSiteData(payload, password) {
+  if (payload.version !== 1 || payload.algorithm !== 'AES-256-GCM' || payload.kdf !== 'PBKDF2-SHA-256') {
+    throw new Error('Unsupported encrypted data format.');
+  }
+  const passwordKey = await crypto.subtle.importKey(
+    'raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveKey'],
+  );
+  const key = await crypto.subtle.deriveKey(
+    {
+      name: 'PBKDF2',
+      salt: base64Bytes(payload.salt),
+      iterations: payload.iterations,
+      hash: 'SHA-256',
+    },
+    passwordKey,
+    { name: 'AES-GCM', length: 256 },
+    false,
+    ['decrypt'],
+  );
+  const plaintext = await crypto.subtle.decrypt(
+    { name: 'AES-GCM', iv: base64Bytes(payload.iv) },
+    key,
+    base64Bytes(payload.ciphertext),
+  );
+  return JSON.parse(new TextDecoder().decode(plaintext));
+}
+
+function showSite(data) {
   passwordGate.hidden = true;
   appContent.hidden = false;
   window.scrollTo(0, 0);
-  init();
+  init(data);
 }
 
-passwordForm.addEventListener('submit', (event) => {
+passwordForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   passwordError.hidden = true;
-  if (passwordInput.value !== SITE_PASSWORD) {
+  try {
+    const response = await fetch('data/site-data.encrypted.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error('Encrypted data is unavailable.');
+    const data = await decryptSiteData(await response.json(), passwordInput.value);
+    showSite(data);
+  } catch {
     passwordError.hidden = false;
     passwordInput.select();
-    return;
   }
-  sessionStorage.setItem(LOGIN_STORAGE_KEY, 'true');
-  showSite();
 });
 
 passwordToggle.addEventListener('click', () => {
@@ -146,10 +174,9 @@ function openHistoryFromHash() {
   if (location.hash === '#history') historyDetails.open = true;
 }
 
-async function init() {
+function init(siteData) {
   try {
-    const [response, statusResponse, manualResponse, sourcesResponse] = await Promise.all([fetch('data/announcements.json'), fetch('data/source-status.json'), fetch('data/manual-check.json'), fetch('data/sources.csv')]);
-    const [data, statusData, manualData, sourcesCsv] = await Promise.all([response.json(), statusResponse.json(), manualResponse.json(), sourcesResponse.text()]);
+    const { announcements: data, source_status: statusData, manual_check: manualData, sources_csv: sourcesCsv } = siteData;
     announcements = [...(data.announcements || [])].sort((a, b) => String(b.published_at || '').localeCompare(String(a.published_at || '')));
     document.querySelector('#last-updated').textContent = data.last_updated || '尚未更新';
     [...new Set(announcements.map((item) => item.school))].sort().forEach((school) => schoolFilter.add(new Option(school, school)));
@@ -168,8 +195,4 @@ search.addEventListener('input', renderHistory);
 schoolFilter.addEventListener('change', renderHistory);
 categoryFilter.addEventListener('change', renderHistory);
 window.addEventListener('hashchange', openHistoryFromHash);
-if (sessionStorage.getItem(LOGIN_STORAGE_KEY) === 'true') {
-  showSite();
-} else {
-  passwordInput.focus();
-}
+passwordInput.focus();

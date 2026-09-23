@@ -10,10 +10,9 @@
 - `app.js`：公告排序、分類標籤、歷史篩選及監控資訊顯示
 - `styles.css`：網站樣式
 - `data/sources.csv`：學校公開公告來源清單
-- `data/announcements.json`：crawler 整理後、供網站顯示的公告資料
-- `data/source-status.json`：各來源最近檢查時間與讀取狀態
+- `data/private-state.encrypted.json`：crawler 的加密公告、監測與通知狀態
 - `data/manual-check.json`：暫不納入排程、改由人工確認的公告頁清單
-- `data/notified.json`：Discord 通知初始化基準與已成功發送的公告網址
+- `scripts/protect-site-data.mjs`：加密 crawler 狀態並建立僅含加密資料的網站部署檔案
 - `scripts/check_announcements.py`：公告 crawler 與 NSS 全文檢索整合
 - `.github/workflows/check-sources.yml`：巡查、更新資料與部署最新資料
 - `.github/workflows/pages.yml`：一般網站部署
@@ -49,7 +48,7 @@
 1. 讀取 `sources.csv` 中啟用的公開學校首頁；臺北市政府公有場地租用的場地詳情頁會自動辨識為政府場租來源。
 2. 針對 NSS 網站自動發現公開公告 RSS 與全文檢索端點；若全文搜尋回傳的是私有索引紀錄，會改用首頁的公開公告模組連至原始公告。
 3. 以羽球、場地抽籤、場地登記與場地借用等關鍵字搜尋公告與歷史資料。
-4. 篩選羽球場地相關內容、分類並寫入 `announcements.json`；一般網站公告若標題沒有日期，或保留的舊資料仍為「日期待確認」，會讀取公告內頁的發布日期回補。
+4. 篩選羽球場地相關內容、分類並寫入執行環境中的公告資料；一般網站公告若標題沒有日期，或保留的舊資料仍為「日期待確認」，會讀取公告內頁的發布日期回補。
 5. 首次執行時建立 Discord 通知基準；之後只對新出現的登記／報名或抽籤結果公告發送通知。政府場租頁以新的受理起訖期間判斷是否為新一季資料。
 6. 更新監控狀態後，部署最新資料至 GitHub Pages。
 
@@ -73,6 +72,16 @@ school,source_url,enabled
 定時巡查由 [cron-job.org](https://cron-job.org) 在台灣時間每日 **10:08** 與 **18:08** 觸發 GitHub Actions 的 `workflow_dispatch`。每次定時巡查都會檢查全部啟用學校；若推送內容**只**變更 `data/sources.csv`，則立即巡查只會檢查新增或異動的學校來源；crawler 程式有變更或手動執行時，則仍會檢查全部啟用學校。每次巡查完成後會部署最新資料至 GitHub Pages。
 
 cron-job.org 的兩個工作皆以 `POST` 呼叫 GitHub Actions 的 workflow dispatch API，並使用僅限 `BadmintonDraw`、具備 `Actions: Read and write` 權限的 Fine-grained personal access token。Token 不應提交到此專案或分享給他人。公告資訊仍應以校方原始公告為準。
+
+## 加密網站資料
+
+GitHub Pages 無法安全保管前端密碼，因此網站不部署未加密的公告、監測或人工檢查資料。請在 **Settings → Secrets and variables → Actions** 新增 Repository Secret：
+
+- `SITE_DATA_PASSWORD`：用於加密資料、並由網站訪客輸入以解密資料的同一組密碼。
+
+每次 crawler 執行前，Actions 會以此 Secret 還原加密的 crawler 狀態；完成後再以 AES-256-GCM 與 PBKDF2-SHA-256 加密狀態。Pages 部署內容只包含網站程式與 `site-data.encrypted.json`，訪客必須輸入正確密碼才能在瀏覽器本機解密及顯示資料。
+
+此設計不會把密碼寫進 `app.js`，但共享密碼仍應至少使用 16 個隨機字元。短密碼（例如六位數）可被離線暴力猜解，僅適合測試。已存在於公開 Git 歷史的舊資料不會因加密而消失；若需要移除舊資料，必須另外重寫 Git 歷史或移轉至私有儲存庫。
 
 ## Discord 通知設定
 
